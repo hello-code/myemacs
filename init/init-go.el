@@ -1,29 +1,22 @@
 ;;; init-go --- golang
 ;;; Commentary:
+;; http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
+;; https://robinxiong.gitbooks.io/golang/content/section1/emacs.html
+;; http://studygolang.com/topics/583
+
 ;;; Code:
 
-;; list packages for golang
-(defvar go-packages
-  '(
-    go-mode
-    go-eldoc
-    go-dlv
-    company
-    company-go
-    ))
+;; go-mode
+;; format the current buffer
+(add-hook 'go-mode-hook '(lambda () (local-set-key (kbd "C-c C-f") 'gofmt)))
 
-;; fetch the list of packages available
-(require 'package)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; install the missing packages
-(dolist (package go-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
-
-
-;;; go mode hook
+;; Gocode autocomplete
+;;(add-hook 'go-mode-hook 'company-mode)
+(add-hook 'go-mode-hook
+	  '(lambda()
+	     (set (make-local-variable 'company-backends)'(company-go))
+	     (company-mode)))
+ ;;; go mode hook
 (defun my-go-mode-hook()
   (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH"))
   ;; call Gofmt before saving
@@ -67,12 +60,11 @@
   ;; 清除单个断点：clear 断点序号（如1,2,3等数字）
   ;; 清除所有断点：clearall
   )
-
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 ;; go-eldoc
 (set-face-attribute 'eldoc-highlight-function-argument nil
-		    :underline t :foreground "orange"
+		    :underline t :foreground "green"
 		    :weight 'bold)
 
 (provide 'init-go)

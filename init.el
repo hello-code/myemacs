@@ -2,49 +2,41 @@
 ;;; Commentary:
 ;;; Code:
 
-;;----------------------------------------------------------------------------
-;; Load package configs
-;;----------------------------------------------------------------------------
-
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list 'load-path "~/myemacs/init/")
-(require 'init-elpa)
-(require 'init-flycheck)
-(require 'init-company)
-(require 'init-exec-path)
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)
 
-;;----------------------------------------------------------------------------
-;; Load custom configs
-;;----------------------------------------------------------------------------
-(add-to-list 'load-path "~/myemacs/custom/")
+;; custom config
+(push "~/myemacs/configs" load-path)
+(push "~/myemacs/init" load-path)
+
 (require 'my-configs)
 (require 'my-mode-line)
 (require 'my-org)
 
-;;-------------------------------------------------------------
-;; Load configs for specific program language
-;;----------------------------------------------------------------------------
-(add-to-list 'load-path "~/myemacs/init/lang/")
+;; package config
+(require 'init-flycheck)
+(require 'init-company)
 (require 'init-go)
-(require 'init-qml)
-(require 'init-javascript)
-
-;;----------------------------------------------------------------------------
-;; Load configs for utility
-;;----------------------------------------------------------------------------
-(add-to-list 'load-path "~/myemacs/init/utils/")
-(require 'init-evil)
 (require 'init-helm)
-
-;; (require 'init-which-key)
-;; (require 'init-window-numbering)
-;; (require 'init-yasnippet)
-;; (require 'init-highlight-symbol)
-;; (require 'init-hideshowvis)
-
-;; (require 'init-pomodoro)
-
+(require 'init-which-key)
+(require 'init-pomodoro)
+(require 'init-window-numbering)
+(require 'init-evil)
+(require 'init-web)
+(require 'init-qml)
+(require 'init-yasnippet)
+(require 'init-javascript)
+(require 'init-highlight-symbol) ; 高亮同名符号
+(require 'init-hideshowvis) ; 代码折叠
 
 (provide 'init)
 ;;; init.el ends here
+;;;====================
