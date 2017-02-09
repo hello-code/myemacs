@@ -1,0 +1,5 @@
+# name: import QtQuick - import
+# key: im
+# binding: direct-keybinding
+# --
+import QtQuick $1

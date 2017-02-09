@@ -1,0 +1,5 @@
+# name: fmt.Println - Print line
+# key: pl
+# binding: direct-keybinding
+# --
+fmt.Println("$1") $2
