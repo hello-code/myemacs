@@ -23,6 +23,12 @@
    "jw" 'ace-jump-word-mode
    "jc" 'ace-jump-char-mode
    "jl" 'ace-jump-line-mode
+
+   "hh" 'highlight-symbol-mode
+   "hs" 'highlight-symbol
+   "hn" 'highlight-symbol-next
+
+   "w" 'ace-window
    )
   )
 

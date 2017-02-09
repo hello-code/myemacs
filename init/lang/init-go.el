@@ -36,7 +36,7 @@
   ;; |C-t       |'pop-tag-mark   |default
   ;; |----------+----------------|
   ;; |C-x <left>|'previous-buffer|default
-					;(local-set-key (kbd "<f12>") 'godef-jump-other-window)
+  ;;(local-set-key (kbd "<f12>") 'godef-jump-other-window)
   (local-set-key (kbd "<f12>") 'godef-jump)
   (local-set-key (kbd "M-/") 'pop-tag-mark)
   
@@ -51,6 +51,10 @@
 
   ;; show the argument list of the function at your point in the minibuffer
   (go-eldoc-setup)
+  ;; go-eldoc
+  (set-face-attribute 'eldoc-highlight-function-argument nil
+                      :underline t :foreground "orange"
+                      :weight 'bold)
 
   ;; golang debuger
   (require 'go-dlv)
@@ -70,10 +74,14 @@
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
-;; go-eldoc
-(set-face-attribute 'eldoc-highlight-function-argument nil
-		    :underline t :foreground "orange"
-		    :weight 'bold)
+(with-eval-after-load 'go-mode
+  (with-eval-after-load 'company
+    (add-hook 'go-mode-hook
+              '(lambda()
+                 (set(make-local-variable 'company-backends)
+                     '(company-go))(company-mode)))
+    )
+  )
 
 (provide 'init-go)
 ;;; init-go.el ends here

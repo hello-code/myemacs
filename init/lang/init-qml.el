@@ -1,4 +1,4 @@
-;;; init-qml --- golang
+;;; init-qml --- qml
 ;;; Commentary:
 
 ;;; Code:

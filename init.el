@@ -36,14 +36,15 @@
 (add-to-list 'load-path "~/myemacs/init/utils/")
 (require 'init-evil)
 (require 'init-helm)
+(require 'init-highlight-symbol)
 
-;; (require 'init-which-key)
-;; (require 'init-window-numbering)
-;; (require 'init-yasnippet)
-;; (require 'init-highlight-symbol)
+(require 'init-ace)
+(require 'init-which-key)
+;;(require 'init-window-numbering)
 ;; (require 'init-hideshowvis)
 
 ;; (require 'init-pomodoro)
+;; (require 'init-yasnippet)
 
 
 (provide 'init)
