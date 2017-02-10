@@ -2,7 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-;;(require 'hideshowvis)
+(require 'package)
+
+(unless (package-installed-p 'hideshowvis)
+  (package-refresh-contents)
+  (package-install 'hideshowvis)
+  )
+
 (hideshowvis-symbols)
 
 (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")

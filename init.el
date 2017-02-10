@@ -37,15 +37,16 @@
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-highlight-symbol)
-
 (require 'init-ace)
 (require 'init-which-key)
 ;;(require 'init-window-numbering)
-;; (require 'init-hideshowvis)
-
-;; (require 'init-pomodoro)
-;; (require 'init-yasnippet)
-
+(require 'init-hideshowvis)
+(require 'init-pomodoro)
+(require 'init-yasnippet)
 
 (provide 'init)
 ;;; init.el ends here
+
+;; custom-set-variables custom-set-faces 相关配置存放在custom-file指定的文件内
+(setq custom-file (concat user-emacs-directory "conf/custom-file.el"))
+(load custom-file t t )

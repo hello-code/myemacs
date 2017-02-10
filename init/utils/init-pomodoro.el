@@ -2,8 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pomodoro)
+(require 'package)
+(unless (package-installed-p 'pomodoro)
+  (package-refresh-contents)
+  (package-install 'pomodoro))
+
+;;(require 'pomodoro)
 (global-set-key "\M-p" 'pomodoro-start)
+
+(require 'pomodoro)
+(pomodoro-add-to-mode-line)
 (setq pomodoro-work-cycle "[W]") ;; 在状态栏显示的字符
 (setq pomodoro-work-break "[B]")
 ;;  设置一个番茄时间的长度(默认25分钟)
@@ -17,7 +25,7 @@
 (setq pomodoro-break-start-sound "~/myemacs/resource/rest.wav")
 (setq pomodoro-break-start-message
       (concat "Have a rest - "
-	      (number-to-string pomodoro-break-time) "minutes.\n"))
+              (number-to-string pomodoro-break-time) "minutes.\n"))
 
 ;; Using 'play-sound-file' rather than 'call-process'.
 (if (eq system-type 'windows-nt)
@@ -26,8 +34,6 @@
       (play-sound-file sound)))
 ;; In some reason will show --- Error running timer pomodoro-tick': (error "Unsupported WAV file format").
 ;; So use default player:mplayer.
-
-(pomodoro-add-to-mode-line)
 
 (provide 'init-pomodoro)
 ;;; init-pomodoro.el ends here

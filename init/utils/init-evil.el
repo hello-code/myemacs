@@ -4,14 +4,18 @@
 ;; ace-jump-mode -- https://github.com/winterTTr/ace-jump-mode
 ;;; Code:
 
+(defvar evil-packages
+  '(
+    evil-leader
+    evil
+    ace-jump-mode
+    ))
 
-
-
-;; load evil-leader-mode before load evil-mode.
-
-(require-package 'evil-leader)
-(require-package 'evil)
-(require-package 'ace-jump-mode)
+(require 'package)
+(dolist (package evil-packages)
+  (unless (package-installed-p package)
+    (package-refresh-contents)
+    (package-install package)))
 
 (add-hook 'after-init-hook (lambda()
                              (evil-mode 1)
