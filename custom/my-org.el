@@ -129,6 +129,9 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 (define-key org-mode-map (kbd "C-c o") 'org-clock-out);结束时间
 (define-key org-mode-map (kbd "C-c ;") 'org-time-stamp-inactive);插入不活跃的时间戳
 
+(define-key org-agenda-mode-map "j" 'evil-next-line)
+(define-key org-agenda-mode-map "k" 'evil-previous-line)
+
 (setq org-log-into-drawer nil)
 (setq org-clock-into-drawer nil)
 
