@@ -43,6 +43,7 @@
 (require 'init-hideshowvis)
 (require 'init-pomodoro)
 (require 'init-yasnippet)
+(require 'init-ox-reveal)
 
 (provide 'init)
 ;;; init.el ends here
