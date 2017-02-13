@@ -21,6 +21,7 @@
   "SPC x" "xxx"
   "C-c !" "flycheck"
   "SPC w" "ace window"
+  "SPC y" "yasnippet"
   )
 
 (provide 'init-which-key)

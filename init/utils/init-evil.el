@@ -33,6 +33,7 @@
    "hn" 'highlight-symbol-next
 
    "w" 'ace-window
+   "y" 'yas-global-mode
    )
   )
 

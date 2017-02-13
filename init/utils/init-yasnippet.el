@@ -8,10 +8,10 @@
   (package-refresh-contents)
   (package-install 'yasnippet))
 
-(require 'yasnippet)
+;;(require 'yasnippet)
 
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
+;;(yas-reload-all)
+;;(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-yasnippet)
 ;;; init-yasnippet ends here
