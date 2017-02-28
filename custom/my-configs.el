@@ -111,5 +111,29 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'over80characters)
 
+;; fonts
+(cond
+ ((eq system-type 'windows-nt)
+  (set-frame-font "Consolas-11")
+  (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
+  )
+ ((eq system-type 'gnu/linux)
+  (set-frame-font "DejaVu Sans Mono-11") ;; 10.5
+  (set-fontset-font "fontset-default" 'unicode "Noto Sans CJK SC")
+  ;;(set-fontset-font "fontset-default" 'unicode "WenQuanYi Bitmap Song 11")
+  (setq face-font-rescale-alist '(("Noto Sans CJK SC" . 1.18)))
+  ))
+
+;; mouse wheel font size
+(cond
+ ((eq system-type 'gnu/linux)
+  (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+  (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
+  )
+ ((eq system-type 'windows-nt)
+  (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+  (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease))
+ )
+
 (provide 'my-configs)
 ;;; my-config ends here
