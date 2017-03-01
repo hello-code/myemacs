@@ -24,7 +24,7 @@
 		   ;;"* TODO %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
 		   "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
 
-		  ("t" "Local Task" entry (file+headline "~/org/local/gtd.org" "Task")
+		  ("t" "Local Task" entry (file+datetree "~/org/local/gtd.org" "Task")
 		   ;;"** TODO %?\n   Added: %U\n   From: %a\n" :empty-lines 1)
 		   "** TODO %^{prompt|%a|%x} %?\n   SCHEDULED: %t\n   Added: %U\n   From: %^{From|%a|%x}\n"
 		   :empty-lines 1)
