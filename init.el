@@ -29,6 +29,7 @@
 (require 'init-go)
 (require 'init-qml)
 (require 'init-javascript)
+(require 'init-python)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
