@@ -8,11 +8,11 @@
 ;;  (setq-default flycheck-emacs-lisp-initialize-packages t)
 
 
-(defvar flycheck-packages 
+(defvar flycheck-packages
   '(
     flycheck
     flycheck-pos-tip
-))
+    ))
 
 ;; fetch the list of packages available
 (require 'package)
@@ -26,8 +26,9 @@
 
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
-(with-eval-after-load 'flycheck
-   (flycheck-pos-tip-mode))
+(with-eval-after-load "flycheck"
+  (flycheck-pos-tip-mode)
+  (setq flycheck-pos-tip-timeout 10))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
