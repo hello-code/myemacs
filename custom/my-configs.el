@@ -135,5 +135,11 @@
   (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease))
  )
 
+;; close all buffer except current buffer
+(defun kill-other-buffer()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer)(buffer-list))))
+
 (provide 'my-configs)
 ;;; my-config ends here
