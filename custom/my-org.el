@@ -18,38 +18,39 @@
 ;;(setq org-startup-truncated nil)
 
 ;;模板
- (setq org-capture-templates
-		'(
-		  ("i" "Local Inbox" entry (file+headline "~/org/local/gtd.org" "Inbox")
-		   ;;"* TODO %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
-		   "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
+(setq org-capture-templates
+      '(
+        ("i" "Local Inbox" entry (file+headline "~/org/local/gtd.org" "Inbox")
+         ;;"* TODO %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
+         "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
 
-		  ("t" "Local Task" entry (file+datetree "~/org/local/gtd.org" "Task")
-		   "** TODO %?\n   SCHEDULED: %t\n   Added: %U\n" :empty-lines 1)
+        ("t" "Local Task" entry (file+datetree "~/org/local/gtd.org" "Task")
+         "** TODO %?\n   SCHEDULED: %t\n   Added: %U\n" :empty-lines 1)
 
-		  ("s" "Ideas" entry (file+headline "~/org/local/gtd.org" "Ideas")
-		   "* %?\n  Added: %U" :empty-lines 1)
-		  
-		  ("j" "Journal" entry (file+datetree "~/org/local/journal.org")
-		   ;;"* %?\n%U\n" :clock-in t :clock-resume t
-		   "* %<%T> %?" :empty-lines 1)
-		  
-		  ("l" "Log Time" entry (file+datetree "~/org/local/timelog.org")
-		   "** [%<%Y-%m-%d %H:%M:%S>] - %^{Brief Description} :TIME:"
-		   :clock-in t :clock-resume t :empty-lines 1)
+        ("j" "Journal" entry (file+datetree "~/org/local/journal.org")
+         ;;"* %?\n%U\n" :clock-in t :clock-resume t
+         "* %<%T> %?" :empty-lines 1)
+        
+        ("l" "Log Time" entry (file+datetree "~/org/local/timelog.org")
+         "** [%<%Y-%m-%d %H:%M:%S>] - %^{Brief Description} :TIME:"
+         :clock-in t :clock-resume t :empty-lines 1)
 
-		  ("n" "Notebook" entry (file+datetree "~/org/sync/notebook.org")
-		   ;;"** %U - %^{Activity}")
-		   "** %^{prompt|%x}\n   Added:%U\n   %?" :empty-lines 1)
-		  
-		  ("I" "Sync Inbox" entry (file+headline "~/org/sync/todolist.org" "Inbox")
-		   "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
+        ("s" "Study" entry (file+datetree "~/org/sync/study.org")
+         "** [%<%Y-%m-%d %H:%M:%S>] - %^{Brief Description}"
+         :clock-in t :clock-resume t :empty-lines 1)
+        
+        ("n" "Notebook" entry (file+datetree "~/org/sync/notebook.org")
+         ;;"** %U - %^{Activity}")
+         "** %^{prompt|%x}\n   Added:%U\n   %?" :empty-lines 1)
+        
+        ("I" "Sync Inbox" entry (file+headline "~/org/sync/todolist.org" "Inbox")
+         "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
 
-		  ("T" "Sync Task" entry (file+headline"~/org/sync/todolist.org" "Task")
-		   "** TODO %^{prompt|%a|%x} %?\n   SCHEDULED: %t\n   Added: %U\n   From: %^{From|%a|%x}\n"
-		   :empty-lines 1)
-		  )
-		)
+        ("T" "Sync Task" entry (file+headline"~/org/sync/todolist.org" "Task")
+         "** TODO %^{prompt|%a|%x} %?\n   SCHEDULED: %t\n   Added: %U\n   From: %^{From|%a|%x}\n"
+         :empty-lines 1)
+        )
+      )
 
 
 ;; 大纲视图缩进
