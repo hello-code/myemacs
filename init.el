@@ -45,6 +45,7 @@
 (require 'init-pomodoro)
 (require 'init-yasnippet)
 (require 'init-ox-reveal)
+(require 'init-neotree)
 
 (provide 'init)
 ;;; init.el ends here
