@@ -24,11 +24,10 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (with-eval-after-load "flycheck"
   (flycheck-pos-tip-mode)
-  (setq flycheck-pos-tip-timeout 10))
+  (setq flycheck-pos-tip-timeout 30))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
