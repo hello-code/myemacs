@@ -46,6 +46,7 @@
 (require 'init-yasnippet)
 (require 'init-ox-reveal)
 (require 'init-neotree)
+(require 'init-imenu-list)
 
 (provide 'init)
 ;;; init.el ends here
