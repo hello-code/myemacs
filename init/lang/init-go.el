@@ -8,6 +8,7 @@
     go-mode
     go-eldoc
     go-dlv
+    go-guru
     company
     company-go
     ))
@@ -70,6 +71,11 @@
   ;; 4. 在gud-debug 界面中按 r 开始新一轮调试。若需更改断点则先清除断点再f9,然后重复2,3步。
   ;; 清除单个断点：clear 断点序号（如1,2,3等数字）
   ;; 清除所有断点：clearall
+
+  (require 'go-guru)
+  (go-guru-hl-identifier-mode)
+  (custom-set-variables '(go-guru-hl-identifier-idle-time 0.2))
+  (custom-set-faces '(go-guru-hl-identifier-face ((t (:background "chartreuse" :foreground "black")))))
   )
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
