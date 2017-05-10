@@ -47,8 +47,7 @@
          "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
 
         ("T" "Sync Task" entry (file+headline"~/org/sync/todolist.org" "Task")
-         "** TODO %^{prompt|%a|%x} %?\n   SCHEDULED: %t\n   Added: %U\n   From: %^{From|%a|%x}\n"
-         :empty-lines 1)
+         "** TODO %?\n   SCHEDULED: %t\n   Added: %U\n" :empty-lines 1)
         )
       )
 
