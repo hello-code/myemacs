@@ -40,8 +40,7 @@
          :clock-in t :clock-resume t :empty-lines 1)
         
         ("n" "Notebook" entry (file+datetree "~/org/sync/notebook.org")
-         ;;"** %U - %^{Activity}")
-         "** %^{prompt|%x}\n   Added:%U\n   %?" :empty-lines 1)
+         "** %^{prompt}\n   Added:%U\n   %?" :empty-lines 1)
         
         ("I" "Sync Inbox" entry (file+headline "~/org/sync/todolist.org" "Inbox")
          "* TODO %^{prompt|%a} %?\n  Added: %U\n  From: %a\n" :empty-lines 1)
