@@ -30,6 +30,7 @@
 (require 'init-qml)
 (require 'init-javascript)
 (require 'init-python)
+(require 'init-web)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
