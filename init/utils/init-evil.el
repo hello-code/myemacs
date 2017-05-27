@@ -35,6 +35,7 @@
    "w" 'ace-window
    "y" 'yas-global-mode
    "n" 'neotree-toggle
+   "p" 'neotree-project-dir-toggle
    )
   )
 
