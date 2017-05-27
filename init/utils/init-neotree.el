@@ -14,13 +14,20 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(global-set-key (kbd "C-x s") 'neotree-toggle)
+;; (global-set-key (kbd "C-x s") 'neotree-toggle) ; use evil-leader
 
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
             (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+            (define-key evil-normal-state-local-map (kbd "r") 'neotree-rename-node)
+            (define-key evil-normal-state-local-map (kbd "a") 'neotree-create-node)
+            (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
+            (define-key evil-normal-state-local-map (kbd "f") 'neotree-refresh)
+            (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
+            (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
+            ))
 
 (with-eval-after-load "neotree"
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
