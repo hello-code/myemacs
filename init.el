@@ -13,10 +13,8 @@
 (require 'init-flycheck)
 (require 'init-company)
 ;; printf command not recognized
-(cond
- ((eq system-tyte 'gun/linux)
-  (require 'init-exec-path)
-  ))
+;; don't call exec-path-from-shell function on windows
+(require 'init-exec-path)
 
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
