@@ -12,7 +12,11 @@
 (require 'init-elpa)
 (require 'init-flycheck)
 (require 'init-company)
-(require 'init-exec-path)
+;; printf command not recognized
+(cond
+ ((eq system-tyte 'gun/linux)
+  (require 'init-exec-path)
+  ))
 
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
@@ -26,7 +30,7 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
-(require 'init-go)
+;;(require 'init-go)
 (require 'init-qml)
 (require 'init-javascript)
 (require 'init-python)
