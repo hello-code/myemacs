@@ -28,7 +28,7 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
-;;(require 'init-go)
+(require 'init-go)
 (require 'init-qml)
 (require 'init-javascript)
 (require 'init-python)
