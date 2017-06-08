@@ -27,7 +27,15 @@
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (with-eval-after-load "flycheck"
   (flycheck-pos-tip-mode)
-  (setq flycheck-pos-tip-timeout 30))
+  (setq flycheck-pos-tip-timeout 30)
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos "*Flycheck errors*" eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (side            . bottom)
+                 (reusable-frames . visible)
+                 (window-height   . 0.33)))
+  )
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
