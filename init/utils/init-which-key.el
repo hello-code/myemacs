@@ -11,7 +11,7 @@
 
 (require 'which-key)
 (which-key-mode)
-(which-key-setup-side-window-right-bottom)
+(which-key-setup-side-window-bottom)
 (setq which-key-idle-delay 0.1)
 
 ;; 此处应与init-evil.el中的evil-leader对应
