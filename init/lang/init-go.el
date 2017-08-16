@@ -74,9 +74,9 @@
   ;; 清除所有断点：clearall
 
   (require 'go-guru)
-  (go-guru-hl-identifier-mode)
-  (custom-set-variables '(go-guru-hl-identifier-idle-time 0.2))
-  (custom-set-faces '(go-guru-hl-identifier-face ((t (:background "chartreuse" :foreground "black")))))
+  ;; (go-guru-hl-identifier-mode)
+  ;; (custom-set-variables '(go-guru-hl-identifier-idle-time 0.2))
+  ;; (custom-set-faces '(go-guru-hl-identifier-face ((t (:background "chartreuse" :foreground "black")))))
   )
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
