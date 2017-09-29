@@ -13,7 +13,7 @@
 (with-eval-after-load 'highlight-symbol
   (setq highlight-symbol-idle-delay 0.2)
   (setq highlight-symbol-highlight-single-occurrence nil)
-  (setq highlight-symbol-foreground-color "red")
+  (setq highlight-symbol-foreground-color "black")
   (custom-set-faces
    '(highlight-symbol-face ((t (:background "gray30" :inverse-video t)))))
   )

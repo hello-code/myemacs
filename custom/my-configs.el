@@ -16,7 +16,7 @@
 
 ;; disable welcome page
 (setq inhibit-startup-message t)
-					;(set-background-color "#101218")
+;;(set-background-color "#101218")
 (set-mouse-color "white")
 (set-cursor-color "white")
 
@@ -82,7 +82,7 @@
   (whitespace-mode 1)
   ;;; disable whitespace mode in erc-mode
   ;;(setq whitespace-global-modes '(not erc-mode org-mode))
-)
+  )
 
 ;; erc config
 ;; replace prompt to buffer name
@@ -100,10 +100,10 @@
   (interactive)
   (if (buffer-file-name)
       (let ((filename (buffer-file-name)))
-	(if (eq system-type 'windows-nt)
-	    ;;(shell-command (concat "start firefox.exe \"file://" filename "\"")))))
-	    (shell-command (concat "start chrome.exe \"file://" filename "\""))
-	  (browse-url filename)))))
+        (if (eq system-type 'windows-nt)
+            ;;(shell-command (concat "start firefox.exe \"file://" filename "\"")))))
+            (shell-command (concat "start chrome.exe \"file://" filename "\""))
+          (browse-url filename)))))
 
 (global-set-key (kbd "C-x w") 'open-in-browser)
 
@@ -140,6 +140,13 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer)(buffer-list))))
+
+(setq backup-by-copying t ;; 自动备份
+      backup-directory-alist '(("." . "~/.saves")) ;; 自动备份在目录"~/.saves"下
+      delete-old-versions t ;; 自动删除旧的备份文件
+      kept-new-versions 6 ;; 保留最近的6个备份文件
+      kept-old-versions 2 ;; 保留最早的2个备份文件
+      version-control t) ;; 多次备份
 
 (provide 'my-configs)
 ;;; my-config ends here
