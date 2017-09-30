@@ -57,7 +57,8 @@
   (setq neo-smart-open t)
   (setq neo-autorefresh t)
   (setq neo-window-fixed-size nil)
-)
+  (setq neo-force-change-root t) ;; avoid the confirmation message
+  )
 
 (projectile-global-mode)
 ;;(setq projectile-switch-project-action 'neotree-projectile-action)
