@@ -50,6 +50,7 @@
 (require 'init-ox-reveal)
 (require 'init-neotree)
 (require 'init-imenu-list)
+(require 'init-markdown)
 
 (provide 'init)
 ;;; init.el ends here
