@@ -1,0 +1,6 @@
+# name: package main - main package
+# key: pm
+# binding: direct-keybinding
+# --
+package main
+$1
