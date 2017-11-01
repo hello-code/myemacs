@@ -22,7 +22,6 @@
 (which-key-add-key-based-replacements
   "SPC j" "jump to..."
   "SPC h" "highlight symble"
-  "SPC x" "xxx"
   "SPC w" "ace window"
   "SPC y" "yasnippet"
   "C-c !" "flycheck"
