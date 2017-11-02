@@ -1,6 +1,6 @@
 ;;; init-python --- python
 ;;; Commentary:
-;; sudo apt-get install virtualenv
+;; sudo apt-get install virtualenvwrapper
 ;; export WORKON_HOME=~/development/python
 ;; export VIRTUALENV_PYTHON=/usr/bin/python3
 ;;; Code:
@@ -30,6 +30,16 @@
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
 (setq venv-location "~/development/python")
+
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))
 
 (provide 'init-python)
 ;;; init-python.el ends here
