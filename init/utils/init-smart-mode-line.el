@@ -11,6 +11,7 @@
   )
 
 (setq sml/no-confirm-load-theme t)
+(setq sml/theme 'dark)
 (sml/setup)
 
 (provide 'init-smart-mode-line)
