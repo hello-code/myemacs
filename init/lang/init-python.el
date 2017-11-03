@@ -41,5 +41,8 @@
        (get-buffer-process (current-buffer))
        nil "_"))))
 
+;; use .bashrc environment variable
+(exec-path-from-shell-copy-envs '("WORKON_HOME" "VIRTUALENV_PYTHON"))
+
 (provide 'init-python)
 ;;; init-python.el ends here
