@@ -4,10 +4,13 @@
 
 (require 'package)
 
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
+;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+;; (add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
+
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 ;; purcell's functions
 (defun require-package (package &optional min-version no-refresh)
