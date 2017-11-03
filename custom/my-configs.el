@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; theme
-(load-theme 'wombat t)
+;;(load-theme 'wombat t)
 
 ;; system coding
 (set-language-environment "UTF-8")
@@ -148,5 +148,8 @@
       kept-old-versions 2 ;; 保留最早的2个备份文件
       version-control t) ;; 多次备份
 
+;; 与系统共享剪贴板
+(setq select-enable-clipboard t)
+
 (provide 'my-configs)
-;;; my-config ends here
+;;; my-configs.el ends here

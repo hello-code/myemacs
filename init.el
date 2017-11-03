@@ -51,6 +51,7 @@
 (require 'init-imenu-list)
 (require 'init-markdown)
 (require 'init-smart-mode-line)
+(require 'init-material-theme)
 
 (provide 'init)
 ;;; init.el ends here
