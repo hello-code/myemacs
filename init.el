@@ -21,7 +21,7 @@
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/custom/")
 (require 'my-configs)
-(require 'my-mode-line)
+;(require 'my-mode-line)
 (require 'my-org)
 
 ;;-------------------------------------------------------------
@@ -43,7 +43,6 @@
 (require 'init-highlight-symbol)
 (require 'init-ace)
 (require 'init-which-key)
-;;(require 'init-window-numbering)
 (require 'init-hideshowvis)
 (require 'init-pomodoro)
 (require 'init-yasnippet)
@@ -51,6 +50,7 @@
 (require 'init-neotree)
 (require 'init-imenu-list)
 (require 'init-markdown)
+(require 'init-smart-mode-line)
 
 (provide 'init)
 ;;; init.el ends here
