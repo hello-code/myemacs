@@ -30,12 +30,15 @@
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
 
-(with-eval-after-load 'python-mode
-  (with-eval-after-load 'company
-    (add-hook 'python-mode-hook
-              '(lambda()
-                 (set(make-local-variable 'company-backends) '(company-anaconda))
-                 (company-mode)))))
+;; (with-eval-after-load 'python-mode
+;;   (with-eval-after-load 'company
+;;     (add-hook 'python-mode-hook
+;;               '(lambda()
+;;                  (set(make-local-variable 'company-backends) '(company-anaconda))
+;;                  (company-mode)))))
+
+(eval-after-load "company"
+ '(add-to-list 'company-backends 'company-anaconda))
 
 (with-eval-after-load 'python
   (defun python-shell-completion-native-try ()
