@@ -7,9 +7,13 @@
 
 ;; list packages for python
 (defvar python-packages
-  '(anaconda-mode
-    company-anaconda
-    virtualenvwrapper))
+  '(
+    elpy
+    virtualenvwrapper
+    company-jedi
+    auto-virtualenv
+    py-autopep8
+    ))
 
 (require 'package)
 (unless package-archive-contents
@@ -19,42 +23,29 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;; python mode hook
-(defun my-python-mode-hook()
-  (exec-path-from-shell-copy-envs '("WORKON_HOME" "VIRTUALENV_PYTHON"))
-  (local-set-key (kbd "<f12>") 'anaconda-mode-find-definitions)
-  (local-set-key (kbd "M-/") 'anaconda-mode-go-back)
-  )
+(elpy-enable)
 
-(add-hook 'python-mode-hook 'my-python-mode-hook)
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-
-;; (with-eval-after-load 'python-mode
-;;   (with-eval-after-load 'company
-;;     (add-hook 'python-mode-hook
-;;               '(lambda()
-;;                  (set(make-local-variable 'company-backends) '(company-anaconda))
-;;                  (company-mode)))))
-
-(eval-after-load "company"
- '(add-to-list 'company-backends 'company-anaconda))
-
-(with-eval-after-load 'python
-  (defun python-shell-completion-native-try ()
-    "Return non-nil if can trigger native completion."
-    (let ((python-shell-completion-native-enable t)
-          (python-shell-completion-native-output-timeout
-           python-shell-completion-native-try-output-timeout))
-      (python-shell-completion-native-get-completions
-       (get-buffer-process (current-buffer))
-       nil "_"))))
+;; 语法检查
+(when (require 'flycheck nil t)
+  (setq elpy-modules(delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; virtual environment
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
 (setq venv-location "~/development/python")
+
+;; auto-virtualenv
+(add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
+;; Activate on changing buffers
+(add-hook 'window-configuration-change-hook 'auto-virtualenv-set-virtualenv)
+;; Activate on focus in
+(add-hook 'focus-in-hook 'auto-virtualenv-set-virtualenv)
+
+;; autopep8 (pip install autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=100"))
 
 (provide 'init-python)
 ;;; init-python.el ends here
