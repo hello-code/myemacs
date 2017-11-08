@@ -52,6 +52,7 @@
 (require 'init-markdown)
 (require 'init-smart-mode-line)
 (require 'init-material-theme)
+(require 'init-fci-mode)
 
 (provide 'init)
 ;;; init.el ends here
