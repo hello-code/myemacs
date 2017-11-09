@@ -151,5 +151,11 @@
 ;; 与系统共享剪贴板
 (setq select-enable-clipboard t)
 
+;; binding in lisp mode
+;; C-x C-e (eval-last-sexp)
+(defun my-lisp-mode-hook()
+  (local-set-key (kbd "<f5>") 'eval-last-sexp))
+(add-hook 'lisp-mode-hook 'my-lisp-mode-hook)
+
 (provide 'my-configs)
 ;;; my-configs.el ends here
