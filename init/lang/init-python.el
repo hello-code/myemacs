@@ -9,9 +9,7 @@
 (defvar python-packages
   '(
     elpy
-    virtualenvwrapper
     company-jedi
-    auto-virtualenv
     py-autopep8
     ))
 
@@ -25,23 +23,18 @@
 
 (elpy-enable)
 
+(defun my-python-mode-hook()
+  ;;(exec-path-from-shell-copy-envs '("WORKON_HOME" "VIRTUALENV_PYTHON"))
+  (local-set-key (kbd "<f12>") 'elpy-goto-definition)
+  (local-set-key (kbd "S-<f12>") 'pop-tag-mark)
+  )
+
 ;; 语法检查
 (when (require 'flycheck nil t)
   (setq elpy-modules(delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; virtual environment
-(require 'virtualenvwrapper)
-(venv-initialize-interactive-shells)
-(venv-initialize-eshell)
-(setq venv-location "~/development/python")
-
-;; auto-virtualenv
-(add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
-;; Activate on changing buffers
-(add-hook 'window-configuration-change-hook 'auto-virtualenv-set-virtualenv)
-;; Activate on focus in
-(add-hook 'focus-in-hook 'auto-virtualenv-set-virtualenv)
+(add-hook 'python-mode-hook 'my-python-mode-hook)
 
 ;; autopep8 (pip install autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
