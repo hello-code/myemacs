@@ -23,6 +23,7 @@
   "SPC j" "jump to..."
   "SPC h" "highlight symble"
   "SPC w" "ace window"
+  "SPC p" "projectile"
   "SPC y" "yasnippet"
   "C-c !" "flycheck"
   "C-c C-a" "markdown-insert"

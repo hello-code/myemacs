@@ -12,7 +12,7 @@
     company-jedi
     py-autopep8
     virtualenvwrapper
-    projectile
+    ;;projectile
     ))
 
 (require 'package)

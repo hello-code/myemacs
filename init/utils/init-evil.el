@@ -32,11 +32,13 @@
    "hs" 'highlight-symbol
    "hn" 'highlight-symbol-next
 
-   ;; 常用快捷键	
+   "p" 'projectile-command-map
+   
+   ;; 常用快捷键
    "w" 'ace-window
    "y" 'yas-global-mode
    "n" 'neotree-toggle
-   "p" 'neotree-project-dir-toggle
+   ;;"p" 'neotree-project-dir-toggle
    
    "l" 'helm-locate
    "a" 'helm-do-ag

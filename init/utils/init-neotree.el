@@ -8,7 +8,7 @@
   '(
     neotree
     all-the-icons
-    projectile
+    ;;projectile
     ))
 
 (dolist (package neotree-packages)
@@ -61,7 +61,7 @@
   (setq neo-force-change-root t) ;; avoid the confirmation message
   )
 
-(projectile-global-mode)
+;;(projectile-global-mode)
 ;;(setq projectile-switch-project-action 'neotree-projectile-action)
 
 (provide 'init-neotree)
