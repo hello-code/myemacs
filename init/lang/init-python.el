@@ -29,6 +29,8 @@
   ;;(exec-path-from-shell-copy-envs '("WORKON_HOME" "VIRTUALENV_PYTHON" "VIRTUAL_ENV"))
   (local-set-key (kbd "<f12>") 'elpy-goto-definition)
   (local-set-key (kbd "S-<f12>") 'pop-tag-mark)
+  (local-set-key (kbd "M-.") 'elpy-goto-definition)
+  (local-set-key (kbd "M-,") 'pop-tag-mark)
 
   (require 'virtualenvwrapper)
   (venv-initialize-interactive-shells) ;; if you want interactive shell support
