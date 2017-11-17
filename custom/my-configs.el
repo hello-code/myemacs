@@ -124,6 +124,9 @@
   (setq face-font-rescale-alist '(("Noto Sans CJK SC" . 1.18)))
   ))
 
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono-11"))
+
 ;; mouse wheel font size
 (cond
  ((eq system-type 'gnu/linux)
