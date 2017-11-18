@@ -53,7 +53,8 @@
 (require 'init-markdown)
 (require 'init-smart-mode-line)
 (require 'init-material-theme)
-(require 'init-fci-mode)
+(require 'init-fci-mode) ;; fill-column-indicator 80
+(require 'init-fold-this)
 
 (provide 'init)
 ;;; init.el ends here

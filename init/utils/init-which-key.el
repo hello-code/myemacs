@@ -25,6 +25,7 @@
   "SPC w" "ace window"
   "SPC p" "projectile"
   "SPC y" "yasnippet"
+  "SPC f" "fold"
   "C-c !" "flycheck"
   "C-c C-a" "markdown-insert"
   "C-c C-c" "markdown"

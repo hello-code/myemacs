@@ -32,6 +32,9 @@
    "hs" 'highlight-symbol
    "hn" 'highlight-symbol-next
 
+   "ff" 'fold-this
+   "fs" 'fold-this-unfold-all
+   
    "p" 'projectile-command-map
    
    ;; 常用快捷键
