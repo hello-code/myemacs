@@ -10,7 +10,8 @@
 ;; (add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ("org"   . "http://elpa.emacs-china.org/org/")))
 
 ;; purcell's functions
 (defun require-package (package &optional min-version no-refresh)
