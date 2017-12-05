@@ -55,6 +55,7 @@
 (require 'init-material-theme)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-fold-this)
+(require 'init-smooth-scrolling)
 
 (provide 'init)
 ;;; init.el ends here
