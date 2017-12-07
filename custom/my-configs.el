@@ -16,7 +16,13 @@
 
 ;; disable welcome page
 (setq inhibit-startup-message t)
-;;(set-background-color "#101218")
+
+;; frame size
+(setq initial-frame-alist '((top . 30) (left . 500) (width . 80) (height . 30)))
+
+;; line number
+(setq linum-format " %d ")
+
 (set-mouse-color "white")
 (set-cursor-color "white")
 
