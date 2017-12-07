@@ -57,6 +57,7 @@
 (require 'init-fold-this)
 (require 'init-smooth-scrolling)
 (require 'init-scroll-restore)
+(require 'init-hlinum)
 
 (provide 'init)
 ;;; init.el ends here
