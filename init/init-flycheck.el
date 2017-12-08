@@ -34,7 +34,7 @@
                   display-buffer-in-side-window)
                  (side            . bottom)
                  (reusable-frames . visible)
-                 (window-height   . 0.33)))
+                 (window-height   . 0.15)))
   )
 
 (provide 'init-flycheck)
