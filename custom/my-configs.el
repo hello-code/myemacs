@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; theme
-;;(load-theme 'wombat t)
+(load-theme 'material t)
 
 ;; system coding
 (set-language-environment "UTF-8")
