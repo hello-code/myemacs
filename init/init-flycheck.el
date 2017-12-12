@@ -37,5 +37,8 @@
                  (window-height   . 0.15)))
   )
 
+;; change keymap prefix C-c !
+(setq flycheck-keymap-prefix (kbd "C-c f"))
+
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
