@@ -10,8 +10,8 @@
                         "~/org/sync/"
                         ))
 
-(global-set-key (kbd "<f11>") 'org-capture)
-(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "<f7>") 'org-capture)
+(global-set-key (kbd "<f8>") 'org-agenda)
 
 ;; TODO keyword
 (setq org-todo-keywords
@@ -22,7 +22,7 @@
       (quote (("TODO" :foreground "red" :weight bold)
               ("STARTED" :foreground "#ffff99" :weight bold)
               ("NEXT" :foreground "cyan" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
+              ("DONE" :foreground "chartreuse3" :weight bold)
               ("WAITING" :foreground "yellow" :weight bold)
               ("HOLD" :foreground "orange" :weight bold)
               ("CANCELLED" :foreground "gray" :weight bold)
@@ -118,7 +118,9 @@
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
 
 ;; 保存时“格式化”文件内容
-(add-hook 'before-save-hook '(lambda()(indent-region (point-min)(point-max))))
+(add-hook 'before-save-hook '(lambda()
+                               (when (eq major-mode 'org-mode)
+                                 (indent-region (point-min)(point-max)))))
 
 ;;; auto rebuild agenda buffer
 ;; http://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
