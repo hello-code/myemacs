@@ -42,6 +42,7 @@
    "y" 'yas-global-mode
    "n" 'neotree-toggle
    ;;"p" 'neotree-project-dir-toggle
+   "s" 'scroll-restore-mode
    
    "l" 'helm-locate
    "a" 'helm-do-ag

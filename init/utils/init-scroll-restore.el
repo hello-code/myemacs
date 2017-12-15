@@ -5,11 +5,11 @@
 (require 'package)
 
 (unless (package-installed-p 'scroll-restore)
-    (package-refresh-contents)
-    (package-install 'scroll-restore))
+  (package-refresh-contents)
+  (package-install 'scroll-restore))
 
 (require 'scroll-restore)
-(scroll-restore-mode 1)
+(scroll-restore-mode t)
 
 (provide 'init-scroll-restore)
 ;;; init-scroll-restore.el ends here

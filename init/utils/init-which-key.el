@@ -26,7 +26,8 @@
   "SPC p" "projectile"
   "SPC y" "yasnippet"
   "SPC f" "fold"
-  "C-c !" "flycheck"
+  "SPC s" "scroll restore"
+  ;;"C-c !" "flycheck"
   "C-c C-a" "markdown-insert"
   "C-c C-c" "markdown"
   )
