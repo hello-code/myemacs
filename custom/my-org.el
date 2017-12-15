@@ -48,8 +48,9 @@
 (setq org-capture-templates
       (quote (
               ("s" "Study & Learn")
-              ("sr" "Reading" entry(file "~/org/refile.org")
+              ("sr" "Reading" entry(file+headlinek "~/org/refile.org" "Reading")
                "* TODO %? :READING:\n%U\n")
+
               ("t" "Todo" entry (file "~/org/refile.org")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
               ("r" "respond" entry (file "~/org/refile.org")
@@ -192,6 +193,14 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 ;;(proviError running timer appt-delete-window':
 ;;    (error "No buffer named *appt-buf*")de 'init-org)
 (defun appt-delete-window () "Nothing.Overwrite built-in function." )
+
+;;; Custom agenda views
+(setq org-agenda-custom-commands
+      '(("u" agenda "Unfinished Tasks"
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+          (org-agenda-sorting-strategy '(priority-down))
+          ;;(org-agenda-prefix-format "  Mixed: ")
+          ))))
 
 (provide 'my-org)
 ;;; my-org ends here
