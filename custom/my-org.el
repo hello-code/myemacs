@@ -117,6 +117,9 @@
 
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
 
+;; 保存时“格式化”文件内容
+(add-hook 'before-save-hook '(lambda()(indent-region (point-min)(point-max))))
+
 ;;; auto rebuild agenda buffer
 ;; http://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
 (defun my-redo-all-agenda-buffers ()
