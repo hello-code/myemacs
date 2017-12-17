@@ -3,11 +3,15 @@
 ;;; Code:
 
 (require 'org)
+(require 'org-capture)
+(require 'org-agenda)
+(require 'appt)
+
 ;; Agenda setup
 (setq org-agenda-files (list
                         "~/org/"
-                        "~/org/local/"
-                        "~/org/sync/"
+                        ;; "~/org/local/"
+                        ;; "~/org/sync/"
                         ))
 
 (global-set-key (kbd "<f7>") 'org-capture)
@@ -39,28 +43,26 @@
               ("WAITING" ("WAITING" . t))
               ("HOLD" ("WAITING") ("HOLD" . t))
               (done ("WAITING") ("HOLD"))
-              ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+              ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("INBOX"))
               ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
               ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
 
 ;; Capture templates
-(require 'org-capture)
 (setq org-capture-templates
       (quote (
               ("s" "Study & Learn")
-              ("sr" "Reading" entry(file+headlinek "~/org/refile.org" "Reading")
+              ("sr" "Reading" entry(file+headline "~/org/refile.org" "Reading")
                "* TODO %? :READING:\n%U\n")
 
-              ("t" "Todo" entry (file "~/org/refile.org")
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("i" "Inbox" entry (file+headline "~/org/refile.org" "Inbox")
+               "* %? :INBOX:\n%U\n%a\n" :clock-in t :clock-resume t)
+              
               ("r" "respond" entry (file "~/org/refile.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file "~/org/refile.org")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree "~/org/diary.org")
                "* %?\n%U\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file "~/org/refile.org")
-               "* TODO Review %c\n%U\n" :immediate-finish t)
               ("m" "Meeting" entry (file "~/org/refile.org")
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
               ("p" "Phone call" entry (file "~/org/refile.org")
@@ -136,7 +138,6 @@
 (add-hook 'org-after-todo-state-change-hook 'my-redo-all-agenda-buffers)
 
 ;; For org appointment reminders
-(require 'appt)
 
 ;; (defadvice  org-agenda-redo (after org-agenda-redo-add-appts)
 ;;   "Pressing `r' on the agenda will also add appointments."
@@ -194,13 +195,33 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 ;;    (error "No buffer named *appt-buf*")de 'init-org)
 (defun appt-delete-window () "Nothing.Overwrite built-in function." )
 
+;; Habit tracing
+;; 1. customize-variables RET org-modules RET habit
+;;(setq org-habit-graph-column 50)
+;;(setq org-habit-show-habits-only-for-today nil)
+
+;; Do not dim blocked tasks
+(setq org-agenda-dim-blocked-tasks nil)
+
+;; Compact the block agenda view
+(setq org-agenda-compact-blocks t)
+
 ;;; Custom agenda views
 (setq org-agenda-custom-commands
-      '(("u" agenda "Unfinished Tasks"
+      '(
+        ("u" agenda "Unfinished Tasks"
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
           (org-agenda-sorting-strategy '(priority-down))
           ;;(org-agenda-prefix-format "  Mixed: ")
-          ))))
+          ))
+        ;; ("h" "Daily habits" tags-todo "STYLE=\"habit\""
+        ;;  ((org-agenda-overriding-header "Habits")
+        ;;   (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "DAILY:"))
+        ;;   ))
+        ("i" "Inbox" tags "INBOX"
+         ((org-agenda-overriding-header "There are something in box")
+          (org-tags-match-list-sublevels nil)))
+        ))
 
 (provide 'my-org)
 ;;; my-org ends here
