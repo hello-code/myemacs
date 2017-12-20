@@ -133,7 +133,7 @@
   (dolist (buffer (buffer-list))
     (with-current-buffer buffer
       (when (derived-mode-p 'org-agenda-mode)
-        (org-agenda-redo t)))))
+        (org-agenda-maybe-redo)))))
 
 (add-hook 'org-after-todo-state-change-hook 'my-redo-all-agenda-buffers)
 
@@ -197,7 +197,7 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 
 ;; Habit tracing
 ;; 1. customize-variables RET org-modules RET habit
-;;(setq org-habit-graph-column 50)
+(setq org-habit-graph-column 60)
 ;;(setq org-habit-show-habits-only-for-today nil)
 
 ;; Do not dim blocked tasks
