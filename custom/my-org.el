@@ -9,7 +9,8 @@
 
 ;; Agenda setup
 (setq org-agenda-files (list
-                        "~/org/"
+                        "~/org"
+                        "~/org/share"
                         ;; "~/org/local/"
                         ;; "~/org/sync/"
                         ))
@@ -222,6 +223,18 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
          ((org-agenda-overriding-header "There are something in box")
           (org-tags-match-list-sublevels nil)))
         ))
+
+;; org-level headers font size
+(defun my/org-mode-hook ()
+  "Stop the org-level headers from increasing in height relative to the other text."
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+
+(add-hook 'org-mode-hook 'my/org-mode-hook)
 
 (provide 'my-org)
 ;;; my-org ends here
