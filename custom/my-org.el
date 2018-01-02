@@ -196,6 +196,18 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 ;;    (error "No buffer named *appt-buf*")de 'init-org)
 (defun appt-delete-window () "Nothing.Overwrite built-in function." )
 
+;; org-level headers font size
+(defun my/org-mode-hook ()
+  "Stop the org-level headers from increasing in height relative to the other text."
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+
+(add-hook 'org-mode-hook 'my/org-mode-hook)
+
 ;; Habit tracing
 ;; 1. customize-variables RET org-modules RET habit
 (setq org-habit-graph-column 60)
@@ -215,26 +227,10 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
           (org-agenda-sorting-strategy '(priority-down))
           ;;(org-agenda-prefix-format "  Mixed: ")
           ))
-        ;; ("h" "Daily habits" tags-todo "STYLE=\"habit\""
-        ;;  ((org-agenda-overriding-header "Habits")
-        ;;   (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "DAILY:"))
-        ;;   ))
         ("i" "Inbox" tags "INBOX"
          ((org-agenda-overriding-header "There are something in box")
           (org-tags-match-list-sublevels nil)))
         ))
-
-;; org-level headers font size
-(defun my/org-mode-hook ()
-  "Stop the org-level headers from increasing in height relative to the other text."
-  (dolist (face '(org-level-1
-                  org-level-2
-                  org-level-3
-                  org-level-4
-                  org-level-5))
-    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
-
-(add-hook 'org-mode-hook 'my/org-mode-hook)
 
 (provide 'my-org)
 ;;; my-org ends here
