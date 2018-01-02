@@ -55,6 +55,7 @@
   
   (add-hook 'js2-mode-hook 'tern-mode)
   (add-hook 'js-mode-hook 'tern-mode)
+  (add-hook 'web-mode-hook 'tern-mode)
 
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
