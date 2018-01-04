@@ -232,7 +232,10 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
                   org-level-3
                   org-level-4
                   org-level-5))
-    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0))
+  ;; use english language
+  (set-locale-environment "English")
+  )
 
 (add-hook 'org-mode-hook 'my/org-mode-hook)
 
