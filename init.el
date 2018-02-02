@@ -56,7 +56,7 @@
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-fold-this)
 (require 'init-smooth-scrolling)
-(require 'init-scroll-restore)
+;;(require 'init-scroll-restore)
 (require 'init-hlinum)
 
 (provide 'init)
