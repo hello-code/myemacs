@@ -38,13 +38,14 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
+(require 'init-material-theme)
 (require 'init-evil)
 (require 'init-which-key)
 (require 'init-projectile)
 (require 'init-helm)
 (require 'init-highlight-symbol)
 (require 'init-ace)
-(require 'init-hideshowvis)
+;(require 'init-hideshowvis)
 (require 'init-pomodoro)
 (require 'init-yasnippet)
 (require 'init-ox-reveal)
@@ -52,9 +53,8 @@
 (require 'init-imenu-list)
 (require 'init-markdown)
 (require 'init-smart-mode-line)
-(require 'init-material-theme)
 (require 'init-fci-mode) ;; fill-column-indicator 80
-(require 'init-fold-this)
+;(require 'init-fold-this)
 (require 'init-smooth-scrolling)
 ;;(require 'init-scroll-restore)
 (require 'init-hlinum)
