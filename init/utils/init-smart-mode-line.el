@@ -3,15 +3,19 @@
 ;;; https://github.com/Malabarba/smart-mode-line/
 ;;; Code:
 
-(require 'package)
+(defvar modeline-package '(smart-mode-line smart-mode-line-powerline-theme))
 
-(unless (package-installed-p 'smart-mode-line)
-  (package-refresh-contents)
-  (package-install 'smart-mode-line)
-  )
+(require 'package)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package modeline-package)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 (setq sml/no-confirm-load-theme t)
-(setq sml/theme 'dark)
+(setq sml/theme 'powerline)
+(setq sml/shorten-directory t)
 (sml/setup)
 
 ;; Color the evil tag - colors taken from spaceline
