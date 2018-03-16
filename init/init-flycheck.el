@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; ;; Flycheck does not use load-path when checking Emacs Lisp files. Instead, it uses flycheck-emacs-lisp-load-path, which is empty by default.
-;; (setq-default flycheck-emacs-lisp-load-path 'inherit)
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 
 ;;  (setq-default flycheck-emacs-lisp-initialize-packages t)
 
