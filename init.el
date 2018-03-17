@@ -45,17 +45,15 @@
 (require 'init-helm)
 (require 'init-highlight-symbol)
 (require 'init-ace)
-;(require 'init-hideshowvis)
-
 (require 'init-yasnippet)
 (require 'init-ox-reveal)
 (require 'init-neotree)
 (require 'init-imenu-list)
 (require 'init-markdown)
+(require 'init-winum) ;; window number
 (require 'init-spaceline)
 (require 'init-pomodoro)
 (require 'init-fci-mode) ;; fill-column-indicator 80
-;(require 'init-fold-this)
 (require 'init-smooth-scrolling)
 (require 'init-hlinum)
 
