@@ -40,15 +40,26 @@
  '(mode-line-inactive ((t (:box (:line-width 1 :color "#A1B57C")))))
  )
 
-;; https://github.com/domtronn/all-the-icons.el/issues/28
-;; (setq inhibit-compacting-font-caches t)
-
 (require 'spaceline-all-the-icons)
 (spaceline-all-the-icons-theme)
 (spaceline-all-the-icons--setup-neotree) ;; Enable Neotree mode line
+;; (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
+;; (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
+
+;; (spaceline-toggle-all-the-icons-buffer-position-on)
+;; (spaceline-toggle-all-the-icons-git-status-on)
+;; ;; (setq spaceline--info-nodes t)
+;; (setq spaceline-all-the-icons-hide-long-buffer-path t)
+
+;; (spaceline-toggle-all-the-icons-minor-modes)
+;; (setq spaceline-all-the-icons-minor-modes-p t)
 
 (defvar spaceline-all-the-icons-icon-set-window-numbering)
 (setq spaceline-all-the-icons-icon-set-window-numbering 'square )
+;;(spaceline-toggle-all-the-icons-minor-modes-on)
+
+;; https://github.com/domtronn/all-the-icons.el/issues/28
+;;(setq inhibit-compacting-font-caches t)
 
 (provide 'init-spaceline)
 ;;; init-spaceline.el ends here

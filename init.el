@@ -5,9 +5,6 @@
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
-
-(package-initialize)
-
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-elpa)
 (require 'init-flycheck)
@@ -51,7 +48,7 @@
 (require 'init-imenu-list)
 (require 'init-markdown)
 (require 'init-winum) ;; window number
-(require 'init-spaceline)
+;;(require 'init-spaceline)
 (require 'init-pomodoro)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-smooth-scrolling)

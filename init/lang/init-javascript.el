@@ -1,24 +1,6 @@
 ;;; init-javascript --- javascript
 ;;; Commentary:
-;;; sudo npm install tern js-beautify eslint -g
-;;; put .tern-project file in the same directory.
-;;; .tern-project:
-
-;; {
-;;      "libs": [
-;;      "browser",
-;;      "jquery"
-;;      ],
-;;      "loadEagerly": [
-;;      "importantfile.js"
-;;      ],
-;;      "plugins": {
-;;        "requirejs": {
-;;        "baseURL": "./",
-;;        "paths": {}
-;;        }
-;;      }
-;; }
+;;; npm install typescript
 
 ;;; Code:
 
@@ -26,10 +8,7 @@
 (defvar js-packages
   '(
     js2-mode
-    js2-highlight-vars
-    tern
-    company
-    company-tern
+    tide
     )
   )
 
@@ -43,27 +22,27 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (with-eval-after-load 'js2-mode
-  (with-eval-after-load 'company
-    (add-hook 'tern-mode-hook '(lambda()
-                                 (set (make-local-variable 'company-backends)'(company-tern))
-                                 (company-mode))))
-  (with-eval-after-load "js2-highlight-vars-autoloads"
-    '(add-hook 'js2-mode-hook (lambda ()
-                                (js2-highlight-vars-mode))))
-  
-  (add-hook 'js2-mode-hook 'tern-mode)
-  (add-hook 'js-mode-hook 'tern-mode)
-  (add-hook 'web-mode-hook 'tern-mode)
+  (add-hook 'js2-mode-hook #'setup-tide-mode)
+  ;; formats the buffer before saving
+  (add-hook 'before-save-hook 'tide-format-before-save)
 
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
+  ;; configure javascript-tide checker to run after your default javascript checker
+  ;(flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
   )
-
-;; 加快显示速度
-;; 把js2-highlight-vars.el文件中默认的0.5改小一点,然后M-x byte-compile-file
-;;(setq js2--highlight-vars-post-command-timer (run-with-timer 0.5 nil 'js2--do-highlight-vars))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
