@@ -11,11 +11,7 @@
     ace-jump-mode
     ))
 
-(require 'package)
-(dolist (package evil-packages)
-  (unless (package-installed-p package)
-    (package-refresh-contents)
-    (package-install package)))
+(my-install-packages evil-packages)
 
 (add-hook 'after-init-hook (lambda()
                              (evil-mode 1)

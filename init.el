@@ -5,6 +5,9 @@
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
+
+;;(package-initialize)
+
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-elpa)
 (require 'init-flycheck)
@@ -16,43 +19,49 @@
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
+
 (add-to-list 'load-path "~/myemacs/custom/")
+
 (require 'my-configs)
 ;(require 'my-mode-line)
 (require 'my-org)
 
-;;-------------------------------------------------------------
+;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
+
 (add-to-list 'load-path "~/myemacs/init/lang/")
-(require 'init-go)
-(require 'init-qml)
-(require 'init-javascript)
-(require 'init-python)
+
 (require 'init-web)
+;; (require 'init-go)
+;; (require 'init-qml)
+;(require 'init-javascript)
+;; (require 'init-python)
+;; (require 'init-markdown)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
+
 (add-to-list 'load-path "~/myemacs/init/utils/")
+
 (require 'init-material-theme)
 (require 'init-evil)
-(require 'init-which-key)
-(require 'init-projectile)
 (require 'init-helm)
-(require 'init-highlight-symbol)
-(require 'init-ace)
-(require 'init-yasnippet)
-(require 'init-ox-reveal)
-(require 'init-neotree)
-(require 'init-imenu-list)
-(require 'init-markdown)
+(require 'init-which-key)
 (require 'init-winum) ;; window number
-;;(require 'init-spaceline)
-(require 'init-pomodoro)
-(require 'init-fci-mode) ;; fill-column-indicator 80
+(require 'init-projectile)
+(require 'init-neotree)
 (require 'init-smooth-scrolling)
-(require 'init-hlinum)
+(require 'init-fci-mode) ;; fill-column-indicator 80
+;; (require 'init-highlight-symbol)
+;; (require 'init-ace)
+;; (require 'init-yasnippet)
+;; (require 'init-ox-reveal)
+;; (require 'init-imenu-list)
+;; ;;(require 'init-spaceline)
+;; (require 'init-pomodoro)
+;; (require 'init-hlinum)
 
 (provide 'init)
 ;;; init.el ends here

@@ -4,13 +4,10 @@
 
 (defvar helm-packages '(helm helm-ag))
 
-(require 'package)
-(dolist (package helm-packages)
-  (unless(package-installed-p package)
-    (package-refresh-contents)
-    (package-install package)))
+(my-install-packages helm-packages)
 
 (add-hook 'after-init-hook (lambda()(require 'helm-config)(helm-mode 1)))
+
 (with-eval-after-load 'helm
   (setq
    helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x

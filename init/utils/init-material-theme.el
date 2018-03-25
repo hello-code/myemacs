@@ -3,12 +3,7 @@
 ;;; https://github.com/cpaulik/emacs-material-theme
 ;;; Code:
 
-(require 'package)
-
-(unless (package-installed-p 'material-theme)
-  (package-refresh-contents)
-  (package-install 'material-theme)
-  )
+(require-package 'material-theme)
 
 (load-theme 'material t)
 ;;(set-face-attribute 'fringe nil :background "black")

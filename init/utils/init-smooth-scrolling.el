@@ -2,15 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
+(maybe-require-package 'smooth-scrolling)
 
-(unless (package-installed-p 'smooth-scrolling)
-    (package-refresh-contents)
-    (package-install 'smooth-scrolling))
-
-(require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
-(setq smooth-scroll-margin 3)
+
+(with-eval-after-load 'smooth-scrolling
+  (setq smooth-scroll-margin 3))
 
 (provide 'init-smooth-scrolling)
 ;;; init-smooth-scrolling.el ends here

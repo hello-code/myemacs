@@ -10,15 +10,7 @@
     )
   )
 
-;; fetch the list of packages available
-(require 'package)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; install the missing packages
-(dolist (package web-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
+(my-install-packages web-packages)
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))

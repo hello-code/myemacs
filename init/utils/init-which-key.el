@@ -3,12 +3,7 @@
 ;;; https://github.com/justbur/emacs-which-key#initial-setup
 ;;; Code:
 
-(require 'package)
-
-(unless (package-installed-p 'which-key)
-  (package-refresh-contents)
-  (package-install 'which-key)
-  )
+(require-package 'which-key)
 
 (require 'which-key)
 (which-key-mode)

@@ -8,6 +8,15 @@
 (prefer-coding-system 'chinese-gbk)
 (prefer-coding-system 'utf-8)
 
+(setq debug-on-error t)
+
+;; reduce the frequency of garbage collection by making it happen on
+;; each 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
+
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
+
 ;; turn off sound alarms
 (setq ring-bell-function 'ignore)
 
@@ -33,9 +42,9 @@
 (column-number-mode t)
 
 (global-hl-line-mode t)
-(set-face-background 'highlight "#454545") ;;#454545  dark green
-(set-face-foreground 'highlight nil)
-(set-face-underline 'highlight nil)
+;(set-face-background 'highlight "#454545") ;;#454545  dark green
+;(set-face-foreground 'highlight nil)
+;(set-face-underline 'highlight nil)
 
 ;; use space instead of tabs
 ;; If you really do that -- 'C-q <tab>' does the trick.

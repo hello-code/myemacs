@@ -2,11 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
-
-(unless (package-installed-p 'winum)
-  (package-refresh-contents)
-  (package-install 'winum))
+(require-package 'winum)
 
 (setq winum-keymap
       (let ((map (make-sparse-keymap)))
@@ -24,7 +20,7 @@
         map))
 
 (require 'winum)
-(setq winum-auto-setup-mode-line nil)
+;;(setq winum-auto-setup-mode-line nil)
 
 (defun winum-assign-9-to-calculator-8-to-flycheck-errors ()
   "Jump to flycheck errors list after it shown."
@@ -36,7 +32,7 @@
 ;; (when (string-match-p (buffer-name) ".*\\*NeoTree\\*.*") 10))
 
 (add-to-list 'winum-assign-functions #'winum-assign-9-to-calculator-8-to-flycheck-errors)
-                                        ;;(add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree)
+;;(add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree)
 
 (set-face-attribute 'winum-face nil :weight 'bold)
 
