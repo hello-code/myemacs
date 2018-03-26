@@ -2,16 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar md-packages
-  '(
-    markdown-mode
-    ))
-
-(require 'package)
-(dolist (package md-packages)
-  (unless (package-installed-p package)
-    (package-refresh-contents)
-    (package-install package)))
+(maybe-require-package 'markdown-mode)
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)

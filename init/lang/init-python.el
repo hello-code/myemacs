@@ -7,13 +7,7 @@
   '(elpy
     py-autopep8))
 
-(require 'package)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(dolist (package python-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
+(my-install-packages python-packages)
 
 ;; PYTHON CONFIGURATION
 ;; ------------------------------------------

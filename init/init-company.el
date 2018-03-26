@@ -7,7 +7,7 @@
   '(
     company
     company-quickhelp
-    diminish
+    pos-tip
     ))
 
 (my-install-packages company-packages)
@@ -15,7 +15,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'company
-  (diminish 'company-mode "CMP")
+  (company-quickhelp-mode)
   (setq company-idle-delay 0.01
         company-show-numbers t
         company-tooltip-limit 10
@@ -26,7 +26,10 @@
         company-tooltip-flip-when-above nil
         company-require-match nil
         company-quickhelp-max-lines 60
-        pos-tip-border-width 0)
+        company-quickhelp-delay 0.2
+        company-quickhelp-color-background "#78909C"
+        company-quickhelp-color-foreground "black"
+        pos-tip-border-width 1)
 
   (define-key company-mode-map (kbd "<C-tab>") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
@@ -36,9 +39,6 @@
 
   ;; disable company mode in shell mode
   (setq company-global-modes '(not shell-mode))
-
-  (with-eval-after-load 'company-quickhelp
-    (add-hook 'after-init-hook 'company-quickhelp-mode))
   )
 
 (provide 'init-company)

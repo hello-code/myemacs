@@ -13,16 +13,7 @@
     company-go
     ))
 
-;; fetch the list of packages available
-(require 'package)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; install the missing packages
-(dolist (package go-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
-
+(my-install-packages go-packages)
 
 ;;; go mode hook
 (defun my-go-mode-hook()

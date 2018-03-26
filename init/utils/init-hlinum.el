@@ -2,11 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
-
-(unless (package-installed-p 'hlinum)
-  (package-refresh-contents)
-  (package-install 'hlinum))
+(maybe-require-package 'hlinum)
 
 ;(require 'hlinum)
 (hlinum-activate)

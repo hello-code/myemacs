@@ -9,13 +9,7 @@
     company
     company-qml))
 
-(require 'package)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(dolist (package qml-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
+(my-install-packages qml-packages)
 
 (with-eval-after-load 'qml-mode
   (with-eval-after-load 'company

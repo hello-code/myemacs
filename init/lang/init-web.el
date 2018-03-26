@@ -7,6 +7,7 @@
   '(
     web-mode
     emmet-mode
+    rainbow-mode
     )
   )
 
@@ -26,6 +27,9 @@
 (add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
+
+(dolist (hook '(web-mode-hook html-mode-hook css-mode-hook))
+  (add-hook hook 'rainbow-mode))
 
 ;; Hooks for web mode
 (defun my-web-mode-hook()
