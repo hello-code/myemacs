@@ -60,7 +60,11 @@ locate PACKAGE."
 
 ;;; Fire up package.el
 (setq package-enable-at-startup nil)
-(package-initialize)
+
+(if (version< emacs-version "27.0")
+    (package-initialize)
+  (message "Your emacs version >= 27.0")
+  )
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here
