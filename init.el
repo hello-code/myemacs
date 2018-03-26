@@ -26,6 +26,7 @@
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
+(package-initialize)
 
 (add-to-list 'load-path "~/myemacs/init/")
 
@@ -75,6 +76,7 @@
 (require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-hlinum)
+(require 'init-rainbow)
 ;; (require 'init-highlight-symbol)
 ;; (require 'init-ace)
 ;; (require 'init-yasnippet)
