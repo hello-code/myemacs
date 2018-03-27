@@ -28,20 +28,20 @@
    "hs" 'highlight-symbol
    "hn" 'highlight-symbol-next
 
-   "ff" 'fold-this
-   "fs" 'fold-this-unfold-all
-   
+   ;; "ff" 'fold-this
+   ;; "fs" 'fold-this-unfold-all
+
    "p" 'projectile-command-map
    
    ;; 常用快捷键
-   "w" 'ace-window
-   "y" 'yas-global-mode
-   "n" 'neotree-toggle
-   ;;"p" 'neotree-project-dir-toggle
-   "s" 'scroll-restore-mode
-   
-   "l" 'helm-locate
+     
    "a" 'helm-do-ag
+   "f" 'flycheck-color-mode-line-mode
+   "l" 'helm-locate
+   "n" 'neotree-toggle
+   "s" 'scroll-restore-mode
+   "y" 'yas-global-mode
+   "w" 'ace-window
    )
   )
 

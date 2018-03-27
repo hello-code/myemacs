@@ -12,17 +12,17 @@
   '(
     flycheck
     flycheck-pos-tip
-    flycheck-color-mode-line
+    flycheck-color-mode-lineb
     ))
 
 (my-install-packages flycheck-packages)
 
-(add-hook 'after-init-hook 'global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'flycheck-color-mode-line)
 
 (with-eval-after-load "flycheck"
-  '(add-hook 'flycheck-mode-hook #'flycheck-color-mode-line-mode))
+  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here

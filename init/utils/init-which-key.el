@@ -15,16 +15,16 @@
 
 ;; 此处应与init-evil.el中的evil-leader对应
 (which-key-add-key-based-replacements
-  "SPC j" "jump to..."
-  "SPC h" "highlight symble"
-  "SPC w" "ace window"
-  "SPC p" "projectile"
-  "SPC y" "yasnippet"
-  "SPC f" "fold"
-  "SPC s" "scroll restore"
-  ;;"C-c !" "flycheck"
   "C-c C-a" "markdown-insert"
   "C-c C-c" "markdown"
+
+  "SPC h" "highlight symble"
+  "SPC j" "jump to..."
+  "SPC p" "projectile"
+  "SPC s" "scroll restore"
+  "SPC w" "ace window"
+  "SPC y" "yasnippet"
+  ;;"C-c !" "flycheck"
   )
 
 (provide 'init-which-key)
