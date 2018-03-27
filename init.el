@@ -83,7 +83,7 @@
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
 ;; ;;(require 'init-spaceline)
-;; (require 'init-pomodoro)
+(require 'init-pomodoro)
 
 (require 'init-dim) ;; change major/minor mode name
 (provide 'init)

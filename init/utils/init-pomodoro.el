@@ -2,38 +2,36 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
-(unless (package-installed-p 'pomodoro)
-  (package-refresh-contents)
-  (package-install 'pomodoro))
-
-;;(require 'pomodoro)
-(global-set-key "\M-p" 'pomodoro-start)
+(maybe-require-package 'pomodoro)
 
 (require 'pomodoro)
-(pomodoro-add-to-mode-line)
-(setq pomodoro-work-cycle "[W]") ;; 在状态栏显示的字符
-(setq pomodoro-work-break "[B]")
-;;  设置一个番茄时间的长度(默认25分钟)
-(setq pomodoro-work-time 25)
-;; 开始工作的音乐
-(setq pomodoro-work-start-sound "~/myemacs/resource/work.wav")
-(setq pomodoro-work-start-message "It's time to working!\n")
-;; 设置间隔休息时间(默认5分钟)
-(setq pomodoro-break-time 10)
-;; 开始休息的音乐
-(setq pomodoro-break-start-sound "~/myemacs/resource/rest.wav")
-(setq pomodoro-break-start-message
-      (concat "Have a rest - "
-              (number-to-string pomodoro-break-time) "minutes.\n"))
+(global-set-key "\M-p" 'pomodoro-start)
 
-;; Using 'play-sound-file' rather than 'call-process'.
-(if (eq system-type 'windows-nt)
-    (defun play-pomodoro-sound (sound)
-      "Overwrite function.Play SOUND file."
-      (play-sound-file sound)))
-;; In some reason will show --- Error running timer pomodoro-tick': (error "Unsupported WAV file format").
-;; So use default player:mplayer.
+(with-eval-after-load 'pomodoro
+  (pomodoro-add-to-mode-line)
+  (setq pomodoro-work-cycle "[W]") ;; 在状态栏显示的字符
+  (setq pomodoro-work-break "[B]")
+  ;;  设置一个番茄时间的长度(默认25分钟)
+  (setq pomodoro-work-time 25)
+  ;; 开始工作的音乐
+  (setq pomodoro-work-start-sound "~/myemacs/resource/work.wav")
+  (setq pomodoro-work-start-message "It's time to working!\n")
+  ;; 设置间隔休息时间(默认5分钟)
+  (setq pomodoro-break-time 10)
+  ;; 开始休息的音乐
+  (setq pomodoro-break-start-sound "~/myemacs/resource/rest.wav")
+  (setq pomodoro-break-start-message
+        (concat "Have a rest - "
+                (number-to-string pomodoro-break-time) "minutes.\n"))
+
+  ;; Using 'play-sound-file' rather than 'call-process'.
+  (if (eq system-type 'windows-nt)
+      (defun play-pomodoro-sound (sound)
+        "Overwrite function.Play SOUND file."
+        (play-sound-file sound)))
+  ;; In some reason will show --- Error running timer pomodoro-tick': (error "Unsupported WAV file format").
+  ;; So use default player:mplayer.
+  )
 
 (provide 'init-pomodoro)
 ;;; init-pomodoro.el ends here

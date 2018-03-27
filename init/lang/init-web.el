@@ -8,8 +8,7 @@
     web-mode
     emmet-mode
     rainbow-mode
-    )
-  )
+    ))
 
 (my-install-packages web-packages)
 
@@ -23,15 +22,7 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode));; golang
 
-(add-hook 'web-mode-hook 'my-web-mode-hook)
-(add-hook 'web-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook 'web-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-
-(dolist (hook '(web-mode-hook html-mode-hook css-mode-hook))
-  (add-hook hook 'rainbow-mode))
-
-;; Hooks for web mode
+;; Hooks for web mode configs
 (defun my-web-mode-hook()
   "Hooks for web mode."
   (setq web-mode-markup-indent-offset 2);; HTML offset indentation
@@ -47,10 +38,11 @@
 
   ;; Syntax Highlighting
   ;;Change face color
-  (set-face-attribute 'web-mode-folded-face nil :foreground "Pink3")
+  ;;(set-face-attribute 'web-mode-folded-face nil :foreground "Pink3")
 
   ;; CSS colorization
-  (setq web-mode-enable-css-colorization t)
+  ;; css use color name (red,yellow...) not working. rainbow-mode can work in html-mode.
+  ;; (setq web-mode-enable-css-colorization t)
   ;;Block face: can be used to set blocks background and default foreground (see web-mode-block-face)
   (setq web-mode-enable-block-face t)
   ;;Part face: can be used to set parts background and default foreground (see web-mode-script-face and web-mode-style-face which inheritate from web-mode-part-face)
@@ -68,7 +60,15 @@
   ;; You can also highlight the current column with
   (setq web-mode-enable-current-column-highlight t)
   )
+
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+(dolist (hook '(web-mode-hook html-mode-hook css-mode-hook))
+  (add-hook hook 'rainbow-mode))
+
+(add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook 'web-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
 
 (provide 'init-web)
 ;;; init-web.el ends here
