@@ -13,7 +13,7 @@
 ;; ------------------------------------------
 (elpy-enable)
 
-(setq elpy-modules (delp 'elpy-module-yasnippet))
+(setq elpy-modules (delq 'elpy-module-yasnippet elpy-modules))
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
