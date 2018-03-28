@@ -12,7 +12,7 @@
   '(
     flycheck
     flycheck-pos-tip
-    flycheck-color-mode-lineb
+    flycheck-color-mode-line
     ))
 
 (my-install-packages flycheck-packages)
