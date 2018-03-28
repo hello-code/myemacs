@@ -57,7 +57,7 @@
 (require 'init-javascript)
 (require 'init-go)
 (require 'init-qml)
-(require 'init-python)
+;(require 'init-python)
 (require 'init-markdown)
 
 ;;----------------------------------------------------------------------------
@@ -77,9 +77,9 @@
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-hlinum)
 (require 'init-rainbow)
+(require 'init-yasnippet)
 ;; (require 'init-highlight-symbol)
 ;; (require 'init-ace)
-;; (require 'init-yasnippet)
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
 ;; ;;(require 'init-spaceline)

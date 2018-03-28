@@ -2,13 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
+(maybe-require-package 'yasnippet)
+(maybe-require-package 'yasnippet-snippets)
 
-(unless (package-installed-p 'yasnippet)
-  (package-refresh-contents)
-  (package-install 'yasnippet))
+(setq yas-snippet-dirs
+      '(yasnippet-snippets-dir
+        "~/myemacs/snippets")
+      )
 
-;;(require 'yasnippet)
 
 ;;(yas-reload-all)
 ;;(add-hook 'prog-mode-hook #'yas-minor-mode)
