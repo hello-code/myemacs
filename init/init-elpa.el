@@ -7,7 +7,8 @@
 ;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 ;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-;; (add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
+
+(add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
 
 ;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 ;;                          ("melpa" . "http://elpa.emacs-china.org/melpa/")
@@ -16,9 +17,9 @@
 ;;; ===============================
 ;;; Tsinghua
 ;;; ===============================
-(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-                         ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+;;                          ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 
 

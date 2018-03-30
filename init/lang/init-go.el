@@ -31,8 +31,9 @@
   ;; |C-x <left>|'previous-buffer|default
   ;;(local-set-key (kbd "<f12>") 'godef-jump-other-window)
   (local-set-key (kbd "<f12>") 'godef-jump)
-  (local-set-key (kbd "M-/") 'pop-tag-mark)
-  
+  (local-set-key (kbd "S-<f12>") 'pop-tag-mark)
+  (local-set-key (kbd "M-.") 'godef-jump)
+  (local-set-key (kbd "M-,") 'pop-tag-mark)
   ;; removes all unused imports
   (local-set-key (kbd "C-c C-r")'go-remove-unused-imports)
   
