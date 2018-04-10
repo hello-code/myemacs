@@ -105,7 +105,8 @@
 (setq erc-prompt (lambda() (concat (buffer-name) ">")))
 
 ;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-chrome)
+;;(setq browse-url-browser-function 'browse-url-chrome)
+(setq browse-url-browser-function 'browse-url-default-browser)
 
 ;; add custom yasnippets dir in default dir
 (setq yas-snippet-dirs '("~/myemacs/snippets" yas-installed-snippets-dir))
