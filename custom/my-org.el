@@ -136,7 +136,8 @@
       (when (derived-mode-p 'org-agenda-mode)
         (org-agenda-maybe-redo)))))
 
-(add-hook 'org-after-todo-state-change-hook 'my-redo-all-agenda-buffers)
+;; Debugger entered--Lisp error: (wrong-type-argument stringp nil
+;;(add-hook 'org-after-todo-state-change-hook 'my-redo-all-agenda-buffers)
 
 ;; For org appointment reminders
 
