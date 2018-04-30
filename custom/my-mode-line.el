@@ -3,7 +3,7 @@
 ;;; Code:
 
 (setq-default mode-line-position
-	      '((-3 "%p")(size-indication-mode("/"(-4 "%I")))
+	      '((-3 "%p")(size-indication-mode("("(-4 "%I")")"))
 		" "
 		(line-number-mode ("%l" (column-number-mode ":%c")))
 		))
