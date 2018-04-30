@@ -9,7 +9,6 @@
     evil-leader
     evil
     ace-jump-mode
-    evil-org
     ))
 
 (my-install-packages evil-packages)
@@ -45,13 +44,6 @@
    "w" 'ace-window
    )
   )
-
-;; evil-org
-(require 'evil-org)
-(add-hook 'org-mode-hook 'evil-org-mode)
-(evil-org-set-key-theme '(navigation insert textobjects additional calendar))
-(require 'evil-org-agenda)
-(evil-org-agenda-set-keys)
 
 (provide 'init-evil)
 ;;; init-evil ends here
