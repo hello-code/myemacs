@@ -167,6 +167,10 @@
       kept-old-versions 2 ;; 保留最早的2个备份文件
       version-control t) ;; 多次备份
 
+;; 自动保存
+(setq-default auto-save-timeout 15) ; 15秒无动作,自动保存。
+(setq-default auto-save-interval 100) ; 100个字符间隔，自动保存。
+
 ;; 与系统共享剪贴板
 (setq select-enable-clipboard t)
 
