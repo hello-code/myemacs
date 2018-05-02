@@ -11,8 +11,7 @@
 ;; Agenda setup
 (setq org-agenda-files (list
                         "~/org"
-                        ;;"~/org/public"
-                        ;;"~/org/private"
+                        "~/org/archive"
                         ))
 
 (global-set-key (kbd "<f12>") 'org-agenda)
@@ -60,7 +59,9 @@
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file "~/org/refile.org")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "Journal" entry (file+datetree "~/org/diary.org")
+              ("d" "Diary" entry (file+datetree "~/org/diary.org")
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("w" "Work Log" entry (file+datetree "~/org/worklog.org")
                "* %?\n%U\n" :clock-in t :clock-resume t)
               ("m" "Meeting" entry (file "~/org/refile.org")
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
