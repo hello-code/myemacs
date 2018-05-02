@@ -47,5 +47,11 @@
 
 (winum-mode)
 
+(custom-set-faces
+ '(winum-face ((t (:background "gold"
+                               :foreground "black"
+                               :box (:line-width 1 :color "grey75")
+                               :weight bold))) t))
+
 (provide 'init-winum)
 ;;; init-winum.el ends here
