@@ -712,5 +712,17 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;; --------------------
 ;; end archive
 ;; --------------------
+
+;; collapse the current outline
+;; when the cursor in "Here is another line",press TAB the collapse ** Section A
+;; * First headline
+;; * Second headline
+;; ** Section A
+;;    Here is one line
+;;    Here is another line
+;;    blah, blah
+;; ** Section B
+(setq org-cycle-emulate-tab 'white)
+
 (provide 'my-org)
 ;;; my-org ends here
