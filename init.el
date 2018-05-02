@@ -46,7 +46,7 @@
 (add-to-list 'load-path "~/myemacs/custom/")
 
 (require 'my-configs)
-;(require 'my-mode-line)
+(require 'my-mode-line)
 (require 'my-org)
 
 ;;----------------------------------------------------------------------------
