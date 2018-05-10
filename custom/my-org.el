@@ -55,6 +55,8 @@
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/org/refile.org")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("p" "pause" entry (file "~/org/refile.org")
+               "* %? :PAUSE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("r" "respond" entry (file "~/org/refile.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file "~/org/refile.org")
@@ -157,8 +159,8 @@ Optionally, you can provide an ICON and a SOUND to be played."
                              (if icon (concat "-i " icon) "")
                              " '" title "' '" msg "' -t 30000"));持续显示30秒
     (message (concat title ": " msg)))
-  (when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
-  ;;(when sound (play-sound-file sound))
+  ;;(when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
+  (when sound (play-sound-file sound))
   )
 
 ;; our little façade-function for djcb-popup
