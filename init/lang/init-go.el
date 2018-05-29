@@ -18,7 +18,10 @@
 ;;; go mode hook
 (defun my-go-mode-hook()
   ;; don't call exec-path-from-shell function on windows
-  (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH"))
+
+  (cond ((not(eq system-type 'windows-nt))
+         (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH"))))
+
   ;; call Gofmt before saving
   ;; use goimports instead of go-fmt
   (setq gofmt-command "goimports")

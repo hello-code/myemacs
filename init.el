@@ -29,7 +29,6 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-
 (add-to-list 'load-path "~/myemacs/init/")
 
 (require 'init-elpa)
@@ -37,7 +36,7 @@
 (require 'init-company)
 ;; printf command not recognized
 ;; don't call exec-path-from-shell function on windows
-(require 'init-exec-path)
+(cond ((not(eq system-type 'windows-nt))(require 'init-exec-path)))
 
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
