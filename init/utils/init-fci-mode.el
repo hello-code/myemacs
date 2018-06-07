@@ -5,6 +5,7 @@
 
 (maybe-require-package 'fill-column-indicator)
 
+(setq fci-handle-truncate-lines nil)
 (add-hook 'prog-mode-hook 'fci-mode)
 
 (provide 'init-fci-mode)
