@@ -42,9 +42,9 @@
 (column-number-mode t)
 
 (global-hl-line-mode t)
-;(set-face-background 'highlight "#454545") ;;#454545  dark green
-;(set-face-foreground 'highlight nil)
-;(set-face-underline 'highlight nil)
+;;(set-face-background 'highlight "#454545") ;;#454545  dark green
+;;(set-face-foreground 'highlight nil)
+;;(set-face-underline 'highlight nil)
 
 ;; use space instead of tabs
 ;; If you really do that -- 'C-q <tab>' does the trick.
@@ -180,6 +180,12 @@
   (local-set-key (kbd "<f5>") 'eval-last-sexp))
 (add-hook 'lisp-mode-hook 'my-lisp-mode-hook)
 (add-hook 'lisp-interaction-mode-hook 'my-lisp-mode-hook)
+
+;; (defun my-truncate-lines()
+;;   (setq truncate-lines nil))
+;;(add-hook 'debugger-mode-hook 'my-truncate-lines)
+
+(add-hook 'debugger-mode-hook (lambda()(setq truncate-lines nil)))
 
 (provide 'my-configs)
 ;;; my-configs.el ends here
