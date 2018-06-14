@@ -14,7 +14,7 @@
                         "~/org/archive"
                         ))
 
-(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "C-c a") 'org-agenda) ;; kbd <f12>
 
 ;; TODO keyword
 (setq org-todo-keywords
@@ -57,8 +57,8 @@
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
               ("p" "pause" entry (file "~/org/refile.org")
                "* %? :PAUSE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("r" "respond" entry (file "~/org/refile.org")
-               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("r" "reference" entry (file "~/org/reference.org")
+               "* %? \n%U\n%a\n")
               ("n" "note" entry (file "~/org/refile.org")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("d" "Diary" entry (file+datetree "~/org/diary.org")
