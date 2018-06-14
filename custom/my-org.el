@@ -14,7 +14,7 @@
                         "~/org/archive"
                         ))
 
-(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "C-c a") 'org-agenda) ;; kbd <f12>
 
 ;; TODO keyword
 (setq org-todo-keywords
