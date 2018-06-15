@@ -1,5 +1,6 @@
 ;;; init-hlinum --- highlight line number
 ;;; Commentary:
+;;; https://github.com/tom-tan/hlinum-mode
 ;;; Code:
 
 (maybe-require-package 'hlinum)
@@ -10,7 +11,7 @@
 (with-eval-after-load 'hlinum
   (setq linum-highlight-in-all-buffersp t)
   (custom-set-faces
-   '(linum-highlight-face ((t (:background "#37474f" :foreground "orange" :weight bold))))))
+   '(linum-highlight-face ((t (:background "orange" :foreground "black" :weight bold))))))
 
 (provide 'init-hlinum)
 ;;; init-hlinum.el ends here

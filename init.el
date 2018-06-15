@@ -79,7 +79,7 @@
 (require 'init-hlinum)
 (require 'init-rainbow)
 (require 'init-yasnippet)
-;; (require 'init-highlight-symbol)
+(require 'init-highlight-symbol)
 ;; (require 'init-ace)
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)

@@ -4,12 +4,10 @@
 
 ;;; Code:
 
-(require 'package)
+(maybe-require-package 'highlight-symbol)
 
-(unless (package-installed-p 'highlight-symbol)
-  (package-install 'highlight-symbol))
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
-(require 'highlight-symbol)
 (with-eval-after-load 'highlight-symbol
   (setq highlight-symbol-idle-delay 0.2)
   (setq highlight-symbol-highlight-single-occurrence nil)
