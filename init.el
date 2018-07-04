@@ -80,6 +80,7 @@
 (require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-highlight-symbol)
+(require 'init-fold-this)
 ;; (require 'init-ace)
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
