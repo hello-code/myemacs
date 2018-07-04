@@ -173,6 +173,7 @@
 
 ;; 与系统共享剪贴板
 (setq select-enable-clipboard t)
+(setq select-enable-primary t)
 
 ;; binding f5 for eval last sexp
 ;; C-x C-e (eval-last-sexp)
