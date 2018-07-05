@@ -8,11 +8,15 @@
                 (line-number-mode ("%l" (column-number-mode ":%c")))
                 ))
 
+;;(set-face-attribute 'modeline-buffer-id nil :foreground "orange")
+
 (custom-set-faces
  '(mode-line
-   ((t (:background "#1c1f26" :foreground "#ffffff" :box (:line-width 1 :color "#4b82f0")))))
+   ;;((t (:background "#1c1f26" :foreground "#ffffff" :box (:line-width 1 :color "#4b82f0")))))
+   ((t (:background "#1c1f26" :foreground "#ffffff" :box (:line-width 1 :color "dark gray")))))
  '(mode-line-inactive
    ((t ( :foreground "gray80" :background "gray40" :box '(:line-width 1 :color "#A1B57C" :style nil)))))
+ '(mode-line-buffer-id ((t (:foreground "red" :weight bold))))
  )
 
 ;; ;; 只有<N> <E> <I>... 等有颜色a
@@ -33,9 +37,10 @@
     (add-hook 'post-command-hook
               (lambda ()
                 (let ((color (cond ((minibufferp) default-color)
-                                   ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+                                   ((evil-insert-state-p) '("#ffec8b" . "black"))
                                    ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
-                                   ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                                   ;;((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                                   ((buffer-modified-p)   '("orange" . "black"))
                                    (t default-color))))
                   (set-face-background 'mode-line (car color))
                   (set-face-foreground 'mode-line (cdr color)))))))
