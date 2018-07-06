@@ -17,12 +17,18 @@
 
 (my-install-packages flycheck-packages)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
 
-(require 'flycheck-color-mode-line)
+;;(require 'flycheck-color-mode-line)
 
-(with-eval-after-load "flycheck"
-  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+;; (with-eval-after-load "flycheck"
+;;   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
+(global-flycheck-mode)
+(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
+
+(custom-set-faces
+ ;;'(linum-highlight-face ((t (:background "#37474f" :foreground "orange" :weight bold))))
+ )
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
