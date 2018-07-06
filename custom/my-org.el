@@ -48,6 +48,41 @@
 
 (setq org-default-notes-file "~/org/refile.org")
 
+;; Tag tasks with GTD-ish contexts
+(setq org-tag-alist '(("@habit" . ?h)
+                      ("@project" . ?p)
+                      ("@work" . ?w)
+                      ("@bug" . ?b)))
+(setq org-tag-faces
+      (quote (("@habit" :foreground "red" :background "yellow")
+              ("@project" :foreground "white" :background "blue")
+              ("@work" :foreground "black" :background "red")
+              ("@bug" :foreground "yellow" :background "red")
+
+              )))
+
+;; ;; Color tags based on regex
+;; ;; https://stackoverflow.com/questions/40876294/color-tags-based-on-regex-emacs-org-mode
+;; (add-to-list 'org-tag-faces '("@.*" . (:foreground "cyan")))
+;; (add-to-list 'org-tag-faces '("qa" . (:foreground "red" :background "yellow")))
+;; (add-to-list 'org-tag-faces '("project" . (:foreground "yellow" :background "red")))
+
+;; ;; Reset the global variable to nil, just in case org-mode has already beeen used.
+;; (when org-tags-special-faces-re
+;;   (setq org-tags-special-faces-re nil))
+
+;; (defun org-get-tag-face (kwd)
+;;   "Get the right face for a TODO keyword KWD.
+;; If KWD is a number, get the corresponding match group."
+;;   (if (numberp kwd) (setq kwd (match-string kwd)))
+;;   (let ((special-tag-face (or (cdr (assoc kwd org-tag-faces))
+;;                               (and (string-match "^@.*" kwd) (cdr (assoc "@.*" org-tag-faces)))
+;;                               (and (string-match "qa" kwd) (cdr (assoc "qa" org-tag-faces)))
+;;                               (and (string-match "project" kwd) (cdr (assoc "project" org-tag-faces)))
+;;                               )))
+;;     (or (org-face-from-face-or-color 'tag 'org-tag special-tag-face)
+;;         'org-tag)))
+
 ;; ===================================================================
 ;; Capture
 ;; ===================================================================
@@ -281,6 +316,25 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
                        (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                        (org-tags-match-list-sublevels nil))))
                nil))))
+
+;; color file name in agenda view
+(add-hook 'org-finalize-agenda-hook
+          (lambda ()
+            (org-agenda-color-category "todo:" "teal" "white")
+            (org-agenda-color-category "project:" "gold" "black")
+            (org-agenda-color-category "refile:" "red" "black")
+            
+            ))
+
+(defun org-agenda-color-category (category backcolor forecolor)
+  "color agenda header."
+  (let ((re (rx-to-string `(seq bol (0+ space) ,category (1+ space)))))
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward re nil t)
+        (add-text-properties (match-beginning 0) (match-end 0)
+                             (list 'face (list :background backcolor :foreground forecolor)))))))
+
 ;; --------------------
 ;; end custom agenda views
 ;; --------------------
