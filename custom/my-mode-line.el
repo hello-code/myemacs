@@ -16,7 +16,8 @@
    ((t (:background "#1c1f26" :foreground "#ffffff" :box (:line-width 1 :color "dark gray")))))
  '(mode-line-inactive
    ((t ( :foreground "gray80" :background "gray40" :box '(:line-width 1 :color "#A1B57C" :style nil)))))
- '(mode-line-buffer-id ((t (:foreground "red" :weight bold))))
+ ;; 文件名
+ '(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
  )
 
 ;; ;; 只有<N> <E> <I>... 等有颜色a
