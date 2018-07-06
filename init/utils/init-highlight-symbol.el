@@ -6,6 +6,7 @@
 
 (maybe-require-package 'highlight-symbol)
 
+(require 'highlight-symbol)
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
 (with-eval-after-load 'highlight-symbol
