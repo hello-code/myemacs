@@ -81,7 +81,7 @@
 (require 'init-yasnippet)
 (require 'init-highlight-symbol)
 (require 'init-fold-this)
-;; (require 'init-ace)
+(require 'init-avy)
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
 ;; ;;(require 'init-spaceline)

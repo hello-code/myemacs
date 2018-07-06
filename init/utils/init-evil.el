@@ -8,7 +8,6 @@
   '(
     evil-leader
     evil
-    ace-jump-mode
     ))
 
 (my-install-packages evil-packages)
@@ -20,16 +19,9 @@
 (with-eval-after-load 'evil-leader
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
-    "jw" 'ace-jump-word-mode
-    "jc" 'ace-jump-char-mode
-    "jl" 'ace-jump-line-mode
-
     "hh" 'highlight-symbol-mode
     "hs" 'highlight-symbol
     "hn" 'highlight-symbol-next
-
-    ;; "ff" 'fold-this
-    ;; "fs" 'fold-this-unfold-all
 
     "p" 'projectile-command-map
     
