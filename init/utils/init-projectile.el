@@ -4,7 +4,7 @@
 
 (maybe-require-package 'projectile)
 
-(projectile-global-mode)
+(projectile-mode)
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
