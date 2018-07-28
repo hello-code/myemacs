@@ -28,7 +28,7 @@
     ;; 常用快捷键
     
     "a" 'helm-do-ag
-    "f" 'flycheck-color-mode-line-mode
+    ;;"f" 'flycheck-color-mode-line-mode
     "l" 'helm-locate
     "n" 'neotree-toggle
     "s" 'scroll-restore-mode
