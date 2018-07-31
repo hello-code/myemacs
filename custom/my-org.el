@@ -778,7 +778,7 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;;    Here is another line
 ;;    blah, blah
 ;; ** Section B
-(setq org-cycle-emulate-tab 'white)
+;;(setq org-cycle-emulate-tab 'white)
 
 (provide 'my-org)
 ;;; my-org ends here
