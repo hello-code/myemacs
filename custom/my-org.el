@@ -52,6 +52,7 @@
 (setq org-tag-alist '(("@habit" . ?h)
                       ("@project" . ?p)
                       ("@work" . ?w)
+                      ("@reading" . ?r)
                       ("@bug" . ?b)))
 (setq org-tag-faces
       (quote (("@habit" :foreground "red" :background "yellow")
@@ -778,7 +779,7 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;;    Here is another line
 ;;    blah, blah
 ;; ** Section B
-;;(setq org-cycle-emulate-tab 'white)
+;; (setq org-cycle-emulate-tab 'white)
 
 (provide 'my-org)
 ;;; my-org ends here
