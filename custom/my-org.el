@@ -321,9 +321,9 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
 ;; color file name in agenda view
 (add-hook 'org-finalize-agenda-hook
           (lambda ()
-            (org-agenda-color-category "todo:" "#436eee" "white")
-            (org-agenda-color-category "project:" "gold" "black")
-            (org-agenda-color-category "refile:" "red" "black")
+            (org-agenda-color-category "todo:" "wheat1" "black")
+            (org-agenda-color-category "project:" "SeaGreen1" "black")
+            (org-agenda-color-category "refile:" "yellow" "black")
             
             ))
 
