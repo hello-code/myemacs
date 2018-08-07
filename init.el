@@ -58,7 +58,7 @@
 (require 'init-javascript)
 (require 'init-go)
 (require 'init-qml)
-;(require 'init-python)
+(require 'init-python)
 (require 'init-markdown)
 
 ;;----------------------------------------------------------------------------
