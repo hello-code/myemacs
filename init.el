@@ -45,7 +45,7 @@
 (add-to-list 'load-path "~/myemacs/custom/")
 
 (require 'my-configs)
-(require 'my-mode-line)
+;; (require 'my-mode-line)
 (require 'my-org)
 
 ;;----------------------------------------------------------------------------
@@ -67,7 +67,7 @@
 
 (add-to-list 'load-path "~/myemacs/init/utils/")
 
-(require 'init-material-theme)
+(require 'init-spacemacs-theme)
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-which-key)
@@ -82,9 +82,9 @@
 (require 'init-highlight-symbol)
 (require 'init-fold-this)
 (require 'init-avy)
+(require 'init-spaceline)
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
-;; ;;(require 'init-spaceline)
 (require 'init-pomodoro)
 
 (require 'init-dim) ;; change major/minor mode name
