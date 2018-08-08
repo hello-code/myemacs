@@ -74,6 +74,7 @@ is considered to be a project root."
 ;; ;; -----------------------------------------------------
 ;; ;; virtualenv: pip install 'python-language-server[all]'
 ;; ;; source bin/activate then emacs yourfile.py
+;; ;; disable fci-mode
 
 ;; ;; list packages for python
 ;; (defvar python-packages
