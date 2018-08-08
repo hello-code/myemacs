@@ -1,6 +1,7 @@
 ;;; init-flycheck.el --- flycheck
 ;;; Commentary:
 ;;; https://github.com/flycheck/flycheck-color-mode-line
+;;; https://github.com/flycheck/flycheck-pos-tip
 ;;; Code:
 
 ;;; Flycheck does not use load-path when checking Emacs Lisp files. Instead,
@@ -30,5 +31,9 @@
 (custom-set-faces
  ;;'(linum-highlight-face ((t (:background "#37474f" :foreground "orange" :weight bold))))
  )
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here

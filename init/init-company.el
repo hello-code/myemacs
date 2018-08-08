@@ -27,18 +27,23 @@
         company-require-match nil
         company-quickhelp-max-lines 60
         company-quickhelp-delay 0.2
-        company-quickhelp-color-background "#78909C"
-        company-quickhelp-color-foreground "black"
+        ;; company-quickhelp-color-background "#78909C"
+        ;; company-quickhelp-color-foreground "black"
         pos-tip-border-width 1)
 
   (define-key company-mode-map (kbd "<C-tab>") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
 
   (global-set-key (kbd "<C-tab>") 'company-complete)
 
   ;; disable company mode in shell mode
   (setq company-global-modes '(not shell-mode))
+
+  ;; company-quickhelp color
+  ;; (setq pos-tip-foreground-color "yellow"
+  ;;       pos-tip-background-color "red")
   )
 
 (provide 'init-company)
