@@ -128,6 +128,13 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'over80characters)
 
+;; tooltip
+(setq x-gtk-use-system-tooltips nil)
+(custom-set-faces
+ '(tooltip ((t (:background "#3c3c3c" :foreground "white"
+                            :underline nil :slant normal :weight bold
+                            :family "DejaVu Sans Mono")))))
+
 ;; fonts
 (cond
  ((eq system-type 'windows-nt)
