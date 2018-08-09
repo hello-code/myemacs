@@ -15,6 +15,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'company
+  (custom-set-faces
+   '(company-tooltip ((t (:background "#3c3c3c" :foreground "white")))))
+
   (company-quickhelp-mode)
   (setq company-idle-delay 0.01
         company-show-numbers t
@@ -27,8 +30,8 @@
         company-require-match nil
         company-quickhelp-max-lines 60
         company-quickhelp-delay 0.2
-        ;; company-quickhelp-color-background "#78909C"
-        ;; company-quickhelp-color-foreground "black"
+        company-quickhelp-color-background "#3c3c3c"
+        company-quickhelp-color-foreground "white"
         pos-tip-border-width 1)
 
   (define-key company-mode-map (kbd "<C-tab>") 'company-complete)
@@ -41,9 +44,9 @@
   ;; disable company mode in shell mode
   (setq company-global-modes '(not shell-mode))
 
-  ;; company-quickhelp color
-  ;; (setq pos-tip-foreground-color "yellow"
-  ;;       pos-tip-background-color "red")
+  ;; ;; company-quickhelp color
+  ;; (setq pos-tip-foreground-color "white"
+  ;;       pos-tip-background-color "#3c3c3c")
   )
 
 (provide 'init-company)

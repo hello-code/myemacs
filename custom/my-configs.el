@@ -130,25 +130,25 @@
 
 ;; tooltip
 (setq x-gtk-use-system-tooltips nil)
-(custom-set-faces
- '(tooltip ((t (:background "#3c3c3c" :foreground "white"
-                            :underline nil :slant normal :weight bold
-                            :family "DejaVu Sans Mono")))))
+;; (custom-set-faces
+;;  '(tooltip ((t (:background "#3c3c3c" :foreground "white"
+;;                             :underline nil :slant normal :weight bold
+;;                             :family "DejaVu Sans Mono")))))
 
-;; fonts
-(cond
- ((eq system-type 'windows-nt)
-  (set-frame-font "Consolas-11")
-  (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
-  (add-to-list 'default-frame-alist '(font . "Consolas-11"))
-  )
- ((eq system-type 'gnu/linux)
-  (set-frame-font "DejaVu Sans Mono-11") ;; 10.5
-  (set-fontset-font "fontset-default" 'unicode "Noto Sans CJK SC")
-  ;;(set-fontset-font "fontset-default" 'unicode "WenQuanYi Bitmap Song 11")
-  (setq face-font-rescale-alist '(("Noto Sans CJK SC" . 1.18)))
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))
-  ))
+;; ;; fonts (confilct with tooltip(company-quickhelp))
+;; (cond
+;;  ((eq system-type 'windows-nt)
+;;   (set-frame-font "Consolas-11")
+;;   (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
+;;   (add-to-list 'default-frame-alist '(font . "Consolas-11"))
+;;   )
+;;  ((eq system-type 'gnu/linux)
+;;   (set-frame-font "DejaVu Sans Mono-11") ;; 10.5
+;;   (set-fontset-font "fontset-default" 'unicode "Noto Sans CJK SC")
+;;   ;;(set-fontset-font "fontset-default" 'unicode "WenQuanYi Bitmap Song 11")
+;;   (setq face-font-rescale-alist '(("Noto Sans CJK SC" . 1.18)))
+;;   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))
+;;   ))
 
 ;; mouse wheel font size
 (cond
