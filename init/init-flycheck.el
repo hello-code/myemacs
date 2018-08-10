@@ -33,7 +33,8 @@
  )
 
 (with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+  (flycheck-pos-tip-mode)
+  (setq flycheck-pos-tip-timeout 10))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
