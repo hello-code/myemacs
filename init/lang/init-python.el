@@ -3,6 +3,7 @@
 ;;; https://github.com/jorgenschaefer/elpy
 ;;; https://github.com/porterjamesj/virtualenvwrapper.el
 ;;; Code:
+;;; pip install jedi flake8 autopep8 yapf
 
 ;; list packages for python
 (defvar python-packages
