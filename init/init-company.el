@@ -42,7 +42,7 @@
   (global-set-key (kbd "<C-tab>") 'company-complete)
 
   ;; disable company mode in shell mode
-  (setq company-global-modes '(not shell-mode))
+  (setq company-global-modes '(not shell-mode eshell-mode))
 
   ;; ;; company-quickhelp color
   ;; (setq pos-tip-foreground-color "white"
