@@ -49,15 +49,15 @@
 (setq org-default-notes-file "~/org/refile.org")
 
 ;; Tag tasks with GTD-ish contexts
-(setq org-tag-alist '(("@habit" . ?h)
+(setq org-tag-alist '(("@office" . ?o)
+                      ("@home" . ?h)
                       ("@project" . ?p)
-                      ("@work" . ?w)
                       ("@reading" . ?r)
                       ("@bug" . ?b)))
 (setq org-tag-faces
-      (quote (("@habit" :foreground "red" :background "yellow")
+      (quote (("@office" :foreground "red" :background "yellow")
+              ("@home" :foreground "black" :background "red")
               ("@project" :foreground "white" :background "blue")
-              ("@work" :foreground "black" :background "red")
               ("@bug" :foreground "yellow" :background "red")
 
               )))
