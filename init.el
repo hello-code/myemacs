@@ -23,6 +23,19 @@
 ;; moved to the early init file (see above).
 
 ;; put (package-initialize) in "~/.emacs.d/early-init.el"
+
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+;; Make startup faster by reducing the frequency of garbage
+;; collection.  The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
@@ -86,8 +99,8 @@
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
 (require 'init-pomodoro)
-
 (require 'init-dim) ;; change major/minor mode name
+
 (provide 'init)
 ;;; init.el ends here
 
