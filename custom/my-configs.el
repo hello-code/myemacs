@@ -104,9 +104,6 @@
 ;;(setq browse-url-browser-function 'browse-url-chrome)
 (setq browse-url-browser-function 'browse-url-default-browser)
 
-;; add custom yasnippets dir in default dir
-(setq yas-snippet-dirs '("~/myemacs/snippets" yas-installed-snippets-dir))
-
 ;;; open file in browser
 (defun open-in-browser()
   "Open current buffer in browser."

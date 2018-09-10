@@ -36,6 +36,29 @@
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
 
+;; Update package-archive lists
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ("org" . "http://elpa.emacs-china.org/org/")))
+
+(package-initialize)
+
+;; Install 'use-package' if necessary
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Enable use-package
+(eval-when-compile
+  (require 'use-package))
+
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
@@ -43,36 +66,33 @@
   (package-initialize))
 
 (add-to-list 'load-path "~/myemacs/init/")
-
-(require 'init-elpa)
-(require 'init-flycheck)
 (require 'init-company)
+(require 'init-flycheck)
+
 ;; printf command not recognized
 ;; don't call exec-path-from-shell function on windows
-(cond ((not(eq system-type 'windows-nt))(require 'init-exec-path)))
+;;(cond ((not(eq system-type 'windows-nt))(require 'init-exec-path)))
 
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
 
 (add-to-list 'load-path "~/myemacs/custom/")
-
 (require 'my-configs)
-;; (require 'my-mode-line)
 (require 'my-org)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 
-(add-to-list 'load-path "~/myemacs/init/lang/")
+;;(add-to-list 'load-path "~/myemacs/init/lang/")
 
-(require 'init-web)
-(require 'init-javascript)
-(require 'init-go)
-(require 'init-qml)
-(require 'init-python)
-(require 'init-markdown)
+;; (require 'init-web)
+;; (require 'init-javascript)
+;; (require 'init-go)
+;; (require 'init-qml)
+;; (require 'init-python)
+;; (require 'init-markdown)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
@@ -81,25 +101,28 @@
 (add-to-list 'load-path "~/myemacs/init/utils/")
 
 (require 'init-spacemacs-theme)
-(require 'init-evil)
-(require 'init-helm)
-(require 'init-which-key)
-(require 'init-winum) ;; window number
-(require 'init-projectile)
-(require 'init-neotree)
-(require 'init-smooth-scrolling)
-(require 'init-fci-mode) ;; fill-column-indicator 80
-(require 'init-hlinum)
-(require 'init-rainbow)
-(require 'init-yasnippet)
-(require 'init-highlight-symbol)
-(require 'init-fold-this)
-(require 'init-avy)
 (require 'init-spaceline)
-;; (require 'init-ox-reveal)
-;; (require 'init-imenu-list)
-(require 'init-pomodoro)
-(require 'init-dim) ;; change major/minor mode name
+(require 'init-which-key)
+(require 'init-ivy)
+
+;; (require 'init-evil)
+;; (require 'init-helm)
+;; (require 'init-winum) ;; window number
+;; (require 'init-projectile)
+;; (require 'init-neotree)
+;; (require 'init-smooth-scrolling)
+;; (require 'init-fci-mode) ;; fill-column-indicator 80
+;; (require 'init-hlinum)
+;; (require 'init-rainbow)
+;; (require 'init-yasnippet)
+;; (require 'init-highlight-symbol)
+;; (require 'init-fold-this)
+;; (require 'init-avy)
+
+;; ;; (require 'init-ox-reveal)
+;; ;; (require 'init-imenu-list)
+;; (require 'init-pomodoro)
+;; (require 'init-dim) ;; change major/minor mode name
 
 (provide 'init)
 ;;; init.el ends here

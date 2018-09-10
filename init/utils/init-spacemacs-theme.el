@@ -3,9 +3,10 @@
 ;;; https://github.com/nashamri/spacemacs-theme
 ;;; Code:
 
-(require-package 'spacemacs-theme)
-
-(load-theme 'spacemacs-dark t)
+(use-package spacemacs-common
+  :ensure spacemacs-theme
+  :config(load-theme 'spacemacs-dark t)
+  )
 
 (provide 'init-spacemacs-theme)
 ;;; init-spacemacs-theme ends here

@@ -3,21 +3,19 @@
 ;;; https://github.com/TheBB/spaceline
 ;;; Code:
 
-(defvar spaceline-packages
-  '(spaceline
-    ;; all-the-icons
-    ;; spaceline-all-the-icons
-    ))
-
-(my-install-packages spaceline-packages)
-
-(require 'spaceline-config)
-(spaceline-emacs-theme)
-(setq-default powerline-default-separator 'slant)
-(spaceline-compile)
-(setq powerline-text-scale-factor 1.0) ;; mode line font size
-(setq spaceline-window-numbers-unicode t) ;; show number on mode line
-(setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
+(use-package spaceline
+  :ensure t
+  :init
+  (require 'spaceline-config)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
+  (setq-default powerline-default-separator 'slant)
+  ;; (spaceline-compile)
+  ;; (setq powerline-text-scale-factor 1.0) ;; mode line font size
+  (setq spaceline-window-numbers-unicode t) ;; show number on mode line
+  
+  :config
+  (spaceline-emacs-theme)
+  )
 
 ;;; faces
 ;; Active faces
