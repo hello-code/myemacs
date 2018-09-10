@@ -16,9 +16,11 @@
 
 ;; PYTHON CONFIGURATION
 ;; ------------------------------------------
-(elpy-enable)
-
+(require 'elpy)
+;; remove yasnippet before elpy-enable
 (setq elpy-modules (delq 'elpy-module-yasnippet elpy-modules))
+
+(elpy-enable)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
