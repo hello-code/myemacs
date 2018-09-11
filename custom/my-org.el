@@ -9,7 +9,15 @@
   ;; :defer 1
   :commands (org-agenda org-capture)
   :bind(("C-c a" . org-agenda)
-        ("C-c c" . org-capture))
+        ("C-c c" . org-capture)
+        :map org-mode-map
+        ("C-c i" . org-clock-in)
+        ("C-c o" . org-clock-out)
+        )
+  :hook
+  ((org-agenda-mode-hook . org-agenda-to-appt)
+   (org-mode-hook . my/org-mode-hook)
+   )
   
   :config
   ;; Agenda setup
@@ -143,101 +151,6 @@
   ;; end refile
   ;; --------------------
 
-  ;; 保存时“格式化”文件内容
-  ;; (add-hook 'before-save-hook '(lambda()
-  ;;                                (when (eq major-mode 'org-mode)
-  ;;                                  (indent-region (point-min)(point-max)))))
-
-;;; auto rebuild agenda buffer
-  ;; http://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
-  (defun my-redo-all-agenda-buffers ()
-    "Rebuild agenda buffer."
-    (interactive)
-    (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-        (when (derived-mode-p 'org-agenda-mode)
-          (org-agenda-maybe-redo)))))
-
-  ;; Debugger entered--Lisp error: (wrong-type-argument stringp nil
-  ;;(add-hook 'org-after-todo-state-change-hook 'my-redo-all-agenda-buffers)
-
-  ;; For org appointment reminders
-
-  ;; (defadvice  org-agenda-redo (after org-agenda-redo-add-appts)
-  ;;   "Pressing `r' on the agenda will also add appointments."
-  ;;   (progn
-  ;;     (setq appt-time-msg-list nil)
-  ;;     (org-agenda-to-appt)))
-
-  ;; (ad-activate 'org-agenda-redo)
-
-  ;;(add-hook 'after-save-hook 'org-agenda-to-appt)
-  ;; Hook run just before displaying an agenda buffer.
-  ;;(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt
-
-  (add-hook 'org-agenda-mode-hook 'org-agenda-to-appt)
-
-  (setq
-   appt-message-warning-time 2  ;提前2分钟提醒
-   appt-display-interval 1      ;每过1分钟提醒一次
-   ;;appt-display-duration 20   ;这里已经被notify-send接管了，所以此处持续时间无效。
-   appt-display-mode-line t     ;; show in the modeline
-   appt-display-format 'window) ;; use our func
-
-  (appt-activate 1)             ;; active appt (appointment notification)
-  (display-time)                ;; time display is required for this...
-
-  ;; 提醒
-  (defun djcb-popup (title msg &optional icon sound)
-    "Show a popup if we're on X,or echo it otherwise.
-TITLE is the title of the message,
-MSG is the context.
-Optionally, you can provide an ICON and a SOUND to be played."
-    (interactive)
-    (if (eq window-system 'x)
-        (shell-command (concat "notify-send "
-                               (if icon (concat "-i " icon) "")
-                               " '" title "' '" msg "' -t 30000"));持续显示30秒
-      (message (concat title ": " msg)))
-    ;;(when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
-    (when sound (play-sound-file sound))
-    )
-
-  ;; our little façade-function for djcb-popup
-  (defun djcb-appt-display (min-to-app new-time msg)
-    "Display pop window's icon and sound.
-MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
-    (djcb-popup (format "Appointment in %s minute(s)" min-to-app) msg
-                ;; display pop window
-                "~/myemacs/resource/info_org.png"
-                "~/myemacs/resource/ring.wav"))
-
-  (setq appt-disp-window-function (function djcb-appt-display))
-
-  ;; overwrite built-in function
-  ;;(proviError running timer appt-delete-window':
-  ;;    (error "No buffer named *appt-buf*")de 'init-org)
-  (defun appt-delete-window () "Nothing.Overwrite built-in function." )
-
-  ;; org-level headers font size
-  (defun my/org-mode-hook ()
-    "Stop the org-level headers from increasing in height relative to the other text."
-    (dolist (face '(org-level-1
-                    org-level-2
-                    org-level-3
-                    org-level-4
-                    org-level-5))
-      (set-face-attribute face nil :weight 'semi-bold :height 1.0))
-    ;; use english language
-    (setq system-time-locale "C")
-    )
-
-  (add-hook 'org-mode-hook 'my/org-mode-hook)
-
-  ;; Habit tracing
-  ;; 1. customize-variables RET org-modules RET habit
-  (setq org-habit-graph-column 60)
-  ;;(setq org-habit-show-habits-only-for-today nil)
 
   ;; ===================================================================
   ;; Custom agenda views
@@ -350,10 +263,6 @@ MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
   ;; Removes clocked tasks with 0:00 duration
   (setq org-clock-out-remove-zero-time-clocks t)
 
-  ;; 只在org模式中绑定该快捷键
-  (define-key org-mode-map (kbd "C-c i") 'org-clock-in);开始时间
-  (define-key org-mode-map (kbd "C-c o") 'org-clock-out);结束时间
-
   ;; Resume clocking task when emacs is restarted
   (org-clock-persistence-insinuate)
   ;;
@@ -441,7 +350,7 @@ as the default task."
   (defun bh/clock-in-default-task ()
     (save-excursion
       (org-with-point-at org-clock-default-task
-        (org-clock-in))))
+                         (org-clock-in))))
 
   (defun bh/clock-in-parent-task ()
     "Move point to the parent (project) task if any and clock in"
@@ -454,7 +363,7 @@ as the default task."
               (setq parent-task (point))))
           (if parent-task
               (org-with-point-at parent-task
-                (org-clock-in))
+                                 (org-clock-in))
             (when bh/keep-clock-running
               (bh/clock-in-default-task)))))))
 
@@ -463,7 +372,7 @@ as the default task."
   (defun bh/clock-in-organization-task-as-default ()
     (interactive)
     (org-with-point-at (org-id-find bh/organization-task-id 'marker)
-      (org-clock-in '(16))))
+                       (org-clock-in '(16))))
 
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running
@@ -784,6 +693,67 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;;    blah, blah
   ;; ** Section B
   ;; (setq org-cycle-emulate-tab 'white)
+
+  ;; Habit tracing
+  ;; 1. customize-variables RET org-modules RET habit
+  (setq org-habit-graph-column 60)
+  ;;(setq org-habit-show-habits-only-for-today nil)
+
+  ;; org-level headers font size
+  (defun my/org-mode-hook ()
+    "Stop the org-level headers from increasing in height relative to the other text."
+    (dolist (face '(org-level-1
+                    org-level-2
+                    org-level-3
+                    org-level-4
+                    org-level-5))
+      (set-face-attribute face nil :weight 'semi-bold :height 1.0))
+    ;; use english language
+    (setq system-time-locale "C")
+    )
+
+  ;;; appt
+  (setq
+   appt-message-warning-time 2  ;提前2分钟提醒
+   appt-display-interval 1      ;每过1分钟提醒一次
+   ;;appt-display-duration 20   ;这里已经被notify-send接管了，所以此处持续时间无效。
+   appt-display-mode-line t     ;; show in the modeline
+   appt-display-format 'window) ;; use our func
+
+  (appt-activate 1)             ;; active appt (appointment notification)
+  ;;(display-time)              ;; time display is required for this...(will break spaceline)
+
+  ;; 提醒
+  (defun djcb-popup (title msg &optional icon sound)
+    "Show a popup if we're on X,or echo it otherwise.
+     TITLE is the title of the message,
+     MSG is the context.
+     Optionally, you can provide an ICON and a SOUND to be played."
+    (interactive)
+    (if (eq window-system 'x)
+        (shell-command (concat "notify-send "
+                               (if icon (concat "-i " icon) "")
+                               " '" title "' '" msg "' -t 30000"));持续显示30秒
+      (message (concat title ": " msg)))
+    ;;(when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
+    (when sound (play-sound-file sound))
+    )
+
+  ;; our little façade-function for djcb-popup
+  (defun djcb-appt-display (min-to-app new-time msg)
+    "Display pop window's icon and sound.
+    MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
+    (djcb-popup (format "Appointment in %s minute(s)" min-to-app) msg
+                ;; display pop window
+                "~/myemacs/resource/info_org.png"
+                "~/myemacs/resource/ring.wav"))
+
+  (setq appt-disp-window-function (function djcb-appt-display))
+
+  ;; overwrite built-in function
+  ;;(proviError running timer appt-delete-window':
+  ;;    (error "No buffer named *appt-buf*")de 'init-org)
+  (defun appt-delete-window () "Nothing.Overwrite built-in function." )
   )
+
 (provide 'my-org)
-;;; my-org ends here
