@@ -4,6 +4,7 @@
 
 (use-package company
   :ensure t
+  :diminish (company-mode . "CMP")
   :config  
   (global-company-mode)
   (setq company-idle-delay 0.01

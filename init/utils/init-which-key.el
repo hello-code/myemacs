@@ -3,26 +3,20 @@
 ;;; https://github.com/justbur/emacs-which-key#initial-setup
 ;;; Code:
 
-(use-package which-key 
+(use-package which-key
   :ensure t
   :config
   (which-key-mode)
-  (setq which-key-idle-delay 0.1)
-  (setq which-key-max-description-length 150)
-  (setq which-key-prefix-prefix "+ ")
-  (setq which-key-show-remaining-keys t)
+  (setq which-key-sort-order 'which-key-key-order-alpha
+        which-key-idle-delay 0.05
+        which-key-max-description-length 150
+        which-key-show-remaining-keys t)
   (which-key-add-key-based-replacements
-    "C-c C-a" "markdown-insert"
-    "C-c C-c" "markdown"
-
-    "SPC h" "highlight symble"
-    "SPC j" "jump to..."
-    "SPC p" "projectile"
-    "SPC s" "scroll restore"
-    "SPC w" "ace window"
-    "SPC y" "yasnippet"
-    ;;"C-c !" "flycheck"
-    )
+    "C-c f" "file"
+    "C-c ff" "find file"
+    "C-c fr" "recently edited"
+    "C-c p" "project")
+  :diminish (which-key-mode . "") ;; not working
   )
 
 (provide 'init-which-key)

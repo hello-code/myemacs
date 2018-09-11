@@ -67,7 +67,7 @@
 
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-company)
-(require 'init-flycheck)
+;(require 'init-flycheck)
 
 ;; printf command not recognized
 ;; don't call exec-path-from-shell function on windows
@@ -79,7 +79,7 @@
 
 (add-to-list 'load-path "~/myemacs/custom/")
 (require 'my-configs)
-(require 'my-org)
+(require 'my-org) ;; will break spaceline
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
@@ -102,10 +102,10 @@
 
 (require 'init-spacemacs-theme)
 (require 'init-spaceline)
-(require 'init-which-key)
 (require 'init-ivy)
+(require 'init-which-key)
+(require 'init-evil)
 
-;; (require 'init-evil)
 ;; (require 'init-helm)
 ;; (require 'init-winum) ;; window number
 ;; (require 'init-projectile)

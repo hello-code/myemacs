@@ -6,7 +6,11 @@
 (use-package org
   :ensure t
   :pin manual
-  :defer 1
+  ;; :defer 1
+  :commands (org-agenda org-capture)
+  :bind(("C-c a" . org-agenda)
+        ("C-c c" . org-capture))
+  
   :config
   ;; Agenda setup
   (setq org-agenda-files (list
@@ -14,7 +18,7 @@
                           "~/org/archive"
                           ))
 
-  (global-set-key (kbd "C-c a") 'org-agenda) ;; kbd <f12>
+  ;;(global-set-key (kbd "C-c a") 'org-agenda) ;; kbd <f12>
 
   ;; TODO keyword
   (setq org-todo-keywords
@@ -87,7 +91,7 @@
   ;; ===================================================================
   ;; Capture
   ;; ===================================================================
-  (global-set-key (kbd "C-c c") 'org-capture)
+  ;;(global-set-key (kbd "C-c c") 'org-capture)
   (setq org-capture-templates
         (quote (("t" "todo" entry (file "~/org/refile.org")
                  "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
