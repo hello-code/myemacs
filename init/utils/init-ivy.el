@@ -26,12 +26,15 @@
   (avy-lead-face-0 ((t(:weight bold))))
   )
 
+(use-package counsel :ensure t)
+
 (use-package general :ensure t
   :config
   (general-define-key "C-'" 'avy-goto-char)
   (general-define-key
    "C-s" 'swiper
-   "M-x" 'counsel-M-x)
+   "M-x" 'counsel-M-x
+  )
   ;; with which-key package
   (general-define-key
    :prefix "C-c"
