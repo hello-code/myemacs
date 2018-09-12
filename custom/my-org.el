@@ -14,12 +14,19 @@
         ("C-c i" . org-clock-in)
         ("C-c o" . org-clock-out)
         )
-  :hook
-  ((org-agenda-mode-hook . org-agenda-to-appt)
-   (org-mode-hook . my/org-mode-hook)
-   )
-  
+  ;; :hook
+  ;; ((org-agenda-mode-hook . org-agenda-to-appt)
+  ;;  (org-mode-hook . my/org-mode-hook)
+  ;;  )
   :config
+  (add-hook 'org-mode-hook (lambda ()
+                             (set-face-attribute 'org-level-1 nil :height 1.0)
+                             (set-face-attribute 'org-level-2 nil :height 0.9)
+                             (set-face-attribute 'org-level-3 nil :height 0.8)
+                             (set-face-attribute 'org-level-4 nil :height 0.7)
+                             (set-face-attribute 'org-level-5 nil :height 0.6)
+                             ))
+  (add-hook 'org-agenda-mode-hook 'org-agenda-to-appt)
   ;; Agenda setup
   (setq org-agenda-files (list
                           "~/org"
@@ -350,7 +357,7 @@ as the default task."
   (defun bh/clock-in-default-task ()
     (save-excursion
       (org-with-point-at org-clock-default-task
-                         (org-clock-in))))
+        (org-clock-in))))
 
   (defun bh/clock-in-parent-task ()
     "Move point to the parent (project) task if any and clock in"
@@ -363,7 +370,7 @@ as the default task."
               (setq parent-task (point))))
           (if parent-task
               (org-with-point-at parent-task
-                                 (org-clock-in))
+                (org-clock-in))
             (when bh/keep-clock-running
               (bh/clock-in-default-task)))))))
 
@@ -372,7 +379,7 @@ as the default task."
   (defun bh/clock-in-organization-task-as-default ()
     (interactive)
     (org-with-point-at (org-id-find bh/organization-task-id 'marker)
-                       (org-clock-in '(16))))
+      (org-clock-in '(16))))
 
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running
@@ -700,19 +707,19 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;;(setq org-habit-show-habits-only-for-today nil)
 
   ;; org-level headers font size
-  (defun my/org-mode-hook ()
-    "Stop the org-level headers from increasing in height relative to the other text."
-    (dolist (face '(org-level-1
-                    org-level-2
-                    org-level-3
-                    org-level-4
-                    org-level-5))
-      (set-face-attribute face nil :weight 'semi-bold :height 1.0))
-    ;; use english language
-    (setq system-time-locale "C")
-    )
+  ;; (defun my/org-mode-hook ()
+  ;;   "Stop the org-level headers from increasing in height relative to the other text."
+  ;;   (dolist (face '(org-level-1
+  ;;                   org-level-2
+  ;;                   org-level-3
+  ;;                   org-level-4
+  ;;                   org-level-5))
+  ;;     (set-face-attribute face nil :weight 'semi-bold :height 0.8))
+  ;;   ;; use english language
+  ;;   (setq system-time-locale "C")
+  ;;   )
 
-  ;;; appt
+ ;;; appt
   (setq
    appt-message-warning-time 2  ;提前2分钟提醒
    appt-display-interval 1      ;每过1分钟提醒一次
