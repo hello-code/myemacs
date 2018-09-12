@@ -59,6 +59,8 @@
   :config
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
+(use-package diminish :ensure t)
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
@@ -67,7 +69,7 @@
 
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-company)
-;(require 'init-flycheck)
+(require 'init-flycheck)
 
 ;; printf command not recognized
 ;; don't call exec-path-from-shell function on windows
@@ -79,7 +81,7 @@
 
 (add-to-list 'load-path "~/myemacs/custom/")
 (require 'my-configs)
-(require 'my-org) ;; will break spaceline
+(require 'my-org)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
@@ -99,30 +101,23 @@
 ;;----------------------------------------------------------------------------
 
 (add-to-list 'load-path "~/myemacs/init/utils/")
-
 (require 'init-spacemacs-theme)
 (require 'init-spaceline)
 (require 'init-ivy)
 (require 'init-which-key)
 (require 'init-evil)
-
-;; (require 'init-helm)
-;; (require 'init-winum) ;; window number
-;; (require 'init-projectile)
-;; (require 'init-neotree)
-;; (require 'init-smooth-scrolling)
-;; (require 'init-fci-mode) ;; fill-column-indicator 80
-;; (require 'init-hlinum)
-;; (require 'init-rainbow)
-;; (require 'init-yasnippet)
-;; (require 'init-highlight-symbol)
-;; (require 'init-fold-this)
-;; (require 'init-avy)
+(require 'init-winum) ;; window number
+(require 'init-neotree)
+(require 'init-smooth-scrolling)
+(require 'init-fci-mode) ;; fill-column-indicator 80
+(require 'init-hlinum)
+(require 'init-highlight-symbol)
+(require 'init-rainbow)
+(require 'init-pomodoro)
+(require 'init-fold-this)
 
 ;; ;; (require 'init-ox-reveal)
 ;; ;; (require 'init-imenu-list)
-;; (require 'init-pomodoro)
-;; (require 'init-dim) ;; change major/minor mode name
 
 (provide 'init)
 ;;; init.el ends here

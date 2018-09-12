@@ -10,9 +10,8 @@
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
   (setq-default powerline-default-separator 'slant)
   ;; (setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
-  ;; (spaceline-compile)
+  (spaceline-compile)
   (setq spaceline-window-numbers-unicode t) ;; show number on mode line
-  
   (spaceline-emacs-theme)
   )
 

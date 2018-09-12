@@ -4,8 +4,6 @@
 
 (use-package evil
   :ensure t
-  :init
-  (setq evil-search-module 'evil-search)
   :config
   (evil-mode)
   )

@@ -4,8 +4,6 @@
 ;;; Code:
 ;; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 
-(use-package diminish :ensure t)
-
 (use-package ivy :ensure t
   :diminish (ivy-mode . "")         ; does not display ivy in the modeline
   :init (ivy-mode 1)                ; enable ivy globally at startup
