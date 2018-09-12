@@ -14,8 +14,8 @@
     (when (string= "hide" command)
       (turn-on-fci-mode)))
   (add-hook 'prog-mode-hook 'fci-mode)
-  :if (featurep 'company
-                (advice-add 'company-call-frontends :before #'on-off-fci-before-company))
+  ;; :if (featurep 'company
+  ;;               (advice-add 'company-call-frontends :before #'on-off-fci-before-company))
   )
 
 (provide 'init-fci-mode)

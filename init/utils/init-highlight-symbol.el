@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package highlight-symbol
+  :diminish highlight-symbol-mode
   :ensure t
   :defer 2
   :config

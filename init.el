@@ -87,13 +87,12 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 
-;;(add-to-list 'load-path "~/myemacs/init/lang/")
-
+(add-to-list 'load-path "~/myemacs/init/lang/")
+(require 'init-python)
 ;; (require 'init-web)
 ;; (require 'init-javascript)
 ;; (require 'init-go)
 ;; (require 'init-qml)
-;; (require 'init-python)
 ;; (require 'init-markdown)
 
 ;;----------------------------------------------------------------------------
@@ -115,6 +114,7 @@
 (require 'init-rainbow)
 (require 'init-pomodoro)
 (require 'init-fold-this)
+(require 'init-projectile)
 
 ;; ;; (require 'init-ox-reveal)
 ;; ;; (require 'init-imenu-list)

@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package rainbow-mode
+  :diminish rainbow-mode
   :ensure t
   :defer 3
   :config
