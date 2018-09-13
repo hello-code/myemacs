@@ -27,7 +27,7 @@
   (setq initial-frame-alist '((top . 30) (left . 500) (width . 80) (height . 30)))
 
   ;; line number
-  (setq linum-format " %d ")
+  ;; (setq linum-format " %d ")
 
   (set-mouse-color "white")
   (set-cursor-color "white")
@@ -41,7 +41,7 @@
   (scroll-bar-mode 0)
   (column-number-mode t)
 
-  ;; (global-hl-line-mode t)
+  (global-hl-line-mode t)
   ;; (set-face-background 'highlight "#454545") ;;#454545  dark green
   ;; (set-face-foreground 'highlight nil)
   ;; (set-face-underline 'highlight nil)
@@ -122,7 +122,8 @@
   (global-set-key (kbd "C-x w") 'open-in-browser)
 
   ;; show line number/over80characters in programming modes
-  (add-hook 'prog-mode-hook 'linum-mode)
+  ;; (add-hook 'prog-mode-hook 'linum-mode)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode) ;; emacs 26.1
   (add-hook 'prog-mode-hook 'over80characters)
 
   ;; tooltip

@@ -61,6 +61,13 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 (use-package diminish :ensure t)
+
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-initialize)
+    (setq exec-path-from-shell-check-startup-files nil)))
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
@@ -70,35 +77,25 @@
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-company)
 (require 'init-flycheck)
-
-;; printf command not recognized
-;; don't call exec-path-from-shell function on windows
-;;(cond ((not(eq system-type 'windows-nt))(require 'init-exec-path)))
-
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
-
 (add-to-list 'load-path "~/myemacs/custom/")
 (require 'my-configs)
 (require 'my-org)
-
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
-
 (add-to-list 'load-path "~/myemacs/init/lang/")
 (require 'init-python)
+(require 'init-go)
 ;; (require 'init-web)
 ;; (require 'init-javascript)
-;; (require 'init-go)
 ;; (require 'init-qml)
 ;; (require 'init-markdown)
-
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
-
 (add-to-list 'load-path "~/myemacs/init/utils/")
 (require 'init-spacemacs-theme)
 (require 'init-spaceline)
@@ -109,7 +106,7 @@
 (require 'init-neotree)
 (require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80
-(require 'init-hlinum)
+(require 'init-hlinum) ;; emacs 26.1(display-line-numbers-mode)
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
 (require 'init-pomodoro)
