@@ -2,6 +2,25 @@
 ;;; Commentary:
 ;;; sudo npm install tern js-beautify eslint -g
 ;;; npm uninstall tern js-beautify -g -S
+;;; put .tern-project file in the same directory.
+;;; .tern-project:
+
+;; {
+;;      "libs": [
+;;      "browser",
+;;      "jquery"
+;;      ],
+;;      "loadEagerly": [
+;;      "importantfile.js"
+;;      ],
+;;      "plugins": {
+;;        "requirejs": {
+;;        "baseURL": "./",
+;;        "paths": {}
+;;        }
+;;      }
+;; }
+
 ;;; Code:
 
 (use-package js2-mode
