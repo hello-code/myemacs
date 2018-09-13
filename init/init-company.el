@@ -34,7 +34,7 @@
          company-quickhelp-delay 0.2
          company-quickhelp-color-background "#3c3c3c"
          company-quickhelp-color-foreground "white")
-  (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
+  (define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin)
   )
 (provide 'init-company)
 ;;; init-company.el ends here

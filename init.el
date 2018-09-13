@@ -90,8 +90,8 @@
 (add-to-list 'load-path "~/myemacs/init/lang/")
 (require 'init-python)
 (require 'init-go)
-;; (require 'init-web)
-;; (require 'init-javascript)
+(require 'init-web)
+(require 'init-javascript)
 ;; (require 'init-qml)
 ;; (require 'init-markdown)
 ;;----------------------------------------------------------------------------
