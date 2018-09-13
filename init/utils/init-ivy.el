@@ -32,8 +32,8 @@
   (general-define-key
    "C-s" 'swiper
    "M-x" 'counsel-M-x
-  )
-  ;; with which-key package
+   )
+  ;; keys binding (different prefix key)
   (general-define-key
    :prefix "C-c"
    ;; bind to simple key press
@@ -48,7 +48,6 @@
    "p"  '(:ignore t :which-key "project")
    "pf" '(counsel-git :which-key "find file in git dir")
    )
-  ;; evil
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
@@ -63,7 +62,9 @@
    ;; Applications
    "a"  '(:ignore t :which-key "Applications")
    "ar" 'ranger
-   "ad" 'dired)
+   "ad" 'dired
+   "n"  'neotree-toggle
+   )
   )
 (provide 'init-ivy)
 ;;; init-ivy ends here

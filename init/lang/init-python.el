@@ -7,7 +7,7 @@
 
 (use-package lsp-mode
   :ensure t
-  ;;:defer 1
+  ;;:defer 1 ;; don't defer
   :config
   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   
@@ -28,7 +28,7 @@
 
 (use-package lsp-ui
   :ensure t
-  ;;:defer 1
+  ;;:defer 1 ;; don't defer
   :config
   (setq lsp-ui-sideline-ignore-duplicate t)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
@@ -36,12 +36,13 @@
 
 (use-package company-lsp
   :ensure t
+  ;;:defer 1 ;; don't defer
   :config
   (push 'company-lsp company-backends))
 
 (use-package virtualenvwrapper
   :ensure t
-  ;;:defer 2
+  ;;:defer 1 ;; don't defer
   :config
   (venv-initialize-interactive-shells) ;; if you want interactive shell support
   (venv-initialize-eshell) ;; if you want eshell support

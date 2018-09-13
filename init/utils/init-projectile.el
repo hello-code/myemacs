@@ -4,6 +4,7 @@
 
 (use-package projectile
   :ensure t
+  :defer 1
   :init
   (setq projectile-mode-line
         '(:eval (list "Pj:"

@@ -4,6 +4,7 @@
 
 (use-package winum
   :ensure t
+  :defer 1
   :init
   (setq winum-keymap
         (let ((map (make-sparse-keymap)))

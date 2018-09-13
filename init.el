@@ -60,11 +60,12 @@
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-(use-package diminish :ensure t)
+(use-package diminish :ensure t :defer 1)
 
 (when (memq window-system '(mac ns x))
   (use-package exec-path-from-shell
     :ensure t
+    :defer 1
     :config
     (exec-path-from-shell-initialize)
     (setq exec-path-from-shell-check-startup-files nil)))
@@ -106,7 +107,7 @@
 (require 'init-neotree)
 (require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80
-(require 'init-hlinum) ;; emacs 26.1(display-line-numbers-mode)
+;; (require 'init-hlinum) ;; emacs 26.1(display-line-numbers-mode)
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
 (require 'init-pomodoro)
