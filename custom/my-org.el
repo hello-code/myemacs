@@ -3,6 +3,14 @@
 ;; http://doc.norang.ca/org-mode.html#HowToUseThisDocument
 ;;; Code:
 
+;; (use-package org-beautify-theme :ensure t
+;;   :config
+;;   (add-hook 'org-mode-hook (lambda() (load-theme 'org-beautify))))
+
+(use-package org-bullets :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
+
 (use-package org
   :ensure t
   :pin manual
@@ -19,13 +27,13 @@
   ;;  (org-mode-hook . my/org-mode-hook)
   ;;  )
   :config
-  (add-hook 'org-mode-hook (lambda ()
-                             (set-face-attribute 'org-level-1 nil :height 1.0)
-                             (set-face-attribute 'org-level-2 nil :height 0.9)
-                             (set-face-attribute 'org-level-3 nil :height 0.8)
-                             (set-face-attribute 'org-level-4 nil :height 0.7)
-                             (set-face-attribute 'org-level-5 nil :height 0.6)
-                             ))
+  ;; (add-hook 'org-mode-hook (lambda ()
+  ;;                            (set-face-attribute 'org-level-1 nil :height 1.0)
+  ;;                            (set-face-attribute 'org-level-2 nil :height 0.9)
+  ;;                            (set-face-attribute 'org-level-3 nil :height 0.8)
+  ;;                            (set-face-attribute 'org-level-4 nil :height 0.7)
+  ;;                            (set-face-attribute 'org-level-5 nil :height 0.6)
+  ;;                            ))
   (add-hook 'org-agenda-mode-hook 'org-agenda-to-appt)
   ;; Agenda setup
   (setq org-agenda-files (list

@@ -13,6 +13,15 @@
   (spaceline-compile)
   (setq spaceline-window-numbers-unicode t) ;; show number on mode line
   (spaceline-emacs-theme)
+  ;; face
+  ;; (custom-set-faces
+  ;;  '(mode-line
+  ;;    ((t (:box (:line-width 1 :color "#bc6eae")))));;#4b82f0"
+  ;;  '(mode-line-inactive
+  ;;    ((t (:box '(:line-width 1 :color "#A1B57C" :style nil)))))
+  ;;  ;; 文件名
+  ;;  ;;'(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
+  ;;  )
   )
 
 ;;; faces
