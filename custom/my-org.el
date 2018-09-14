@@ -727,6 +727,8 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;;   (setq system-time-locale "C")
   ;;   )
 
+  (setq system-time-locale "C")
+
  ;;; appt
   (setq
    appt-message-warning-time 2  ;提前2分钟提醒
