@@ -4,16 +4,18 @@
 ;;; Code:
 
 (use-package all-the-icons :ensure t
+  :defer 1
   :config
   (setq inhibit-compacting-font-caches t))
 
 (use-package spaceline
+  :defer 1
   :ensure t
   :config
   (require 'spaceline-config)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
   (setq-default powerline-default-separator 'wave );;'slant)
-  ;(setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
+  ;;(setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
   (spaceline-compile)
   (setq spaceline-window-numbers-unicode t) ;; show number on mode line
   (spaceline-emacs-theme)
@@ -48,6 +50,7 @@
 ;;  )
 
 (use-package spaceline-all-the-icons :ensure t
+  :defer 1
   :after spaceline
   :config (spaceline-all-the-icons-theme))
 

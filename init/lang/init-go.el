@@ -5,7 +5,8 @@
 (use-package go-mode
   :ensure t
   :mode "\\.go\\'"
-  ;; :defer 1 ;; don't defer
+  ;;:interpreter "go"
+  ;;:defer 1 ;; don't defer
   :bind(:map go-mode-map
              ;; Godef jump/back key binding.
              ;; jump back buffer :
@@ -28,6 +29,7 @@
   )
 
 (use-package go-eldoc :ensure t
+  :defer 1
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup)
   (set-face-attribute 'eldoc-highlight-function-argument nil
@@ -58,7 +60,7 @@
 
 (use-package go-guru
   :ensure t
-  ;;:defer 1
+  :defer 1
   :config
   (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
   ;; (custom-set-variables '(go-guru-hl-identifier-idle-time 0.2))
