@@ -36,23 +36,22 @@
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
 
-;; Update package-archive lists
+;;-------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-                         ("org" . "http://elpa.emacs-china.org/org/")))
-
+(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "https://elpa.emacs-china.org/melpa/")
+                         ("org"   . "https://elpa.emacs-china.org/org/")))
 (package-initialize)
 
-;; Install 'use-package' if necessary
+;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Enable use-package
 (eval-when-compile
   (require 'use-package))
+;;--------------------------------------
 
 (use-package benchmark-init
   :ensure t

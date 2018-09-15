@@ -4,6 +4,7 @@
 
 (use-package go-mode
   :ensure t
+  :mode "\\.go\\'"
   ;; :defer 1 ;; don't defer
   :bind(:map go-mode-map
              ;; Godef jump/back key binding.
