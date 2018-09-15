@@ -29,6 +29,8 @@
   (setq neo-autorefresh t)
   (setq neo-window-fixed-size nil)
   (setq neo-force-change-root t) ;; avoid the confirmation message
+  (setq inhibit-compacting-font-caches t)
+  (setq neo-theme 'icons)
 
   (add-hook 'neotree-mode-hook
             (lambda ()

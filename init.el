@@ -97,8 +97,8 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-;;(require 'init-spacemacs-theme)
-(require 'init-doom-themes)
+(require 'init-spacemacs-theme)
+;;(require 'init-doom-themes)
 (require 'init-spaceline)
 (require 'init-ivy)
 (require 'init-which-key)

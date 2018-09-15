@@ -14,7 +14,7 @@
   :config
   (require 'spaceline-config)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
-  (setq-default powerline-default-separator 'wave );;'slant)
+  (setq-default powerline-default-separator 'slant)
   ;;(setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
   (spaceline-compile)
   (setq spaceline-window-numbers-unicode t) ;; show number on mode line
@@ -52,7 +52,14 @@
 (use-package spaceline-all-the-icons :ensure t
   :defer 1
   :after spaceline
-  :config (spaceline-all-the-icons-theme))
+  :config
+  (spaceline-all-the-icons-theme)
+  (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
+  (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
+  (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
+  (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
+  (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
+  )
 
 ;; (require 'spaceline-all-the-icons)
 ;; (spaceline-all-the-icons-theme)
