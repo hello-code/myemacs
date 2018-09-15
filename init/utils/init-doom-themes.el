@@ -8,7 +8,8 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t     ; if nil, bold is universally disabled
         doom-themes-enable-italic t   ; if nil, italics is universally disabled
-        ;;doom-themes-padded-modeline 1
+        doom-themes-padded-modeline 1
+        doom-neotree-file-icons t
         doom-one-brighter-modeline t)
 
   ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
@@ -19,7 +20,7 @@
   (doom-themes-visual-bell-config)
 
   ;; Enable custom neotree theme (all-the-icons must be installed!)
-                                        ;(doom-themes-neotree-config)
+  (doom-themes-neotree-config)
   ;; or for treemacs users
                                         ;(doom-themes-treemacs-config)
 

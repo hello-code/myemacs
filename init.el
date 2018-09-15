@@ -97,8 +97,8 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-(require 'init-spacemacs-theme)
-;;(require 'init-doom-themes)
+;;(require 'init-spacemacs-theme)
+(require 'init-doom-themes)
 (require 'init-spaceline)
 (require 'init-ivy)
 (require 'init-which-key)
@@ -114,8 +114,8 @@
 (require 'init-fold-this)
 (require 'init-projectile)
 
-;; ;; (require 'init-ox-reveal)
-;; ;; (require 'init-imenu-list)
+;; (require 'init-ox-reveal)
+;; (require 'init-imenu-list)
 
 (provide 'init)
 ;;; init.el ends here
