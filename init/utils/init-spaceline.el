@@ -3,13 +3,17 @@
 ;;; https://github.com/TheBB/spaceline
 ;;; Code:
 
+(use-package all-the-icons :ensure t
+  :config
+  (setq inhibit-compacting-font-caches t))
+
 (use-package spaceline
   :ensure t
   :config
   (require 'spaceline-config)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
-  (setq-default powerline-default-separator 'slant)
-  ;; (setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
+  (setq-default powerline-default-separator 'wave );;'slant)
+  ;(setq powerline-text-scale-factor 1.0) ;; mode line font size (font size config in my-configs.el)
   (spaceline-compile)
   (setq spaceline-window-numbers-unicode t) ;; show number on mode line
   (spaceline-emacs-theme)
@@ -42,6 +46,10 @@
 ;;  '(mode-line ((t (:box (:line-width 1 :color "#4B82F0")))))
 ;;  '(mode-line-inactive ((t (:box (:line-width 1 :color "#A1B57C")))))
 ;;  )
+
+(use-package spaceline-all-the-icons :ensure t
+  :after spaceline
+  :config (spaceline-all-the-icons-theme))
 
 ;; (require 'spaceline-all-the-icons)
 ;; (spaceline-all-the-icons-theme)
