@@ -91,6 +91,7 @@
 (require 'init-go)
 (require 'init-web)
 (require 'init-javascript)
+(require 'init-dart)
 ;; (require 'init-qml)
 ;; (require 'init-markdown)
 ;;----------------------------------------------------------------------------
