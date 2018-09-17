@@ -16,6 +16,7 @@
   :after(flycheck)
   :init
   (setq
+   dart-debug t
    dart-analysis-server-snapshot-path "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot"
    dart-enable-analysis-server t
    dart-formatter-command-override "/usr/lib/dart/bin/dartfmt"
