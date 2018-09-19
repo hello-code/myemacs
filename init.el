@@ -114,6 +114,7 @@
 (require 'init-pomodoro)
 (require 'init-fold-this)
 (require 'init-projectile)
+(require 'init-spell)
 
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)

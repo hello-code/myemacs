@@ -1,44 +1,30 @@
 ;;; init-python --- python
 ;;; Commentary:
+;;; https://github.com/jorgenschaefer/elpy
+;;; https://github.com/porterjamesj/virtualenvwrapper.el
 ;;; Code:
-;;; virtualenv: pip install 'python-language-server[all]'
-;;; source bin/activate then emacs yourfile.py
-;;; disable fci-mode
+;;; pip install jedi flake8 autopep8 yapf
 
-(use-package lsp-mode
+(use-package elpy
   :ensure t
-  ;;:defer 1 ;; don't defer
   :config
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-  
-  ;; get lsp-python-enable defined
-  ;; NB: use either projectile-project-root or ffip-get-project-root-directory
-  ;;     or any other function that can be used to find the root directory of a project
-  (lsp-define-stdio-client lsp-python "python"
-                           #'projectile-project-root
-                           '("pyls"))
-  
-  ;; make sure this is activated when python-mode is activated
-  ;; lsp-python-enable is created by macro above 
-  (add-hook 'python-mode-hook
-            (lambda ()
-              (lsp-python-enable)))
+  ;; remove yasnippet before elpy-enable
+  (setq elpy-modules (delq 'elpy-module-yasnippet elpy-modules))
 
+  (elpy-enable)
+
+  ;; use flycheck not flymake with elpy
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
   )
 
-(use-package lsp-ui
+;; enable autopep8 formatting on save
+(use-package py-autopep8
   :ensure t
-  ;;:defer 1 ;; don't defer
   :config
-  (setq lsp-ui-sideline-ignore-duplicate t)
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
   )
-
-(use-package company-lsp
-  :ensure t
-  ;;:defer 1 ;; don't defer
-  :config
-  (push 'company-lsp company-backends))
 
 (use-package virtualenvwrapper
   :ensure t
@@ -50,39 +36,6 @@
   ;; use the default location (`~/.virtualenvs`), or if the
   ;; the environment variable `WORKON_HOME` points to the right place
   (setq venv-location "~/development/python/")
-
-  ;; https://stackoverflow.com/questions/21246218/how-can-i-make-emacs-jedi-use-project-specific-virtualenvs?rq=1
-  (defun project-directory (buffer-name)
-    "Return the root directory of the project that contain the given BUFFER-NAME.
-Any directory with a .git or .jedi or .projectile file/directory
-is considered to be a project root."
-    (interactive)
-    (let ((root-dir (file-name-directory buffer-name)))
-      (while (and root-dir
-                  (not (file-exists-p (concat root-dir ".projectile")))
-                  (not (file-exists-p (concat root-dir ".git")))
-                  (not (file-exists-p (concat root-dir ".venv"))))
-
-        (setq root-dir
-              (if (equal root-dir "/")
-                  nil
-                (file-name-directory (directory-file-name root-dir)))))
-      root-dir))
-
-  (defun project-name (buffer-name)
-    "Return the name of the project that contain the given BUFFER-NAME."
-    (let ((root-dir (project-directory buffer-name)))
-      (if root-dir
-          (file-name-nondirectory
-           (directory-file-name root-dir))
-        nil)))
-
-  (defun activate-venv ()
-    "Activates the virtualenv of the current buffer."
-    (let ((project-name (project-name buffer-file-name)))
-      (when project-name (venv-workon project-name))))
-
-  (add-hook 'python-mode-hook 'activate-venv)
   )
 
 (provide 'init-python)
