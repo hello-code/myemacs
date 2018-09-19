@@ -4,7 +4,7 @@
 
 (use-package pomodoro
   :ensure t
-  ;;:defer 2 ;; don't use defer!
+  :defer 2 ;; don't use defer!
   :config
   (global-set-key "\M-p" 'pomodoro-start)
   (pomodoro-add-to-mode-line)

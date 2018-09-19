@@ -10,7 +10,7 @@
 
 (use-package spaceline
   :ensure t
-  :defer 2
+  :defer 1
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator 'wave
