@@ -84,20 +84,10 @@
 (require 'my-configs)
 (require 'my-org)
 ;;----------------------------------------------------------------------------
-;; Load configs for specific program language
-;;----------------------------------------------------------------------------
-(add-to-list 'load-path "~/myemacs/init/lang/")
-(require 'init-python)
-(require 'init-go)
-(require 'init-web)
-(require 'init-javascript)
-(require 'init-dart)
-;; (require 'init-qml)
-;; (require 'init-markdown)
-;;----------------------------------------------------------------------------
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
+(require 'init-projectile)
 ;;(require 'init-spacemacs-theme)
 (require 'init-doom-themes)
 (require 'init-spaceline)
@@ -108,16 +98,25 @@
 (require 'init-neotree)
 (require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80
-;; (require 'init-hlinum) ;; emacs 26.1(display-line-numbers-mode)
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
 (require 'init-pomodoro)
-;; (require 'init-fold-this)
-;; (require 'init-projectile)
-;; (require 'init-spell)
+(require 'init-fold-this)
+(require 'init-spell)
 
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)
+;;----------------------------------------------------------------------------
+;; Load configs for specific program language
+;;----------------------------------------------------------------------------
+(add-to-list 'load-path "~/myemacs/init/lang/")
+(require 'init-python)
+;; (require 'init-go)
+;; (require 'init-web)
+;; (require 'init-javascript)
+;; (require 'init-dart)
+;; (require 'init-qml)
+;; (require 'init-markdown)
 
 (provide 'init)
 ;;; init.el ends here

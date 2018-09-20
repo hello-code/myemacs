@@ -8,17 +8,47 @@
   :config
   (setq inhibit-compacting-font-caches t))
 
-(use-package spaceline
-  :ensure t
+;; (use-package spaceline-config
+;;   :ensure spaceline
+;;   :defer 1
+;;   :config
+;; (spaceline-spacemacs-theme))
+
+(use-package spaceline-config
+  :ensure spaceline
   :defer 1
   :config
-  (require 'spaceline-config)
-  (setq powerline-default-separator 'wave
-        spaceline-workspace-numbers-unicode t
-        spaceline-window-numbers-unicode t
-        spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; evil state on mode line
+  (spaceline-emacs-theme)
+  (setq powerline-default-separator 'wave)
   (spaceline-compile)
-  (spaceline-emacs-theme))
+
+  (setq spaceline-workspace-numbers-unicode t
+        spaceline-window-numbers-unicode t)
+
+  (diminish 'eldoc-mode)
+  (diminish 'whitespace-mode)
+  ;; (diminish 'projectile-mode)
+  ;; (diminish 'abbrev-mode)
+  ;; (diminish 'buffer-face-mode)
+  ;; (diminish 'flyspell-mode)
+  ;; (diminish 'auto-revert-mode)
+  ;; (diminish 'text-scale-mode)
+  ;; (diminish 'flycheck-mode)
+  ;; (diminish 'company-mode)
+  ;; (spaceline-toggle-buffer-encoding-abbrev-off)
+  ;; (spaceline-toggle-buffer-size-off)
+  ;; (spaceline-toggle-erc-track-off)
+
+  ;; spaceline-evil-state-faces is a variable defined in ‘spaceline.el’.
+  ;; Its value is ((normal . spaceline-evil-normal)
+  ;;  (insert . spaceline-evil-insert)
+  ;;  (emacs . spaceline-evil-emacs)
+  ;;  (replace . spaceline-evil-replace)
+  ;;  (visual . spaceline-evil-visual)
+  ;;  (motion . spaceline-evil-motion))
+  ;;(setq spaceline-highlight-face-func #'spaceline-highlight-face-default)
+  (setq spaceline-highlight-face-func #'spaceline-highlight-face-evil-state)
+  )
 
 ;; (use-package spaceline-all-the-icons :ensure t
 ;;   ;;:defer 1

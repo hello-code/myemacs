@@ -3,11 +3,12 @@
 ;;; Code:
 
 (use-package projectile
+  ;;:diminish (projectile-mode . "Prj")
   :ensure t
   :defer 1
   :init
   (setq projectile-mode-line
-        '(:eval (list "Pj:"
+        '(:eval (list " Pj:"
                       (propertize (projectile-project-name) 'face '(:background "#d98f22" :foreground "black"))
                       "")))
   (setq projectile-completion-system 'ivy)
