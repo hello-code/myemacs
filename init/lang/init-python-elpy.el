@@ -1,4 +1,4 @@
-;;; init-python --- python
+;;; init-python-elpy --- elpy python
 ;;; Commentary:
 ;;; https://github.com/jorgenschaefer/elpy
 ;;; https://github.com/porterjamesj/virtualenvwrapper.el
@@ -38,5 +38,5 @@
   (setq venv-location "~/development/python/")
   )
 
-(provide 'init-python)
-;;; init-python.el ends here
+(provide 'init-python-elpy)
+;;; init-python-elpy.el ends here
