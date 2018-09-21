@@ -110,12 +110,12 @@
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
 (if (memq window-system '(w32))
-    (require 'init-python-elpy)
+    (require 'init-python-elpy) ;; for windows
   (require 'init-python-lsp))
-;; (require 'init-go)
-;; (require 'init-web)
-;; (require 'init-javascript)
-;; (require 'init-dart)
+(require 'init-go)
+(require 'init-web)
+(require 'init-javascript)
+(require 'init-dart)
 ;; (require 'init-qml)
 ;; (require 'init-markdown)
 
