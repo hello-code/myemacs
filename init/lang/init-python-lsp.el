@@ -1,4 +1,4 @@
-;;; init-python --- python
+;;; init-python-lsp --- lsp mode for python
 ;;; Commentary:
 ;;; Code:
 ;;; virtualenv: pip install 'python-language-server[all]'
@@ -64,5 +64,5 @@
   ;;:defer 1 ;; don't defer
   :config
   (push 'company-lsp company-backends))
-(provide 'init-python)
-;;; init-python.el ends here
+(provide 'init-python-lsp)
+;;; init-python-lsp.el ends here

@@ -24,6 +24,9 @@
 
 ;; put (package-initialize) in "~/.emacs.d/early-init.el"
 
+;;; Increase the garbage collection threshold to 128 MB to ease startup
+(setq gc-cons-threshold (* 128 1024 1024 ))
+
 ;; Use a hook so the message doesn't get clobbered by other messages.
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -32,10 +35,6 @@
                              (float-time
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
-;; Make startup faster by reducing the frequency of garbage
-;; collection.  The default is 800 kilobytes.  Measured in bytes.
-(setq gc-cons-threshold (* 50 1000 1000))
-
 ;;-------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -110,7 +109,9 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
-(require 'init-python)
+(when (memq window-system '(w32))
+  (require 'init-python-elpy)
+  (require 'init-python-lsp))
 ;; (require 'init-go)
 ;; (require 'init-web)
 ;; (require 'init-javascript)
@@ -118,6 +119,8 @@
 ;; (require 'init-qml)
 ;; (require 'init-markdown)
 
+;;; Garbage collector-decrease threshold to 5 MB
+(add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))
 (provide 'init)
 ;;; init.el ends here
 

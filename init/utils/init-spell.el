@@ -4,8 +4,9 @@
 ;;; https://github.com/bnbeckwith/writegood-mode
 ;;; Code:
 
-(use-package flyspell-mode
-  :hook (text-mode)
+(use-package flyspell
+  :init
+  (add-hook 'text-mode-hook 'flyspell-mode)
   :config
   (setq-default ispell-program-name "hunspell")
   )
