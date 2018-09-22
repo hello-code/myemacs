@@ -8,6 +8,8 @@
   :ensure t
   :defer t
   :diminish (ivy-mode . "")         ; does not display ivy in the modeline
+  :bind
+  ("C-'" . avy-goto-char)
   :init (ivy-mode 1)                ; enable ivy globally at startup
   ;; :bind (:map ivy-mode-map       ; bind in the ivy buffer
   ;;             ("C-'" . ivy-avy)) ; C-' to ivy-avy
@@ -26,7 +28,7 @@
   (avy-lead-face-0 ((t(:weight bold))))
   )
 
-(use-package counsel :ensure t)
+(use-package counsel :ensure t :defer t)
 
 (use-package general :ensure t
   :config

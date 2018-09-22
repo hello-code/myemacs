@@ -4,6 +4,7 @@
 
 (use-package doom-themes
   :ensure t
+  :defer 3
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t     ; if nil, bold is universally disabled
