@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package all-the-icons :ensure t
-  :defer 3
+  :defer 5
   :config
   (setq inhibit-compacting-font-caches t))
 

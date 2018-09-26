@@ -4,6 +4,7 @@
 
 (use-package evil
   :ensure t
+  :defer 1 
   :diminish (undo-tree-mode . "")
   :config
   (evil-mode)
