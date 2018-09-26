@@ -21,6 +21,7 @@
         :map org-mode-map
         ("C-c i" . org-clock-in)
         ("C-c o" . org-clock-out)
+        ("C-'" . nil)
         )
   ;; :hook
   ;; ((org-agenda-mode-hook . org-agenda-to-appt)
