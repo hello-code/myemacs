@@ -27,8 +27,10 @@
   (when (require 'flycheck nil t)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
-  (add-hook 'before-save-hook 'elpy-format-code)
-  )
+  (add-hook 'elpy-mode-hook
+            (lambda()
+              (add-hook 'before-save-hook 'elpy-format-code nil 'what)
+              )))
 
 ;; enable autopep8 formatting on save
 (use-package py-autopep8
