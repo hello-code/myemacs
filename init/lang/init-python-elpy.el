@@ -27,6 +27,7 @@
   (when (require 'flycheck nil t)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
+  (add-hook 'before-save-hook 'elpy-format-code)
   )
 
 ;; enable autopep8 formatting on save
