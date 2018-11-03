@@ -3,8 +3,8 @@
 ;;; Code:
 
 (use-package web-mode
-  :ensure t
   :defer t
+  :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -55,6 +55,7 @@
 (use-package emmet-mode
   :ensure t
   :diminish (emmet-mode . "E")
+  :after(web-mode)
   :init
   (setq emmet-indentation 2)
   (setq emmet-move-cursor-between-quotes t)
