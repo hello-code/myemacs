@@ -15,8 +15,8 @@
 ;; (spaceline-spacemacs-theme))
 
 (use-package spaceline-config
-  :ensure spaceline
   :defer 1
+  :ensure spaceline
   :config
   (spaceline-emacs-theme)
   (setq powerline-default-separator 'wave)

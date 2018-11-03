@@ -101,7 +101,7 @@
 (require 'init-rainbow)
 (require 'init-pomodoro)
 (require 'init-fold-this)
-(require 'init-spell)
+(require 'init-flyspell)
 
 ;; (require 'init-ox-reveal)
 ;; (require 'init-imenu-list)

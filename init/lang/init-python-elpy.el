@@ -20,6 +20,7 @@
   :ensure t
   :after (python)
   :init(elpy-enable)
+  ;;:init (with-eval-after-load 'python (elpy-enable))
   :config
   ;; remove yasnippet before elpy-enable
   (setq elpy-modules (delq 'elpy-module-yasnippet elpy-modules))

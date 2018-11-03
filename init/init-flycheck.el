@@ -5,10 +5,10 @@
 ;;; Code:
 
 (use-package flycheck
-  :defer 2
+  :defer t
   :ensure t
+  ;; :init (global-flycheck-mode)
   :config
-  (global-flycheck-mode)
   ;; Flycheck does not use load-path when checking Emacs Lisp files. Instead,
   ;; it uses flycheck-emacs-lisp-load-path, which is empty by default.
   (setq-default flycheck-emacs-lisp-load-path 'inherit)
@@ -48,19 +48,18 @@
     :overlay-category 'flycheck-info-overlay
     :fringe-bitmap 'flycheck-fringe-bitmap-ball
     :fringe-face 'flycheck-fringe-info)
+
+  (setq flycheck-display-errors-function nil) ;; disable error reporting in the mini buffer.
   )
 
 (use-package flycheck-pos-tip
-  :defer 2
   :after flycheck
   :ensure t
   :config (setq flycheck-pos-tip-timeout 10))
 
 (use-package flycheck-color-mode-line
-  :defer 2
   :after flycheck
-  :ensure t
-  )
+  :ensure t)
 
 (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
 

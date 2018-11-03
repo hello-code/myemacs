@@ -24,8 +24,8 @@
 ;;; Code:
 
 (use-package js2-mode
-  :ensure t
   :defer 1
+  :ensure t
   :init
   (setq js-basic-indent 2)
   (setq-default js2-basic-indent 2
@@ -42,23 +42,27 @@
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
 
 (use-package color-identifiers-mode
+  ;;:defer 1
   :ensure t
-  :defer 1
+  :after js2
   :init
   (add-hook 'js2-mode-hook 'color-identifiers-mode))
 
 (use-package tern
+  ;; :defer 1
   :ensure t
-  :defer 1
+  :after js2
   :init (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
   :config
   (use-package company-tern
     :ensure t
+    :after company
     :init (add-to-list 'company-backends 'company-tern)))
 
 (use-package js2-refactor
+  ;;:defer 1
   :ensure t
-  :defer 1
+  :after js2
   :init   (add-hook 'js2-mode-hook 'js2-refactor-mode)
   :config (js2r-add-keybindings-with-prefix "C-c ."))
 

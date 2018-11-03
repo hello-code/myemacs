@@ -6,11 +6,12 @@
 
 (use-package ivy
   :ensure t
-  :defer t
+  ;;:defer t
   :diminish (ivy-mode . "")         ; does not display ivy in the modeline
   :bind
-  ("C-'" . avy-goto-char)
-  :init (ivy-mode 1)                ; enable ivy globally at startup
+  (("C-'" . avy-goto-char)
+   ("C-x b" . ivy-switch-buffer))
+  ;; :init (ivy-mode 1)                ; enable ivy globally at startup
   ;; :bind (:map ivy-mode-map       ; bind in the ivy buffer
   ;;             ("C-'" . ivy-avy)) ; C-' to ivy-avy
   :config
@@ -59,6 +60,8 @@
 
    ;; simple command
    "/"   'counsel-ag
+   "c"   'company-mode
+   "f"   'flycheck-mode
    "l"   'counsel-locate
    "TAB" '(switch-to-other-buffer :which-key "prev buffer")
    "SPC" '(avy-goto-word-or-subword-1  :which-key "go to char")

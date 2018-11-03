@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package my-configs
-  ;; :load-path "custom/"
-  :defer 1 ;; important!
-  :config
+;; (use-package my-configs
+;;   ;; :load-path "custom/"
+;;   :defer 1 ;; important!
+;;   :config
   ;; system coding
   (set-language-environment "UTF-8")
   (set-default-coding-systems 'utf-8)
@@ -200,6 +200,6 @@
   ;;(add-hook 'debugger-mode-hook 'my-truncate-lines)
 
   (add-hook 'debugger-mode-hook (lambda()(setq truncate-lines nil)))
-  )
+;;  )
 (provide 'my-configs)
 ;;; my-configs.el ends here

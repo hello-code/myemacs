@@ -1,12 +1,14 @@
-;;; init-spell --- spell
+;;; init-flyspell --- spell
 ;;; Commentary:
 ;;; https://github.com/d12frosted/flyspell-correct
 ;;; https://github.com/bnbeckwith/writegood-mode
 ;;; Code:
 
 (use-package flyspell
+  :defer t
   :init
   (add-hook 'text-mode-hook 'flyspell-mode)
+  ;;  :bind("M-f" . flyspell-mode)
   :config
   (setq-default ispell-program-name "hunspell")
   )
@@ -21,5 +23,5 @@
   :ensure t
   :bind("C-c g" . 'writegood-mode))
 
-(provide 'init-spell)
-;;; init-spell.el ends here
+(provide 'init-flyspell)
+;;; init-flyspell.el ends here

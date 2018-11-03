@@ -12,7 +12,7 @@
   (setq pomodoro-work-cycle "[W]") ;; 在状态栏显示的字符
   (setq pomodoro-work-break "[B]")
   ;;  设置一个番茄时间的长度(默认25分钟)
-  (setq pomodoro-work-time 25)
+  (setq pomodoro-work-time 45)
   ;; 开始工作的音乐
   (setq pomodoro-work-start-sound "~/myemacs/resource/work.wav")
   (setq pomodoro-work-start-message "It's time to working!\n")
