@@ -4,7 +4,6 @@
 
 (use-package fold-this
   :ensure t
-  :defer 3
   :after(evil)
   :config
   (custom-set-faces

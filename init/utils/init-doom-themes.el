@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package doom-themes
-  ;;:defer t
+  :defer t
   :ensure t
   :config
   ;; Global settings (defaults)

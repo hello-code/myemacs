@@ -20,7 +20,9 @@
   (setq ivy-count-format "(%d/%d) ") ; count format, from the ivy help page
   )
 
-(use-package avy :ensure t
+(use-package avy
+  :ensure t
+  :after ivy
   :commands (avy-goto-char)
   :config
   (setq avy-background t)

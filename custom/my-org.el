@@ -7,12 +7,13 @@
 ;;   :config
 ;;   (add-hook 'org-mode-hook (lambda() (load-theme 'org-beautify))))
 
-(use-package org-bullets :ensure t
+(use-package org-bullets
+  :ensure t
+  :after org
   :config
   (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
 
 (use-package org
-  :ensure t
   :pin manual
   ;; :defer 1
   :commands (org-agenda org-capture)

@@ -3,8 +3,9 @@
 ;;; https://github.com/TheBB/spaceline
 ;;; Code:
 
-(use-package all-the-icons :ensure t
-  :defer 5
+(use-package all-the-icons
+  :ensure t
+  :after neotree
   :config
   (setq inhibit-compacting-font-caches t))
 
@@ -15,7 +16,7 @@
 ;; (spaceline-spacemacs-theme))
 
 (use-package spaceline-config
-  :defer 1
+  :defer t
   :ensure spaceline
   :config
   (spaceline-emacs-theme)

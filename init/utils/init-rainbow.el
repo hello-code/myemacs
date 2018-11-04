@@ -3,16 +3,16 @@
 ;;; Code:
 
 (use-package rainbow-mode
-  :diminish rainbow-mode
+  :defer t
   :ensure t
-  :defer 3
+  :diminish rainbow-mode
   :config
   (add-hook 'prog-mode-hook #'rainbow-mode)
   )
 
 (use-package rainbow-delimiters
+  :defer t
   :ensure t
-  :defer 3
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   )

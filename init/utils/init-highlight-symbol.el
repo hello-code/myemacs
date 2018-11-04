@@ -5,9 +5,9 @@
 ;;; Code:
 
 (use-package highlight-symbol
-  :diminish highlight-symbol-mode
+  :defer t
   :ensure t
-  :defer 2
+  :diminish(highlight-symbol-mode . "hls")
   :config
   (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   (setq highlight-symbol-idle-delay 0.2)

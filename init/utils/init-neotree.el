@@ -3,8 +3,8 @@
 ;;; Code:
 
 (use-package neotree
+  :defer t
   :ensure t
-  :defer 3
   :config
   (defun neotree-project-dir-toggle ()
     "Open NeoTree using the project root."
