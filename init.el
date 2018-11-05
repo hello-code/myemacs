@@ -89,6 +89,7 @@
 (require 'init-projectile)
 ;;(require 'init-spacemacs-theme)
 (require 'init-doom-themes)
+(require 'init-doom-modeline)
 (require 'init-spaceline)
 (require 'init-ivy)
 (require 'init-which-key)
