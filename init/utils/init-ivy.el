@@ -6,14 +6,8 @@
 
 (use-package ivy
   :ensure t
-  ;;:defer t
   :diminish (ivy-mode . "")         ; does not display ivy in the modeline
-  :bind
-  (("C-'" . avy-goto-char)
-   ("C-x b" . ivy-switch-buffer))
-  ;; :init (ivy-mode 1)                ; enable ivy globally at startup
-  ;; :bind (:map ivy-mode-map       ; bind in the ivy buffer
-  ;;             ("C-'" . ivy-avy)) ; C-' to ivy-avy
+  :init (ivy-mode 1)                ; enable ivy globally at startup
   :config
   (setq ivy-use-virtual-buffers t)   ; extend searching to bookmarks and …
   ;; (setq ivy-height 20)            ; set height of the ivy window

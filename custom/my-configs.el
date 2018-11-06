@@ -124,6 +124,10 @@
 ;; show line number/over80characters in programming modes
 ;; (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode) ;; emacs 26.1
+(custom-set-faces
+ '(line-number ((t (:foreground "dim gray"))))
+ '(line-number-current-line ((t (:inherit line-number :foreground "white")))))
+
 (add-hook 'prog-mode-hook 'over80characters)
 
 ;; tooltip

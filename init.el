@@ -35,7 +35,10 @@
                              (float-time
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
-;;-------------------------------------
+
+;;----------------------------------------------------------------------------
+;; use-package 
+;;----------------------------------------------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
@@ -50,8 +53,10 @@
 
 (eval-when-compile
   (require 'use-package))
-;;--------------------------------------
 
+;;----------------------------------------------------------------------------
+;; benchmark
+;;----------------------------------------------------------------------------
 (use-package benchmark-init
   :ensure t
   :config
@@ -67,6 +72,7 @@
     :config
     (exec-path-from-shell-initialize)
     (setq exec-path-from-shell-check-startup-files nil)))
+
 ;;----------------------------------------------------------------------------
 ;; Load package configs
 ;;----------------------------------------------------------------------------
@@ -76,21 +82,23 @@
 (add-to-list 'load-path "~/myemacs/init/")
 (require 'init-company)
 (require 'init-flycheck)
+
 ;;----------------------------------------------------------------------------
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/custom/")
 (require 'my-configs)
 (require 'my-org)
+
 ;;----------------------------------------------------------------------------
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
+;;(require 'init-doom-themes)
+;;(require 'init-doom-modeline)
+;;(require 'init-spaceline)
+(require 'init-theme)
 (require 'init-projectile)
-;;(require 'init-spacemacs-theme)
-(require 'init-doom-themes)
-(require 'init-doom-modeline)
-(require 'init-spaceline)
 (require 'init-ivy)
 (require 'init-which-key)
 (require 'init-evil)

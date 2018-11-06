@@ -42,7 +42,7 @@
         ;;winum-assign-functions            'my-winum-assign-func
         ;;winum-auto-setup-mode-line      t
         winum-mode-line-position          1
-        winum-auto-setup-mode-line        nil
+        winum-auto-setup-mode-line        t
         winum-ignored-buffers             '(" *which-key*"))
 
   (winum-mode)
