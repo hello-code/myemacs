@@ -4,10 +4,8 @@
 
 (use-package pomodoro
   :ensure t
-  :commands(pomodoro-start)
-  :init
-  (bind-key "M-p" 'pomodoro-start)
   :config
+  (global-set-key "\M-p" 'pomodoro-start)
   (pomodoro-add-to-mode-line)
   (setq pomodoro-work-cycle "[W]") ;; 在状态栏显示的字符
   (setq pomodoro-work-break "[B]")
