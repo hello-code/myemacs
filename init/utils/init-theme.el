@@ -2,10 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package dracula-theme
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
   :init
-  (load-theme 'dracula t)
+  (load-theme 'sanityinc-tomorrow-night t)
+  (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
   )
 
 (provide 'init-theme)
