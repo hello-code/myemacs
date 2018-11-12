@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package which-key
+  :ensure t
   :defer nil
   :diminish which-key-mode
   :init (progn
