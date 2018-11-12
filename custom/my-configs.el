@@ -199,11 +199,17 @@
     (indent-region (point-min)(point-max) nil)))
 (global-set-key [f12] 'indent-buffer)
 
-;; (defun my-truncate-lines()
-;;   (setq truncate-lines nil))
-;;(add-hook 'debugger-mode-hook 'my-truncate-lines)
-
 (add-hook 'debugger-mode-hook (lambda()(setq truncate-lines nil)))
-;;  )
+
+;; insert current date and time
+(defun now()
+  "Insert string for the current time formatted like '2018-11-12 12:01:50'."
+  (interactive)
+  (insert (format-time-string "[%F %T]")))
+(defun today()
+  "Insert string for today's date like '2018-11-12."
+  (interactive)
+  (insert (format-time-string "[%F]")))
+
 (provide 'my-configs)
 ;;; my-configs.el ends here
