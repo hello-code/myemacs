@@ -140,7 +140,7 @@
 ;; fonts 
 (cond
  ((eq system-type 'windows-nt)
-  (set-frame-font "Consolas-11")
+  (set-frame-font "Fira Code-10.5")
   (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
   (add-to-list 'default-frame-alist '(font . "Consolas-11"))
   )
