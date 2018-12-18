@@ -35,10 +35,10 @@
   :config
   (push 'company-lsp company-backends))
 
-(use-package python-mode
-  ;;  :mode ("\\.py\\'" . python-mode)
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
   ;; :interpreter ("python" . python-mode)
-  :mode "\\.py\\'"
+  ;; :mode "\\.py\\'"
   :config
   ;; (use-package lsp)
   ;; (use-package lsp-clients)

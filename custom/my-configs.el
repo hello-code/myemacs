@@ -142,7 +142,7 @@
  ((eq system-type 'windows-nt)
   (set-frame-font "Fira Code-10.5")
   (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
-  (add-to-list 'default-frame-alist '(font . "Consolas-11"))
+  (add-to-list 'default-frame-alist '(font . "Fira Code-10.5"))
   )
  ((eq system-type 'gnu/linux)
   (set-frame-font "DejaVu Sans Mono-13") ;; 10.5
