@@ -1,3 +1,4 @@
+;;; init-lsp-go.el ends here
 ;;; init-lsp-go --- lsp golang
 ;;; Commentary:
 ;;; Code:
@@ -22,7 +23,7 @@
   :config
   (require 'lsp)
   (require 'lsp-clients)
-  (setq lsp-prefer-flymake nil)
+  ;;(setq lsp-prefer-flymake nil)
   (add-hook 'go-mode-hook 'lsp)
   )
 
