@@ -118,10 +118,8 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
-(if (memq window-system '(w32))
-    (require 'init-python-elpy) ;; for windows
-  (require 'init-python-lsp))
-(require 'init-go)
+(require 'init-lsp-python)
+(require 'init-lsp-go)
 (require 'init-web)
 (require 'init-javascript)
 (require 'init-lsp-dart)
