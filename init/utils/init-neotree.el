@@ -51,5 +51,11 @@
   ;;   )
   )
 
+(use-package all-the-icons
+  :ensure t
+  :after neotree
+  :config
+  (setq inhibit-compacting-font-caches t))
+
 (provide 'init-neotree)
 ;;; init-neotree.el ends here
