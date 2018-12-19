@@ -61,6 +61,7 @@
    "l"   'counsel-locate
    "TAB" '(switch-to-other-buffer :which-key "prev buffer")
    "SPC" '(avy-goto-word-or-subword-1  :which-key "go to char")
+   "w"   'ace-window
 
    ;; Applications
    "a"  '(:ignore t :which-key "Applications")

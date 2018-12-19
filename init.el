@@ -95,14 +95,15 @@
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
 ;;(require 'init-doom-themes)
-;;(require 'init-doom-modeline)
+(require 'init-doom-modeline)
 ;;(require 'init-spaceline)
 (require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)
 (require 'init-which-key)
 (require 'init-evil)
-(require 'init-winum) ;; window number
+(require 'init-ace-window)
+;;(require 'init-winum) ;; window number
 (require 'init-neotree)
 (require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80

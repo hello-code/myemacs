@@ -8,13 +8,44 @@
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init)
-)
+  :init
+  (setq doom-modeline-height 20)
+  (setq doom-modeline-bar-width 3)
+  ;; Don’t compact font caches during GC.
+  (setq inhibit-compacting-font-caches t)
+  :config
+  (set-face-attribute 'doom-modeline-bar nil :background "#51afef")
+  ;; evil-state
+  (doom-modeline-def-segment evil-state
+    "The current evil state.  Requires `evil-mode' to be enabled."
+    (when (bound-and-true-p evil-local-mode)
+      (s-trim-right (evil-state-property evil-state :tag t))))
+  (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "green" :foreground "black")))
+        evil-emacs-state-tag    (propertize "[E]" 'face '((:background "orange" :foreground "black")))
+        evil-insert-state-tag   (propertize "[I]" 'face '((:background "red") :foreground "white"))
+        evil-motion-state-tag   (propertize "[M]" 'face '((:background "blue") :foreground "white"))
+        evil-visual-state-tag   (propertize "[V]" 'face '((:background "grey80" :foreground "black")))
+        evil-operator-state-tag (propertize "[O]" 'face '((:background "purple"))))
+  ;; ;; Mode lines
+  ;; (doom-modeline-def-modeline 'main
+  ;;   '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
+  ;;   '(global buffer-encoding major-mode process vcs flycheck))
 
-;; (require 'doom-modeline)
-;; (doom-modeline-init)
+  ;; (doom-modeline-def-modeline 'special
+  ;;   '(window-number bar evil-state matches " " buffer-info-simple buffer-position " " selection-info)
+  ;;   '(buffer-encoding major-mode flycheck global))
+
+  (custom-set-faces
+   '(mode-line
+     ((t (:background "#1c1f26" :foreground "#ffffff" :box (:line-width 1 :color "#4b82f0")))))
+   '(mode-line-inactive
+     ((t ( :foreground "gray80" :background "gray40" :box '(:line-width 1 :color "gray20" :style nil)))))
+   )
+  )
 
 (use-package all-the-icons
   :ensure t
+  :defer
   :after neotree
   :config
   (setq inhibit-compacting-font-caches t))

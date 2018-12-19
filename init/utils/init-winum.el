@@ -33,7 +33,10 @@
   (add-to-list 'winum-assign-functions #'winum-assign-9-to-calculator-8-to-flycheck-errors)
   ;;(add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree)
 
-  (set-face-attribute 'winum-face nil :weight 'bold)
+  (set-face-attribute 'winum-face nil
+                      :weight 'bold
+                      ;;:background "RoyalBlue1"
+                      )
 
   (defvar window-numbering-scope)
   (setq window-numbering-scope           'global
@@ -41,6 +44,7 @@
         winum-auto-assign-0-to-minibuffer t
         ;;winum-assign-functions            'my-winum-assign-func
         ;;winum-auto-setup-mode-line      t
+        winum-format                      " [%s] "
         winum-mode-line-position          1
         winum-auto-setup-mode-line        t
         winum-ignored-buffers             '(" *which-key*"))
