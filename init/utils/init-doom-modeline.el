@@ -15,6 +15,7 @@
   (setq inhibit-compacting-font-caches t)
   :config
   (set-face-attribute 'doom-modeline-bar nil :background "#51afef")
+  ;;; segments
   ;; evil-state
   (doom-modeline-def-segment evil-state
     "The current evil state.  Requires `evil-mode' to be enabled."
@@ -26,6 +27,20 @@
         evil-motion-state-tag   (propertize "[M]" 'face '((:background "blue") :foreground "white"))
         evil-visual-state-tag   (propertize "[V]" 'face '((:background "grey80" :foreground "black")))
         evil-operator-state-tag (propertize "[O]" 'face '((:background "purple"))))
+
+  (defun my-eval-string (string)
+    "Evaluate elisp code stored in a string."
+    (eval (car (read-from-string string))))
+
+  ;; pomodoro
+  (doom-modeline-def-segment pomodoro
+    "pomodoro segment"
+    (my-eval-string "pomodoro-mode-line-string"))
+  
+  (doom-modeline-def-modeline 'main
+    '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
+    '(pomodoro global buffer-encoding major-mode process vcs flycheck))
+
   ;; ;; Mode lines
   ;; (doom-modeline-def-modeline 'main
   ;;   '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
