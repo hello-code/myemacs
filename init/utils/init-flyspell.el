@@ -8,7 +8,7 @@
   :defer t
   :init
   (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  ;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
   (add-hook 'org-mode-hook 'turn-off-flyspell)
   ;;  :bind("M-f" . flyspell-mode)
   :config
