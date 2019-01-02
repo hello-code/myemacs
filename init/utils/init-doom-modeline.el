@@ -39,7 +39,7 @@
   
   (doom-modeline-def-modeline 'main
     '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
-    '(pomodoro global buffer-encoding major-mode process vcs flycheck))
+    '(pomodoro buffer-encoding major-mode process vcs flycheck))
 
   ;; ;; Mode lines
   ;; (doom-modeline-def-modeline 'main
