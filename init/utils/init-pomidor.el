@@ -1,4 +1,4 @@
-;;; init-pomidor.el --- pomodoro
+;;; init-pomidor.el --- pomidor
 ;;; https://github.com/TatriX/pomidor
 ;;; Commentary:
 ;;; Code:
@@ -8,10 +8,14 @@
   :config
   (global-set-key "\M-p" #'pomidor)
 
-  (setq alert-default-style 'libnotify)
-  
-  ;; (setq-default mode-line-format
-  ;;              (cons mode-line-format '(pomodoro-mode-line-string)))
+  (setq
+   ;;pomidor-sound-tick nil ;; nil取消声音
+   ;;pomidor-sound-tack nil ;; nil取消声音
+   pomidor-sound-tick (expand-file-name (concat (getenv "HOME") "/myemacs/resource/tick.wav"))
+   pomidor-sound-tack (expand-file-name (concat (getenv "HOME") "/myemacs/resource/tack.wav"))
+   pomidor-sound-overwork (expand-file-name (concat (getenv "HOME") "/myemacs/resource/ring.wav"))
+   pomidor-sound-break-over (expand-file-name (concat (getenv "HOME") "/myemacs/resource/rest.wav"))
+   )  
   )
 (provide 'init-pomidor)
-;;; init-pomodoro.el ends here
+;;; init-pomidor.el ends here
