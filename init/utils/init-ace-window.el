@@ -9,6 +9,7 @@
   (global-set-key (kbd "M-o") 'ace-window)
   (ace-window-display-mode)
   :config
+  ;; (custom-set-faces '(aw-mode-line-face((t(:box(:line-width 1))))))
   (set-face-attribute
    'aw-leading-char-face nil
    :foreground "deep sky blue"
@@ -16,9 +17,11 @@
    :height 3.0)
   (set-face-attribute
    'aw-mode-line-face nil
-   ;;:inherit 'mode-line-buffer-id
-   :foreground "black"
-   :background "orange")
+   :inherit 'mode-line-buffer-id
+   ;;:foreground "black"
+   ;;:background "orange"
+   :box 1
+   )
   (setq
    ;; aw-keys '(?a ?s ?d ?f ?j ?k ?l) ;; default is number 1,2,3
    aw-dispatch-always t

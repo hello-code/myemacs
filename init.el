@@ -94,7 +94,7 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-;;(require 'init-doom-modeline)
+(require 'init-doom-modeline)
 (require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)
@@ -106,7 +106,7 @@
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
-;;(require 'init-pomodoro)
+;;(require 'init-pomodoro) ;; conflict with doom-mode-line
 (require 'init-pomidor)
 (require 'init-fold-this)
 (require 'init-flyspell)
