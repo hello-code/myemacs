@@ -18,9 +18,9 @@
   ;;; segments
   ;; evil-state
   (doom-modeline-def-segment evil-state
-                             "The current evil state.  Requires `evil-mode' to be enabled."
-                             (when (bound-and-true-p evil-local-mode)
-                               (s-trim-right (evil-state-property evil-state :tag t))))
+    "The current evil state.  Requires `evil-mode' to be enabled."
+    (when (bound-and-true-p evil-local-mode)
+      (s-trim-right (evil-state-property evil-state :tag t))))
   (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "green" :foreground "black")))
         evil-emacs-state-tag    (propertize "[E]" 'face '((:background "orange" :foreground "black")))
         evil-insert-state-tag   (propertize "[I]" 'face '((:background "red") :foreground "white"))
@@ -60,7 +60,7 @@
 
 (use-package all-the-icons
   :ensure t
-  :defer
+  :defer t
   :after neotree
   :config
   (setq inhibit-compacting-font-caches t))
