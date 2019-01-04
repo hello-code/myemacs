@@ -28,18 +28,18 @@
         evil-visual-state-tag   (propertize "[V]" 'face '((:background "grey80" :foreground "black")))
         evil-operator-state-tag (propertize "[O]" 'face '((:background "purple"))))
 
-  ;; (defun my-eval-string (string)
-  ;;   "Evaluate elisp code stored in a string."
-  ;;   (eval (car (read-from-string string))))
+  ;; pomodoro segment
+  (defun my-eval-string (string)
+    "Evaluate elisp code stored in a string."
+    (eval (car (read-from-string string))))
 
-  ;; ;; pomodoro
-  ;; (doom-modeline-def-segment pomodoro
-  ;;   "pomodoro segment"
-  ;;   (my-eval-string "pomodoro-mode-line-string"))
+  (doom-modeline-def-segment pomodoro
+    "pomodoro segment"
+    (my-eval-string "pomodoro-mode-line-string"))
   
-  ;; (doom-modeline-def-modeline 'main
-  ;;   '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
-  ;;   '(pomodoro buffer-encoding major-mode process vcs flycheck))
+  (doom-modeline-def-modeline 'main
+    '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
+    '(pomodoro buffer-encoding major-mode process vcs  checker " "))
 
   ;; ;; Mode lines
   ;; (doom-modeline-def-modeline 'main

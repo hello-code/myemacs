@@ -106,7 +106,7 @@
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
-;;(require 'init-pomodoro) ;; conflict with doom-mode-line
+(require 'init-pomodoro)
 (require 'init-pomidor)
 (require 'init-fold-this)
 (require 'init-flyspell)
