@@ -33,6 +33,9 @@
                   'append))
 
   ;; change default notification style
+  ;; ===================
+  ;; growl
+  ;; ==================================================================
   (require 'cl)
   (defun alert-growl-notify (info)
     (if alert-growl-command
@@ -68,11 +71,12 @@
 
   (alert-define-style 'growl :title "Notify using Growl"
                       :notifier #'alert-growl-notify)
-
+  ;; ==================================================================
+  
   (cond
    ((eq system-type 'windows-nt)
-    (add-to-list 'exec-path "C:/Program Files (x86)/Growl for Windows")
-    (setq alert-default-style 'growl)
+    ;; (setq alert-default-style 'growl)
+    (setq alert-default-style 'toaster)
     )
    ((eq system-type 'gnu/linux)
     (setq alert-default-style 'libnotify)
