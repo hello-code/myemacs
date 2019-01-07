@@ -17,7 +17,6 @@
    pomidor-sound-overwork (expand-file-name (concat (getenv "HOME") "/myemacs/resource/ring.wav"))
    pomidor-sound-break-over (expand-file-name (concat (getenv "HOME") "/myemacs/resource/rest.wav"))
    )
-
   ;; log
   ;; https://github.com/TatriX/pomidor/issues/20
   (defadvice pomidor-stop (before pomidor-save-log activate)
@@ -75,9 +74,15 @@
   
   (cond
    ((eq system-type 'windows-nt)
-    ;; (setq alert-default-style 'growl)
-    (setq alert-default-style 'toaster)
-    )
+    (defun windows-version()
+      (let ((ver (shell-command-to-string "ver")))
+        (string-match "[[:digit:]].[[:digit:]]" ver)
+        (match-string 0 ver)
+        ))
+    (if (equal "6.1" (windows-version))
+        (setq alert-default-style 'growl) ;; Windows 7
+      (setq alert-default-style 'toaster) ;; Windows 10
+      ))
    ((eq system-type 'gnu/linux)
     (setq alert-default-style 'libnotify)
     ))
