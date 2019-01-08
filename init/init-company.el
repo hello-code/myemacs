@@ -3,10 +3,10 @@
 ;;; Code:
 
 (use-package company
-  :defer t
+  ;;:defer t
   :ensure t
   :diminish (company-mode . "CMP")
-  ;;:init  (add-hook 'after-init-hook 'global-company-mode)
+  :init  (add-hook 'after-init-hook 'global-company-mode)
   :config  
   (setq company-idle-delay 0.01
         company-show-numbers t

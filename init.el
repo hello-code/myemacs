@@ -115,6 +115,7 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
+(require 'init-lsp)
 (require 'init-lsp-python)
 (require 'init-lsp-go)
 (require 'init-web)
