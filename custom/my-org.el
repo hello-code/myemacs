@@ -773,6 +773,35 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;;(proviError running timer appt-delete-window':
   ;;    (error "No buffer named *appt-buf*")de 'init-org)
   (defun appt-delete-window () "Nothing.Overwrite built-in function." )
+
+  ;; toast notification
+  ;; http://joonro.github.io/blog/posts/toast-notifications-org-mode-windows.html
+  (setq img-path (concat (getenv "HOME") "/myemacs/resource/org_mode.png"))
+  ;; set up the call to the notifier
+  (defun toast-appt-send-notification (title msg)
+    (shell-command (concat "toast" ;; toast add in system PATH
+                           " -t \"" title "\""
+                           " -m \"" msg "\""
+                           " -p " img-path)))
+
+  ;; designate the window function for my-appt-send-notification
+  (defun toast-appt-display (min-to-app new-time msg)
+    (toast-appt-send-notification
+     (format "Appointment in %s minutes" min-to-app)    ;; passed to -t in toast call
+     (format "%s" msg)))                                ;; passed to -m in toast call
+  
+  (cond
+   ((eq system-type 'windows-nt)
+    (defun windows-version()
+      (let ((ver (shell-command-to-string "ver")))
+        (string-match "[[:digit:]].[[:digit:]]" ver)
+        (match-string 0 ver)
+        ))
+    (if (equal "6.1" (windows-version))
+        (setq appt-disp-window-function (function djcb-appt-display)) ;; Windows 7
+      (setq appt-disp-window-function (function toast-appt-display)) ;; Windows 10
+      ))
+   )
   )
 
 (provide 'my-org)
