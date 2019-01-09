@@ -743,39 +743,41 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;;(display-time)              ;; time display is required for this...(will break spaceline)
 
   ;; 提醒
-  (defun djcb-popup (title msg &optional icon sound)
-    "Show a popup if we're on X,or echo it otherwise.
-     TITLE is the title of the message,
-     MSG is the context.
-     Optionally, you can provide an ICON and a SOUND to be played."
-    (interactive)
-    (if (eq window-system 'x)
-        (shell-command (concat "notify-send "
-                               (if icon (concat "-i " icon) "")
-                               " '" title "' '" msg "' -t 30000"));持续显示30秒
-      (message (concat title ": " msg)))
-    ;;(when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
-    (when sound (play-sound-file sound))
-    )
+  ;; (defun djcb-popup (title msg &optional icon sound)
+  ;;   "Show a popup if we're on X,or echo it otherwise.
+  ;;    TITLE is the title of the message,
+  ;;    MSG is the context.
+  ;;    Optionally, you can provide an ICON and a SOUND to be played."
+  ;;   (interactive)
+  ;;   (if (eq window-system 'x)
+  ;;       (shell-command (concat "notify-send "
+  ;;                              (if icon (concat "-i " icon) "")
+  ;;                              " '" title "' '" msg "' -t 30000"));持续显示30秒
+  ;;     (message (concat title ": " msg)))
+  ;;   ;;(when sound (shell-command (concat "mplayer -really-quiet " sound " 2> /dev/null")))
+  ;;   (when sound (play-sound-file sound))
+  ;;   )
 
-  ;; our little façade-function for djcb-popup
-  (defun djcb-appt-display (min-to-app new-time msg)
-    "Display pop window's icon and sound.
-    MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
-    (djcb-popup (format "Appointment in %s minute(s)" min-to-app) msg
-                ;; display pop window
-                "~/myemacs/resource/info_org.png"
-                "~/myemacs/resource/ring.wav"))
+  ;; ;; our little façade-function for djcb-popup
+  ;; (defun djcb-appt-display (min-to-app new-time msg)
+  ;;   "Display pop window's icon and sound.
+  ;;   MIN-TO-APP: minutes,NEW-TIME:new time,MSG:message"
+  ;;   (djcb-popup (format "Appointment in %s minute(s)" min-to-app) msg
+  ;;               ;; display pop window
+  ;;               "~/myemacs/resource/info_org.png"
+  ;;               "~/myemacs/resource/ring.wav"))
 
-  (setq appt-disp-window-function (function djcb-appt-display))
+  ;; (setq appt-disp-window-function (function djcb-appt-display))
 
   ;; overwrite built-in function
   ;;(proviError running timer appt-delete-window':
   ;;    (error "No buffer named *appt-buf*")de 'init-org)
-  (defun appt-delete-window () "Nothing.Overwrite built-in function." )
+  ;;(defun appt-delete-window () "Nothing.Overwrite built-in function." )
 
+  ;;====================
   ;; toast notification
   ;; http://joonro.github.io/blog/posts/toast-notifications-org-mode-windows.html
+  ;;====================
   (setq img-path (concat (getenv "HOME") "/myemacs/resource/org_mode.png"))
   ;; set up the call to the notifier
   (defun toast-appt-send-notification (title msg)
@@ -789,7 +791,13 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
     (toast-appt-send-notification
      (format "Appointment in %s minutes" min-to-app)    ;; passed to -t in toast call
      (format "%s" msg)))                                ;; passed to -m in toast call
-  
+
+  ;;====================
+  ;; growl notification
+  ;;====================
+  (defun growl-appt-display (min-to-app new-time msg)
+    (start-process "growlnotify" nil "growlnotify" msg))
+
   (cond
    ((eq system-type 'windows-nt)
     (defun windows-version()
@@ -798,10 +806,13 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
         (match-string 0 ver)
         ))
     (if (equal "6.1" (windows-version))
-        (setq appt-disp-window-function (function djcb-appt-display)) ;; Windows 7
+        (setq appt-disp-window-function (function growl-appt-display)) ;; Windows 7
       (setq appt-disp-window-function (function toast-appt-display)) ;; Windows 10
       ))
-   )
+   ((eq system-type 'gnu/linux)
+    (setq alert-default-style 'libnotify)
+    ))
+  
+  (setq appt-delete-window-function (lambda () t))
   )
-
 (provide 'my-org)
