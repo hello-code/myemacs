@@ -10,30 +10,22 @@
   :init (ivy-mode 1)                ; enable ivy globally at startup
   :config
   (setq ivy-use-virtual-buffers t)   ; extend searching to bookmarks and …
+  (setq enable-recursive-minibuffers t)
   ;; (setq ivy-height 20)            ; set height of the ivy window
   (setq ivy-count-format "(%d/%d) ") ; count format, from the ivy help page
   )
 
-(use-package avy
+(use-package counsel
   :ensure t
-  :after ivy
-  :commands (avy-goto-char)
-  :config
-  (setq avy-background t)
-  :custom-face
-  (avy-lead-face ((t(:weight bold))))
-  (avy-lead-face-0 ((t(:weight bold))))
-  )
+  :bind(("M-x" . counsel-M-x)
+        ("C-x C-f" . counsel-find-file)))
 
-(use-package counsel :ensure t :defer t)
+(use-package swiper
+  :ensure t
+  :bind(("C-s" . swiper)))
 
 (use-package general :ensure t
   :config
-  (general-define-key "C-'" 'avy-goto-char)
-  (general-define-key
-   "C-s" 'swiper
-   "M-x" 'counsel-M-x
-   )
   ;; keys binding (different prefix key)
   (general-define-key
    :prefix "C-c"

@@ -796,6 +796,7 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;; growl notification
   ;;====================
   (defun growl-appt-display (min-to-app new-time msg)
+    ;;(start-process "growlnotify" nil "growlnotify" (decode-coding-string(msg)))
     (start-process "growlnotify" nil "growlnotify" msg))
 
   (cond
@@ -806,13 +807,16 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
         (match-string 0 ver)
         ))
     (if (equal "6.1" (windows-version))
-        (setq appt-disp-window-function (function growl-appt-display)) ;; Windows 7
+        (progn
+          (setq default-process-coding-system '(cp936 . cp936))
+          (setq appt-disp-window-function (function growl-appt-display))) ;; Windows 7
       (setq appt-disp-window-function (function toast-appt-display)) ;; Windows 10
       ))
    ((eq system-type 'gnu/linux)
     (setq alert-default-style 'libnotify)
     ))
-  
+
   (setq appt-delete-window-function (lambda () t))
+
   )
 (provide 'my-org)
