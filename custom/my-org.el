@@ -810,7 +810,10 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
         (progn
           (setq default-process-coding-system '(cp936 . cp936))
           (setq appt-disp-window-function (function growl-appt-display))) ;; Windows 7
-      (setq appt-disp-window-function (function toast-appt-display)) ;; Windows 10
+      (progn
+        (setq default-process-coding-system '(cp936 . cp936))
+        (setq appt-disp-window-function (function toast-appt-display)) ;; Windows 10
+        )
       ))
    ((eq system-type 'gnu/linux)
     (setq alert-default-style 'libnotify)
