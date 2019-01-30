@@ -12,18 +12,25 @@
   (setq
    ;;pomidor-sound-tick nil ;; nil取消声音
    ;;pomidor-sound-tack nil ;; nil取消声音
+   ;;(setq pomidor-seconds (* 25 60)) ;; 25 minutes
+   ;;(setq pomidor-break-seconds (* 5 60)) ;; 5 minutes
    pomidor-sound-tick (expand-file-name (concat (getenv "HOME") "/myemacs/resource/tick.wav"))
    pomidor-sound-tack (expand-file-name (concat (getenv "HOME") "/myemacs/resource/tack.wav"))
    pomidor-sound-overwork (expand-file-name (concat (getenv "HOME") "/myemacs/resource/ring.wav"))
    pomidor-sound-break-over (expand-file-name (concat (getenv "HOME") "/myemacs/resource/rest.wav"))
    )
+  (progn
+    (set-face-attribute 'pomidor-work-face nil :foreground "#6495ed")
+    (set-face-attribute 'pomidor-overwork-face nil :foreground "#ff4040")
+    (set-face-attribute 'pomidor-break-face nil :foreground "#00ff00")
+    (set-face-attribute 'pomidor-skip-face nil :foreground "#eeeed1"))
   ;; log
   ;; https://github.com/TatriX/pomidor/issues/20
   (defadvice pomidor-stop (before pomidor-save-log activate)
     "Log pomidor data to the ~/pomidor-log.csv file.
      Columns: date,work,overwork,break"
     (write-region (format "%s,%d,%d,%d\n"
-                          (format-time-string "%Y/%m/%d")
+                          (format-time-string "%F %T")
                           (/ (time-to-seconds (pomidor-work-duration)) 60)
                           (/ (time-to-seconds (or (pomidor-overwork-duration) 0)) 60)
                           (/ (time-to-seconds (or (pomidor-break-duration) 0)) 60))
