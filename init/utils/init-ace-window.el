@@ -1,5 +1,7 @@
 ;;; init-ace-window.el --- window number
 ;;; Commentary:
+;;; delete window: C-u M-o x select you want delete window's number
+;;; show command help(aw-show-dispatch-help): C-u M-o ?
 ;;; Code:
 
 (use-package ace-window
@@ -38,7 +40,8 @@
            (progn
              (winner-undo)
              (setq this-command 'winner-undo))))
-     (?r winner-redo)))
+     (?r winner-redo)
+     (?? aw-show-dispatch-help)))
   )
 
 (provide 'init-ace-window)
