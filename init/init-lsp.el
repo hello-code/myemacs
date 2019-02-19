@@ -11,7 +11,13 @@
   :init
   (setq lsp-prefer-flymake nil))
 
-(use-package lsp-ui :ensure t :after(lsp))
+(use-package lsp-ui
+  :ensure t
+  :after(lsp)
+  :config
+  (setq lsp-ui-doc-max-width 60)
+  (setq lsp-ui-doc-position(quote at-point))
+  )
 
 (use-package company-lsp
   :ensure t

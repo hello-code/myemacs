@@ -118,14 +118,14 @@
 ;; Load configs for specific program language
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
-;; (require 'init-lsp)
+(require 'init-lsp)
 ;; (require 'init-lsp-dart)
-;; (require 'init-lsp-go)
-;; (require 'init-lsp-python)
+(require 'init-lsp-go)
+(require 'init-lsp-python)
 (require 'init-web)
 (require 'init-javascript)
-(require 'init-python-elpy)
-(require 'init-go)
+;;(require 'init-python-elpy)
+;;(require 'init-go)
 
 ;;; Garbage collector-decrease threshold to 5 MB
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))
