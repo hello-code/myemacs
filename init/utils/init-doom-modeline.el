@@ -38,13 +38,13 @@
     "Evaluate elisp code stored in a string."
     (eval (car (read-from-string string))))
 
-  (doom-modeline-def-segment pomodoro
-                             "pomodoro segment"
-                             (my-eval-string "pomodoro-mode-line-string"))
+  ;; (doom-modeline-def-segment pomodoro
+  ;;                            "pomodoro segment"
+  ;;                            (my-eval-string "pomodoro-mode-line-string"))
   
-  (doom-modeline-def-modeline 'main
-                              '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
-                              '(pomodoro buffer-encoding major-mode process vcs  checker " "))
+  ;; (doom-modeline-def-modeline 'main
+  ;;                             '(bar workspace-number window-number evil-state matches " " buffer-info buffer-position  " " selection-info)
+  ;;                             '(pomodoro buffer-encoding major-mode process vcs  checker " "))
 
   ;; ;; Mode lines
   ;; (doom-modeline-def-modeline 'main
