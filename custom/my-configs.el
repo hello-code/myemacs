@@ -24,7 +24,7 @@
 (setq inhibit-startup-message t)
 
 ;; frame size
-(setq initial-frame-alist '((top . 30) (left . 500) (width . 100) (height . 30)))
+;; (setq initial-frame-alist '((top . 30) (left . 500) (width . 100) (height . 30)))
 
 ;; line number
 ;; (setq linum-format " %d ")
