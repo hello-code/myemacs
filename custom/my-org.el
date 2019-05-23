@@ -48,13 +48,15 @@
   ;; TODO keyword
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
-                (sequencep "SOMEDAY(s)")
+                (sequencep "SOMEDAY(s)" "DELAY(l@/!)")
                 (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "MEETING"))))
 
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "red" :weight bold)
                 ("NEXT" :foreground "cyan" :weight bold)
                 ("DONE" :foreground "chartreuse3" :weight bold)
+                ("SOMEDAY" :foreground "chartreuse3" :weight bold)
+                ("DELAY" :foreground "gold" :weight bold)
                 ("WAITING" :foreground "yellow" :weight bold)
                 ("HOLD" :foreground "orange" :weight bold)
                 ("CANCELLED" :foreground "gray" :weight bold)
