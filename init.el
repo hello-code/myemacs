@@ -87,6 +87,7 @@
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/custom/")
+(require 'my-mode-line)
 (require 'my-configs)
 (require 'my-org)
 
@@ -94,7 +95,7 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-(require 'init-doom-modeline)
+;;(require 'init-doom-modeline)
 (require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)

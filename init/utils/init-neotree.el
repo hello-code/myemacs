@@ -55,7 +55,8 @@
   :ensure t
   :after neotree
   :config
-  (setq inhibit-compacting-font-caches t))
+  (setq inhibit-compacting-font-caches t)
+  (setq all-the-icons-scale-factor 1.1))
 
 (provide 'init-neotree)
 ;;; init-neotree.el ends here

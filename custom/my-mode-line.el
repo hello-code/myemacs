@@ -49,7 +49,7 @@
 
 (custom-set-faces
  '(mode-line
-   ((t (:background "#353644" :foreground "white" :height 1.1 :box (:line-width 1 :color "#353644")))))
+   ((t (:background "#1a1a1a" :foreground "white" :height 1.1 :box (:line-width 1 :color "#353644")))))
  '(mode-line-inactive
    ((t ( :background "#565063" :foreground "white" :box (:line-width 1 :color "#565063" :style nil)))))
  ;; 文件名

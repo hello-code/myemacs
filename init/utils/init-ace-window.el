@@ -20,9 +20,9 @@
   (set-face-attribute
    'aw-mode-line-face nil
    :inherit 'mode-line-buffer-id
-   ;;:foreground "black"
-   ;;:background "orange"
-   :box 1
+   :foreground "black"
+   :background "orange"
+   ;;:box 1
    )
   (setq
    ;; aw-keys '(?a ?s ?d ?f ?j ?k ?l) ;; default is number 1,2,3
