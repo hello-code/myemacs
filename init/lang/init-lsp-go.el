@@ -1,16 +1,10 @@
 ;;; init-lsp-go --- golang
 ;;; Commentary:
 ;;; https://github.com/dominikh/go-mode.el
-;;; https://github.com/sourcegraph/go-langserver
-;;; go get -u github.com/sourcegraph/go-langserver
+;;; go get -u -v golang.org/x/tools/cmd/gopls
 ;;; Code:
 
-(use-package go-mode
-  :ensure t
-  :mode ("\\.go\\'" . go-mode)
-  :config
-  (add-hook 'go-mode-hook 'lsp)
-  )
+(use-package go-mode :ensure t)
 
 (provide 'init-lsp-go)
 ;;; init-lsp-go.el ends here
