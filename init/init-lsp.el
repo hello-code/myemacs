@@ -12,6 +12,9 @@
   :config
   (setq lsp-enable-snippet nil)
   (setq lsp-prefer-flymake nil)
+  (set-face-attribute 'lsp-face-highlight-read nil :background "red")
+  (set-face-attribute 'lsp-face-highlight-textual nil :foreground "black" :background "orange")
+  (set-face-attribute 'lsp-face-highlight-write nil :background "blue")
   )
 
 (use-package lsp-ui
