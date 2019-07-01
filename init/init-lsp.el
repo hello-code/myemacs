@@ -22,7 +22,7 @@
   :commands lsp-ui-mode
   :config
   ;;(setq lsp-ui-doc-max-width 60)
-  (setq lsp-ui-doc-position(quote at-point))
+  ;;(setq lsp-ui-doc-position(quote at-point))
   (setq lsp-ui-sideline-ignore-duplicate t)
   (setq lsp-ui-sideline-enable nil)
   )
