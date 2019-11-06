@@ -116,9 +116,10 @@
 (require 'init-pomodoro)
 (require 'init-pomidor)
 (require 'init-fold-this)
-(require 'init-flyspell)
+;;(require 'init-flyspell)
 (require 'init-markdown)
-(require 'init-tabbar)
+;;(require 'init-tabbar)
+(require 'init-reveal)  ;; ppt
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
