@@ -49,6 +49,10 @@
 ;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 ;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 ;;                          ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;;                          ("melpa" . "https://melpa.org/packages/")))
+
 (package-initialize)
 
 ;; Bootstrap `use-package'
