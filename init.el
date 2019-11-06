@@ -127,10 +127,10 @@
 (require 'init-lsp)
 ;;(require 'init-lsp-dart)
 (require 'init-lsp-go)
-;; (require 'init-lsp-python)
+(require 'init-lsp-python)
 (require 'init-web)
 (require 'init-javascript)
-(require 'init-python-elpy)
+;;(require 'init-python-elpy)
 ;;(require 'init-go)
 
 ;;; Garbage collector-decrease threshold to 5 MB
