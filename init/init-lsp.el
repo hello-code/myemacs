@@ -37,6 +37,7 @@
 
 
 (use-package lsp-mode
+  :ensure t
   :hook (
          (python-mode . lsp-deferred)
          (go-mode . lsp-deferred))
@@ -45,6 +46,7 @@
   (setq lsp-prefer-flymake nil))
 
 (use-package lsp-ui
+  :ensure t
   :requires lsp-mode flycheck
   :config
   (setq lsp-ui-doc-enable t
@@ -61,6 +63,7 @@
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package company-lsp
+  :ensure t
   :requires company
   :config
   (push 'company-lsp company-backends)
