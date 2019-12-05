@@ -220,5 +220,8 @@
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
 
+;; hideshow key binding
+(global-set-key (kbd "C-+") 'hs-toggle-hiding)
+
 (provide 'my-configs)
 ;;; my-configs.el ends here
