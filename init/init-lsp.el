@@ -38,9 +38,9 @@
 
 (use-package lsp-mode
   :ensure t
-  :hook (
-         (python-mode . lsp-deferred)
-         (go-mode . lsp-deferred))
+  ;; :hook (
+  ;;        (python-mode . lsp-deferred)
+  ;;        (go-mode . lsp-deferred))
   :commands(lsp lsp-deferred)
   :config
   (setq lsp-prefer-flymake nil))

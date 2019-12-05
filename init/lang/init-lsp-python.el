@@ -20,15 +20,16 @@
   (setq venv-location "~/development/python/")
   )
 
-;; (use-package python
-;;   :mode ("\\.py\\'" . python-mode)
-;;   ;; :interpreter ("python" . python-mode)
-;;   ;; :mode "\\.py\\'"
-;;   :config
-;;   (add-hook 'python-mode-hook 'lsp)
-;;   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-;;   (setq py-autopep8-options '("--max-line-length=100"))
-;;   )
+(use-package py-autopep8
+  :ensure t
+  :init
+  (setq py-autopep8-options '("--max-line-length=100")))
+
+(use-package python
+  :config
+  (add-hook 'python-mode-hook 'lsp)
+  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+  )
 
 (provide 'init-lsp-python)
 ;;; init-lsp-python.el ends here

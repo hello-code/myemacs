@@ -9,6 +9,7 @@
   :commands go
   :config
   (setq gofmt-command "goimports")
+  (add-hook 'go-mode-hook 'lsp)
   (add-hook 'before-save-hook 'gofmt-before-save)
   )
 
