@@ -48,12 +48,26 @@
                ))
 
 (custom-set-faces
- '(mode-line
-   ((t (:background "#1a1a1a" :foreground "white" :height 1.1 :box (:line-width 1 :color "#353644")))))
  '(mode-line-inactive
-   ((t ( :background "#565063" :foreground "white" :box (:line-width 1 :color "#565063" :style nil)))))
- ;; 文件名
- ;; '(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
+   ((t(
+       :background "gray20"
+       :foreground "white"
+       :height 0.95
+       :box (:line-width 4 :color "gray20")
+       :font "Fira Code-10"
+       ))))
+ '(mode-line
+   ((t (
+        :background "#353644"
+        :foreground "white"
+        :height 0.95 
+        :box (:line-width 4 :color "#353644")
+        ))))
+ ;;文件名
+ ;;'(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
+
+ (set-face-attribute 'mode-line t
+                     :box '(:line-width 1 :color "gray20"))
  )
 
 (provide 'my-mode-line)
