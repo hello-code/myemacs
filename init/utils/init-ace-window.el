@@ -20,8 +20,8 @@
   (set-face-attribute
    'aw-mode-line-face nil
    :inherit 'mode-line-buffer-id
-   :foreground "black"
-   :background "orange"
+   :foreground "orange"
+   ;;:background "orange"
    ;;:box 1
    )
   (setq
