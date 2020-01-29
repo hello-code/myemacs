@@ -63,7 +63,9 @@
   :config
   (setq lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t
-        lsp-ui-doc-position 'top
+        lsp-ui-doc-delay 0.5
+        lsp-ui-doc-border (face-foreground 'default)
+        lsp-ui-doc-position 'at-point
         lsp-ui-doc-include-signature t
         lsp-ui-sideline-enable nil
         lsp-ui-flycheck-enable t
