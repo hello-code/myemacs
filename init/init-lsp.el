@@ -37,6 +37,7 @@
 
 ;; ================================================
 ;; go get -u -v golang.org/x/tools/cmd/gopls
+(use-package go-mode :ensure t)
 
 (use-package lsp-mode
   :ensure t
