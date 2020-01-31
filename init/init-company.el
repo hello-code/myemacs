@@ -52,6 +52,7 @@
   )
 
 (use-package company-box
+  :ensure t
   :hook (company-mode . company-box-mode)
   :config
   (setq company-box-icons-alist 'company-box-icons-all-the-icons)
