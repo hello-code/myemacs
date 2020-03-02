@@ -120,8 +120,10 @@
   ;; ===================================================================
   ;;(global-set-key (kbd "C-c c") 'org-capture)
   (setq org-capture-templates
-        (quote (("t" "todo" entry (file "~/org/refile.org")
-                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+        (quote (("i" "inbox" entry (file "~/org/refile.org")
+                 "* TODO %?\n%U\n%a\n")
+                ("t" "todo" entry (file+datetree "~/org/todo.org")
+                 "* TODO %?\n  %U\n  %a\n")
                 ("p" "pause" entry (file "~/org/refile.org")
                  "* %? :PAUSE:\n%U\n%a\n" :clock-in t :clock-resume t)
                 ("r" "reference" entry (file "~/org/reference.org")
