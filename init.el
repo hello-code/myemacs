@@ -41,17 +41,19 @@
 ;;----------------------------------------------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
-(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "https://elpa.emacs-china.org/melpa/")
-                         ("org"   . "https://elpa.emacs-china.org/org/")))
 
-;; tsinghua
-;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-;;                          ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+;; (setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+;;                          ("melpa" . "https://elpa.emacs-china.org/melpa/")
+;;                          ("org"   . "https://elpa.emacs-china.org/org/")))
 
 ;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 ;;                          ("melpa" . "https://melpa.org/packages/")))
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+
 
 (package-initialize)
 
@@ -131,12 +133,11 @@
 (add-to-list 'load-path "~/myemacs/init/lang/")
 (require 'init-lsp)
 ;;(require 'init-lsp-dart)
-(require 'init-lsp-go)
-(require 'init-lsp-python)
+;;(require 'init-lsp-go)
+;;(require 'init-lsp-python)
 (require 'init-web)
 (require 'init-javascript)
 ;;(require 'init-python-elpy)
-;;(require 'init-go)
 
 ;;; Garbage collector-decrease threshold to 5 MB
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))

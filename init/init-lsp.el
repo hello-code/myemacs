@@ -35,15 +35,28 @@
 ;;   (setq company-lsp-cache-candidates 'auto) ;; ignore case
 ;;   )
 
+;; ================================================
+;; go get -u -v golang.org/x/tools/cmd/gopls
+(use-package go-mode :ensure t)
 
 (use-package lsp-mode
   :ensure t
-  ;; :hook (
-  ;;        (python-mode . lsp-deferred)
-  ;;        (go-mode . lsp-deferred))
   :commands(lsp lsp-deferred)
+  :hook (
+         (go-mode . lsp-deferred)
+         (python-mode . lsp-deferred)
+         )
   :config
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil)
+  (setq gofmt-command "goimports")
+  )
+
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 (use-package lsp-ui
   :ensure t
@@ -51,7 +64,9 @@
   :config
   (setq lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t
-        lsp-ui-doc-position 'top
+        lsp-ui-doc-delay 0.5
+        lsp-ui-doc-border (face-foreground 'default)
+        lsp-ui-doc-position 'at-point
         lsp-ui-doc-include-signature t
         lsp-ui-sideline-enable nil
         lsp-ui-flycheck-enable t
@@ -67,11 +82,18 @@
   :requires company
   :config
   (push 'company-lsp company-backends)
+  (setq company-lsp-cache-candidates 'auto) ;; ignore case
 
   ;; Disable client-side cache because the LSP server does a better job.
   (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates nil))
+
+;; Optional - provides snippet support.
+(use-package yasnippet
+  :ensure t
+  :commands yas-minor-mode
+  :hook (go-mode . yas-minor-mode))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
