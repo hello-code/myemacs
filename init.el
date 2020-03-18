@@ -42,16 +42,16 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
-;; (setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
-;;                          ("melpa" . "https://elpa.emacs-china.org/melpa/")
-;;                          ("org"   . "https://elpa.emacs-china.org/org/")))
+(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "https://elpa.emacs-china.org/melpa/")
+                         ("org"   . "https://elpa.emacs-china.org/org/")))
 
 ;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 ;;                          ("melpa" . "https://melpa.org/packages/")))
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 
 
@@ -123,6 +123,7 @@
 (require 'init-fold-this)
 (require 'init-markdown)
 (require 'init-reveal)  ;; ppt
+(require 'init-yasnippet)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language

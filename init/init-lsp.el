@@ -92,12 +92,6 @@
         company-lsp-async t
         company-lsp-cache-candidates nil))
 
-;; Optional - provides snippet support.
-(use-package yasnippet
-  :ensure t
-  :commands yas-minor-mode
-  :hook (go-mode . yas-minor-mode))
-
 (use-package lsp-ivy
   :after(lsp ivy)
   :ensure t
