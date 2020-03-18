@@ -106,8 +106,9 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
+(require 'init-doom-themes)
 ;;(require 'init-doom-modeline)
-(require 'init-theme)
+;;(require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)
 (require 'init-avy)
@@ -115,16 +116,12 @@
 (require 'init-evil)
 (require 'init-ace-window)
 (require 'init-neotree)
-(require 'init-smooth-scrolling)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
-(require 'init-pomodoro)
 (require 'init-pomidor)
 (require 'init-fold-this)
-;;(require 'init-flyspell)
 (require 'init-markdown)
-;;(require 'init-tabbar)
 (require 'init-reveal)  ;; ppt
 
 ;;----------------------------------------------------------------------------
@@ -132,12 +129,8 @@
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/lang/")
 (require 'init-lsp)
-;;(require 'init-lsp-dart)
-;;(require 'init-lsp-go)
-;;(require 'init-lsp-python)
 (require 'init-web)
 (require 'init-javascript)
-;;(require 'init-python-elpy)
 
 ;;; Garbage collector-decrease threshold to 5 MB
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))
