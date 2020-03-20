@@ -47,28 +47,40 @@
                minor-mode-alist
                ))
 
-(custom-set-faces
- '(mode-line-inactive
-   ((t(
-       :background "gray20"
-       :foreground "white"
-       :height 0.95
-       :box (:line-width 4 :color "gray20")
-       :font "Fira Code-10"
-       ))))
- '(mode-line
-   ((t (
-        :background "#353644"
-        :foreground "white"
-        :height 0.95 
-        :box (:line-width 4 :color "#353644")
-        ))))
- ;;文件名
- ;;'(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
+;; (custom-set-faces
+;;  '(mode-line-inactive
+;;    ((t(
+;;        :background "gray20"
+;;        :foreground "white"
+;;        :height 0.95
+;;        :box (:line-width 4 :color "gray20")
+;;        :font "Fira Code-10"
+;;        ))))
+;;  '(mode-line
+;;    ((t (
+;;         :background "#353644"
+;;         :foreground "white"
+;;         :height 0.95 
+;;         :box (:line-width 4 :color "#353644")
+;;         ))))
+;;  ;;文件名
+;;  ;;'(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
 
- (set-face-attribute 'mode-line t
-                     :box '(:line-width 1 :color "gray20"))
+;;  (set-face-attribute 'mode-line t
+;;                      :box '(:line-width 1 :color "gray20"))
+;;  )
+
+(custom-set-faces
+ '(mode-line((t(
+                :box(:line-width 1 :color "#4b82f0")
+                :height 1.0
+                :font "Fira Code-10"))))
+ '(mode-line-inactive((t (
+                          :box(:line-width 1 :color "gray" :style nil)
+                          :height 1.0
+                          :font "Fira Code-10"))))
  )
+
 
 (provide 'my-mode-line)
 ;;; my-mode-line.el ends here
