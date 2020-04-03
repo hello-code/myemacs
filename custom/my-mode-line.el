@@ -4,71 +4,45 @@
 
 ;; Mode line settings
 ;; use setq-default to set it for /all/ modes
+;; https://stackoverflow.com/questions/16985701/change-the-color-of-the-mode-line-depending-on-buffer-state
 
-(setq-default mode-line-format
-              (list
-               ;; ;; day and time
-               ;; '(:eval (propertize (format-time-string " %b %d %H:%M ")
-               ;;                     'face 'font-lock-builtin-face))
+(defface my-narrow-face
+  '((t (:foreground "black" :background "yellow3")))
+  "todo/fixme highlighting."
+  :group 'faces)
 
-               " "
-               ;; '(:eval (propertize (substring vc-mode 5)
-               ;;                     'face 'font-lock-comment-face))
+(defface my-read-only-face
+  '((t (:foreground "black" :background "orange3")))
+  "Read-only buffer highlighting."
+  :group 'faces)
 
-               ;; the buffer name; the file name as a tool tip
-               '(:eval (propertize " %b "
-                                   'face
-                                   (let ((face (buffer-modified-p)))
-                                     (if face 'font-lock-warning-face
-                                       'font-lock-type-face))
-                                   'help-echo (buffer-file-name)))
+(defface my-modified-face
+  '((t (:foreground "gray80" :background "red")))
+  "Modified buffer highlighting."
+  :group 'faces)
 
-               ;; line and column
-               " (" ;; '%02' to set to 2 chars at least; prevents flickering
-               (propertize "%02l" 'face 'font-lock-keyword-face) ","
-               (propertize "%02c" 'face 'font-lock-keyword-face)
-               ") "
-
-               ;; relative position, size of file
-               " ["
-               (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
-               "/"
-               (propertize "%I" 'face 'font-lock-constant-face) ;; size
-               "] "
-
-               ;; spaces to align right
-               '(:eval (propertize
-                        " " 'display
-                        `((space :align-to (- (+ right right-fringe right-margin)
-                                              ,(+ 3 (string-width mode-name)))))))
-
-               ;; the current major mode
-               (propertize " %m " 'face 'font-lock-string-face)
-               minor-mode-alist
-               ))
-
-;; (custom-set-faces
-;;  '(mode-line-inactive
-;;    ((t(
-;;        :background "gray20"
-;;        :foreground "white"
-;;        :height 0.95
-;;        :box (:line-width 4 :color "gray20")
-;;        :font "Fira Code-10"
-;;        ))))
-;;  '(mode-line
-;;    ((t (
-;;         :background "#353644"
-;;         :foreground "white"
-;;         :height 0.95 
-;;         :box (:line-width 4 :color "#353644")
-;;         ))))
-;;  ;;文件名
-;;  ;;'(mode-line-buffer-id ((t (:foreground "#ffe4b5" :background "black" :weight bold))))
-
-;;  (set-face-attribute 'mode-line t
-;;                      :box '(:line-width 1 :color "gray20"))
-;;  )
+(setq-default
+ mode-line-format
+ '("  "
+   (:eval (let ((str (if buffer-read-only
+                         (if (buffer-modified-p) "%%*" "%%%%")
+                       (if (buffer-modified-p) "**" "--"))))
+            (if buffer-read-only
+                (propertize str 'face 'my-read-only-face)
+              (if (buffer-modified-p)
+                  (propertize str 'face 'my-modified-face)
+                str))))
+   ;;(list 'line-number-mode "  ")
+   (:eval (when line-number-mode
+            (let ((str "(%l")) 
+              (if (/= (buffer-size) (- (point-max) (point-min)))
+                  (propertize str 'face 'my-narrow-face)
+                str))))
+   (list 'column-number-mode ":%c)")
+   " [%p/%I]"
+   " " mode-line-buffer-identification
+   "  %m" mode-line-modes
+   ))
 
 (custom-set-faces
  '(mode-line((t(
@@ -78,9 +52,8 @@
  '(mode-line-inactive((t (
                           :box(:line-width 1 :color "gray" :style nil)
                           :height 1.0
-                          :font "Fira Code-10"))))
+                          :font "Fira Code-10" :foreground "#cdcdc1"))))
  )
-
 
 (provide 'my-mode-line)
 ;;; my-mode-line.el ends here

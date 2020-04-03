@@ -9,7 +9,7 @@
 ;; system coding
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
-(prefer-coding-system 'chinese-gbk)
+;;(prefer-coding-system 'chinese-gbk)
 (prefer-coding-system 'utf-8)
 
 (setq debug-on-error t)

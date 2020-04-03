@@ -124,6 +124,8 @@
 (require 'init-markdown)
 (require 'init-reveal)  ;; ppt
 (require 'init-yasnippet)
+(require 'init-yaml)
+(require 'init-highlight-indent-guides)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
