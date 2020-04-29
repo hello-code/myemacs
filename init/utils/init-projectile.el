@@ -5,17 +5,14 @@
 ;;; Code:
 
 (use-package projectile
-  :defer t
+  ;;:defer t
   :ensure t
   :config
-  ;; (setq projectile-mode-line
-  ;;       '(:eval (list " Pj:"
-  ;;                     (propertize (projectile-project-name) 'face '(:background "#d98f22" :foreground "black"))
-  ;;                     "")))
-
-  (setq projectile-mode-line-lighter " Proj")
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (setq projectile-mode-line-function '(lambda () (format " Proj[%s]" (projectile-project-name))))
+  ;;(setq projectile-mode-line-lighter " Pj")
+  (setq projectile-completion-system 'ivy)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
+
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

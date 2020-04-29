@@ -14,7 +14,7 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode));; golang
+  (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode));; golang
   :config
   (setq web-mode-markup-indent-offset 2);; HTML offset indentation
   (setq web-mode-css-indent-offset 2);; CSS offset indentation

@@ -51,6 +51,7 @@
          )
   :config
   (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-snippet nil)
   (setq gofmt-command "goimports")
   )
 
@@ -65,19 +66,19 @@
   :ensure t
   :requires lsp-mode flycheck
   :config
-  (setq lsp-ui-doc-enable t
-        lsp-ui-doc-use-childframe t
-        lsp-ui-doc-delay 0.5
-        lsp-ui-doc-border (face-foreground 'default)
-        lsp-ui-doc-position 'at-point
-        lsp-ui-doc-include-signature t
-        lsp-ui-sideline-enable nil
-        lsp-ui-flycheck-enable t
-        lsp-ui-flycheck-list-position 'right
-        lsp-ui-flycheck-live-reporting t
-        lsp-ui-peek-enable t
-        lsp-ui-peek-list-width 60
-        lsp-ui-peek-peek-height 25)
+  ;; (setq lsp-ui-doc-enable t
+  ;;       lsp-ui-doc-use-childframe t
+  ;;       lsp-ui-doc-delay 0.5
+  ;;       lsp-ui-doc-border (face-foreground 'default)
+  ;;       lsp-ui-doc-position 'at-point
+  ;;       lsp-ui-doc-include-signature t
+  ;;       lsp-ui-sideline-enable nil
+  ;;       lsp-ui-flycheck-enable t
+  ;;       lsp-ui-flycheck-list-position 'right
+  ;;       lsp-ui-flycheck-live-reporting t
+  ;;       lsp-ui-peek-enable t
+  ;;       lsp-ui-peek-list-width 60
+  ;;       lsp-ui-peek-peek-height 25)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package company-lsp

@@ -41,7 +41,8 @@
    (list 'column-number-mode ":%c)")
    " [%p/%I]"
    " " mode-line-buffer-identification
-   "  %m" mode-line-modes
+   ;;"  %m"
+   mode-line-modes
    ))
 
 (custom-set-faces
