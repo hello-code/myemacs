@@ -106,9 +106,9 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-(require 'init-doom-themes)
+;;(require 'init-doom-themes)
 ;;(require 'init-doom-modeline)
-;;(require 'init-theme)
+(require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)
 (require 'init-avy)
@@ -126,6 +126,7 @@
 ;;(require 'init-yasnippet)
 (require 'init-yaml)
 (require 'init-highlight-indent-guides)
+(require 'init-imenu-list)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language
