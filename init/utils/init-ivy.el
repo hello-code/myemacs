@@ -32,7 +32,8 @@
    ;; bind to simple key press
    "b" 'ivy-switch-buffer  ; change buffer, chose using ivy
    "/" 'counsel-git-grep   ; find string in git project
-   "l" 'counsel-locate
+   ;;"l" 'counsel-locate
+   "l" 'lsp-ui-imenu
    "x" 'counsel-ag
    ;; bind to double key press
    "f"  '(:ignore t :which-key "files")
@@ -59,7 +60,8 @@
    "a"  '(:ignore t :which-key "Applications")
    "ar" 'ranger
    "ad" 'dired
-   "n"  'neotree-toggle
+   ;;"n"  'neotree-toggle
+   "s"  'dired-sidebar-toggle-sidebar
    )
   )
 (provide 'init-ivy)

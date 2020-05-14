@@ -98,7 +98,7 @@
 ;; Load custom configs
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/custom/")
-(require 'my-mode-line)
+;;(require 'my-mode-line)
 (require 'my-configs)
 (require 'my-org)
 
@@ -106,16 +106,16 @@
 ;; Load configs for utility
 ;;----------------------------------------------------------------------------
 (add-to-list 'load-path "~/myemacs/init/utils/")
-;;(require 'init-doom-themes)
-;;(require 'init-doom-modeline)
-(require 'init-theme)
+(require 'init-doom-themes)
+(require 'init-doom-modeline)
+;;(require 'init-theme)
 (require 'init-projectile)
 (require 'init-ivy)
 (require 'init-avy)
 (require 'init-which-key)
 (require 'init-evil)
 (require 'init-ace-window)
-(require 'init-neotree)
+(require 'init-dired-sidebar)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
@@ -123,10 +123,9 @@
 (require 'init-fold-this)
 (require 'init-markdown)
 (require 'init-reveal)  ;; ppt
-;;(require 'init-yasnippet)
 (require 'init-yaml)
 (require 'init-highlight-indent-guides)
-(require 'init-imenu-list)
+(require 'init-treemacs)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific program language

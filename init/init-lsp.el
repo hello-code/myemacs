@@ -42,12 +42,16 @@
 ;; ---------------------------------------------------
 ;; lsp
 ;; ---------------------------------------------------
+;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+(setq lsp-keymap-prefix "s-l")
+
 (use-package lsp-mode
   :ensure t
   :commands(lsp lsp-deferred)
   :hook (
          (go-mode . lsp-deferred)
          (python-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)
          )
   :config
   (setq lsp-prefer-flymake nil)
@@ -65,20 +69,22 @@
 (use-package lsp-ui
   :ensure t
   :requires lsp-mode flycheck
+  :bind("C-c l" . lsp-ui-imenu)
   :config
-  ;; (setq lsp-ui-doc-enable t
-  ;;       lsp-ui-doc-use-childframe t
-  ;;       lsp-ui-doc-delay 0.5
-  ;;       lsp-ui-doc-border (face-foreground 'default)
-  ;;       lsp-ui-doc-position 'at-point
-  ;;       lsp-ui-doc-include-signature t
-  ;;       lsp-ui-sideline-enable nil
-  ;;       lsp-ui-flycheck-enable t
-  ;;       lsp-ui-flycheck-list-position 'right
-  ;;       lsp-ui-flycheck-live-reporting t
-  ;;       lsp-ui-peek-enable t
-  ;;       lsp-ui-peek-list-width 60
-  ;;       lsp-ui-peek-peek-height 25)
+  (setq
+   ;; lsp-ui-doc
+   lsp-ui-doc-enable t
+   lsp-ui-doc-header t
+   lsp-ui-doc-border (face-foreground 'default)
+   lsp-ui-doc-position 'at-point
+   ;; lsp-ui-imenu
+   lsp-ui-imenu-enable t
+   ;; lsp-ui-peek
+   (lsp-ui-peek-enable t)
+   (lsp-ui-peek-peek-height 20)
+   (lsp-ui-peek-list-width 50)
+   (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
+   )
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package company-lsp
@@ -98,5 +104,13 @@
   :ensure t
   :commands lsp-ivy-workspace-symbol)
 
+(use-package lsp-treemacs
+  :after(lsp treemacs)
+  :ensure t
+  :commands lsp-treemacs-errors-list
+  :config
+  (lsp-metals-treeview-enable t)
+  (setq lsp-metals-treeview-show-when-views-received t)
+  )
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
