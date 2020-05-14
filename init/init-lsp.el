@@ -85,6 +85,10 @@
    (lsp-ui-peek-list-width 50)
    (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
    )
+  (custom-set-faces
+   '(lsp-ui-doc-background ((t :background "black")))
+   '(lsp-ui-doc-header ((t :foreground "#ff8000" :background "#00ff00")))
+   '(lsp-ui-doc-url ((t :inherit link))))
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package company-lsp
