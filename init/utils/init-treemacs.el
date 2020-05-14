@@ -51,8 +51,8 @@
           treemacs-user-header-line-format       nil
           ;;treemacs-width                         35
           )
-    (setq treemacs-indentation-string (propertize " | " 'face 'font-lock-comment-face)
-          treemacs-indentation 1)
+    ;; (setq treemacs-indentation-string (propertize " | " 'face 'font-lock-comment-face)
+    ;;       treemacs-indentation 1)
     
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.

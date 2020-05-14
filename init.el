@@ -115,7 +115,6 @@
 (require 'init-which-key)
 (require 'init-evil)
 (require 'init-ace-window)
-(require 'init-dired-sidebar)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
