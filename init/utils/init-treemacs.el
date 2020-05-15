@@ -58,6 +58,8 @@
     ;; using a Hi-DPI display, uncomment this to double the icon size.
     ;;(treemacs-resize-icons 44)
 
+    (treemacs-resize-icons 24)
+
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
@@ -98,5 +100,12 @@
   :after treemacs persp-mode
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
+
+(use-package all-the-icons
+  :ensure t
+  :config
+  (setq inhibit-compacting-font-caches t)
+  (setq all-the-icons-scale-factor 1.1))
+
 (provide 'init-treemacs)
 ;;; init-treemacs ends here
