@@ -26,8 +26,6 @@
 
 (use-package all-the-icons
   :ensure t
-  :defer t
-  :after neotree
   :config
   (setq inhibit-compacting-font-caches t))
 

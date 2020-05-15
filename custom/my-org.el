@@ -371,7 +371,7 @@ as the default task."
   (defun bh/clock-in-default-task ()
     (save-excursion
       (org-with-point-at org-clock-default-task
-        (org-clock-in))))
+                         (org-clock-in))))
 
   (defun bh/clock-in-parent-task ()
     "Move point to the parent (project) task if any and clock in"
@@ -384,7 +384,7 @@ as the default task."
               (setq parent-task (point))))
           (if parent-task
               (org-with-point-at parent-task
-                (org-clock-in))
+                                 (org-clock-in))
             (when bh/keep-clock-running
               (bh/clock-in-default-task)))))))
 
@@ -393,7 +393,7 @@ as the default task."
   (defun bh/clock-in-organization-task-as-default ()
     (interactive)
     (org-with-point-at (org-id-find bh/organization-task-id 'marker)
-      (org-clock-in '(16))))
+                       (org-clock-in '(16))))
 
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running

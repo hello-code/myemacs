@@ -51,27 +51,27 @@
                                      alert-growl-priorities))))
                (args
                 (case system-type
-                  ('windows-nt (mapcar
-                                (lambda (lst) (apply #'concat lst))
-                                `(
-                                  ;; http://www.growlforwindows.com/gfw/help/growlnotify.aspx
-                                  ("/i:" ,(file-truename (concat invocation-directory "../share/icons/hicolor/48x48/apps/emacs.png")))
-                                  ("/t:" ,title)
-                                  ("/p:" ,priority))))
-                  (t (list
-                      "--appIcon"  "Emacs"
-                      "--name"     "Emacs"
-                      "--title"    title
-                      "--priority" priority)))))
+                      ('windows-nt (mapcar
+                                    (lambda (lst) (apply #'concat lst))
+                                    `(
+                                      ;; http://www.growlforwindows.com/gfw/help/growlnotify.aspx
+                                      ("/i:" ,(file-truename (concat invocation-directory "../share/icons/hicolor/48x48/apps/emacs.png")))
+                                      ("/t:" ,title)
+                                      ("/p:" ,priority))))
+                      (t (list
+                          "--appIcon"  "Emacs"
+                          "--name"     "Emacs"
+                          "--title"    title
+                          "--priority" priority)))))
           (if (and (plist-get info :persistent)
                    (not (plist-get info :never-persist)))
               (case system-type
-                ('windows-nt (nconc args (list "/s:true")))
-                (t (nconc args (list "--sticky")))))
+                    ('windows-nt (nconc args (list "/s:true")))
+                    (t (nconc args (list "--sticky")))))
           (let ((message (alert-encode-string (plist-get info :message))))
             (case system-type
-              ('windows-nt (nconc args (list message)))
-              (t (nconc args (list "--message" message)))))
+                  ('windows-nt (nconc args (list message)))
+                  (t (nconc args (list "--message" message)))))
           (apply #'call-process alert-growl-command nil nil nil args))
       (alert-message-notify info)))
 
