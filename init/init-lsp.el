@@ -11,7 +11,11 @@
 ;; go get -u -v golang.org/x/tools/cmd/gopls
 (use-package go-mode
   :ensure t
-  :hook(lsp-deferred . go-mode))
+  :hook(lsp-deferred . go-mode)
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  )
 
 ;; ------------------------------------------
 ;; python

@@ -114,7 +114,8 @@
 (require 'init-avy)
 (require 'init-which-key)
 (require 'init-evil)
-(require 'init-ace-window)
+;;(require 'init-ace-window)
+(require 'init-winum)
 (require 'init-fci-mode) ;; fill-column-indicator 80
 (require 'init-highlight-symbol)
 (require 'init-rainbow)
