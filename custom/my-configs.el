@@ -42,9 +42,11 @@
 (column-number-mode t)
 
 (global-hl-line-mode t)
-;; (set-face-background 'highlight "#454545") ;;#454545  dark green
-;; (set-face-foreground 'highlight nil)
-;; (set-face-underline 'highlight nil)
+;; Set any color as the background face of the current line
+(custom-set-faces
+ '(hl-line ((t (:background "black"))))
+ '(highlight ((t (:foreground nil))))
+ )
 
 ;; use space instead of tabs
 ;; If you really do that -- 'C-q <tab>' does the trick.
