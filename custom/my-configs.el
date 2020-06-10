@@ -142,9 +142,10 @@
 ;; fonts 
 (cond
  ((eq system-type 'windows-nt)
-  (set-frame-font "Fira Code-10.5")
+  ;;(set-frame-font "Fira Code-10.5")
+  (set-frame-font "Jetbrains Mono-10.5") ;; 10.5
   (set-fontset-font "fontset-default" 'unicode "Microsoft Yahei 12")
-  (add-to-list 'default-frame-alist '(font . "Fira Code-10.5"))
+  (add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10.5"))
   )
  ((eq system-type 'gnu/linux)
   (set-frame-font "DejaVu Sans Mono-9.8") ;; 10.5
