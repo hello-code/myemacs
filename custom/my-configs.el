@@ -148,11 +148,9 @@
   (add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10.5"))
   )
  ((eq system-type 'gnu/linux)
-  (set-frame-font "DejaVu Sans Mono-9.8") ;; 10.5
+  (set-frame-font "Jetbrains Mono-10") ;; 10.5
   (set-fontset-font "fontset-default" 'unicode "Noto Sans CJK SC 12")
-  ;;(set-fontset-font "fontset-default" 'unicode "WenQuanYi Bitmap Song 11")
-  ;;(setq face-font-rescale-alist '(("Noto Sans CJK SC" . 1.18))) ;; confilct with tooltip(company-quickhelp)
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))
+  (add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10"))
   ))
 
 ;; mouse wheel font size
