@@ -47,7 +47,7 @@
 ;; lsp
 ;; ---------------------------------------------------
 ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-(setq lsp-keymap-prefix "s-l")
+(setq lsp-keymap-prefix "C-l")
 
 (use-package lsp-mode
   :ensure t
@@ -73,7 +73,7 @@
 (use-package lsp-ui
   :ensure t
   :requires lsp-mode flycheck
-  :bind("C-c l" . lsp-ui-imenu)
+  ;; :bind("C-c l" . lsp-ui-imenu)
   :config
   (setq
    ;; lsp-ui-doc
@@ -85,9 +85,9 @@
    lsp-ui-imenu-enable t
    ;; lsp-ui-peek
    (lsp-ui-peek-enable t)
-   (lsp-ui-peek-peek-height 20)
-   (lsp-ui-peek-list-width 50)
-   (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
+   ;; (lsp-ui-peek-peek-height 20)
+   ;; (lsp-ui-peek-list-width 50)
+   ;; (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
    )
   (custom-set-faces
    '(lsp-ui-doc-background ((t :background "black")))
