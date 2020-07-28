@@ -45,17 +45,17 @@
 ;; (setq package-archives '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
 ;;                          ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")))
 
-(setq package-archives '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-                         ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-                         ;;("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-                         ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")))
+;; (setq package-archives '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+;;                          ("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+;;                          ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")))
 
 ;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 ;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
-;; (setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
-;;                          ("melpa" . "https://elpa.emacs-china.org/melpa/")
-;;                          ("org"   . "https://elpa.emacs-china.org/org/")))
+(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "https://elpa.emacs-china.org/melpa/")
+                         ("org"   . "https://elpa.emacs-china.org/org/")))
 
 ;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 ;;                          ("melpa" . "https://melpa.org/packages/")))
