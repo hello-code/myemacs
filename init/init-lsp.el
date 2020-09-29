@@ -42,7 +42,6 @@
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 ;; ;; ---------------------------------------------------
 
-
 ;; ---------------------------------------------------
 ;; lsp
 ;; ---------------------------------------------------
@@ -52,11 +51,11 @@
 (use-package lsp-mode
   :ensure t
   :commands(lsp lsp-deferred)
-  :hook (
-         (go-mode . lsp-deferred)
-         (python-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)
-         )
+  :hook ((
+          go-mode
+          python-mode
+          js-mode typescript-mode js2-mode rjsx-mode
+          ) . lsp)
   :config
   (setq lsp-prefer-flymake nil)
   (setq lsp-enable-snippet nil)
