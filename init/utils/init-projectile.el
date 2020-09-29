@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package projectile
-  :defer t
+  ;; :defer t
   :ensure t
   :config
   (setq projectile-mode-line-function '(lambda () (format " Proj[%s]" (projectile-project-name))))
