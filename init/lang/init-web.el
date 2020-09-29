@@ -16,11 +16,11 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode));; golang
   :config
-  (setq web-mode-markup-indent-offset 2);; HTML offset indentation
-  (setq web-mode-css-indent-offset 2);; CSS offset indentation
-  (setq web-mode-code-indent-offset 2);; Script offset indentation (for JavaScript, Java, PHP, etc.)
-  (setq web-mode-style-padding 2);; Left padding for <style>
-  (setq web-mode-script-padding 2);; Left padding for <script>
+  (setq web-mode-markup-indent-offset 4);; HTML offset indentation
+  (setq web-mode-css-indent-offset 4);; CSS offset indentation
+  (setq web-mode-code-indent-offset 4);; Script offset indentation (for JavaScript, Java, PHP, etc.)
+  (setq web-mode-style-padding 4);; Left padding for <style>
+  (setq web-mode-script-padding 4);; Left padding for <script>
   (setq web-mode-block-padding 0);; Left padding for multi-line blocks
 
   ;; Comments
@@ -57,7 +57,7 @@
   :diminish (emmet-mode . "E")
   :after(web-mode)
   :init
-  (setq emmet-indentation 2)
+  (setq emmet-indentation 4)
   (setq emmet-move-cursor-between-quotes t)
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
